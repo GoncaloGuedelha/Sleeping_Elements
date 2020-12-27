@@ -9,15 +9,19 @@ public class ItemShield : MonoBehaviour
     //public bool checkShield = true;
     public bool inItem = false;
     public bool isChild = false;
-    public GameObject itemInfo;
+    //public GameObject itemInfo;
     private ItemBar itemBar;
     private GameObject shield;
-    public GameObject itemGet;
+    private GameObject itemGet;
     public GameObject shieldPrefab;
+
+
+    public int itemID = 1;
+    public int otherID = 0;
 
     void Start()
     {
-        itemInfo.SetActive(false);
+        //itemInfo.SetActive(false);
 
         itemGet = GameObject.Find("Weapons/Items");
         itemBar = GameObject.FindWithTag("Itembar").GetComponent<ItemBar>();
@@ -27,7 +31,7 @@ public class ItemShield : MonoBehaviour
 
     // Update is called once per frame
 
-    void OnMouseOver()
+    /*void OnMouseOver()
     {
 
         itemInfo.SetActive(true);
@@ -40,14 +44,21 @@ public class ItemShield : MonoBehaviour
 
         itemInfo.SetActive(false);
 
-    }
+    }*/
 
     void Update()
     {
+
+       
         if(inItem == true && Input.GetKeyDown(KeyCode.E))
         {
+            if (GameObject.FindWithTag("Item") != null) 
+            { 
+            otherID = GameObject.FindWithTag("Item").GetComponent<ItemEffect>().ID;
+            Debug.Log(otherID);
+            }
 
-            for(int i = 0; i < itemBar.slots.Length; i++)
+            for (int i = 0; i < itemBar.slots.Length; i++)
             {
                 if (itemBar.isFull[i] == false)
                 {
@@ -64,6 +75,13 @@ public class ItemShield : MonoBehaviour
                     }*/
                         break;
 
+                }
+                else if (itemBar.isFull[i] == true && itemID == otherID)
+                {
+
+                    Destroy(gameObject);
+                    GameObject.FindWithTag("Item").GetComponent<ItemEffect>().maximumStack++;
+                    break;
                 }
 
 

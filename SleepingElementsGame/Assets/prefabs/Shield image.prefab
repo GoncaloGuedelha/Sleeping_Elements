@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2777696438647759704}
   m_Layer: 5
   m_Name: Shield image
-  m_TagString: Pet
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -104,6 +104,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkShield: 0
   itemInfo: {fileID: 9046221459961285463}
+  ID: 1
+  maximumStack: 1
 --- !u!61 &2777696438647759704
 BoxCollider2D:
   m_ObjectHideFlags: 0
