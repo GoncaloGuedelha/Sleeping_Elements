@@ -5,7 +5,8 @@ using UnityEngine;
 public class Peteffect : MonoBehaviour
 {
 
-    public float dmgBoost = 9999999f;
+    public float dmgBoost = 1f;
+    public float currentDmg = 0f;
     public GameObject petInfo;
 
     // Start is called before the first frame update
@@ -13,7 +14,7 @@ public class Peteffect : MonoBehaviour
     {
 
         petInfo.SetActive(false);
-
+        currentDmg = GameObject.FindGameObjectWithTag("Gun").GetComponent<gunshoots>().dmg;
 
 
     }
@@ -39,7 +40,7 @@ public class Peteffect : MonoBehaviour
     void Update()
     {
 
-        GameObject.FindGameObjectWithTag("Gun").GetComponent<gunshoots>().dmg = dmgBoost;
+        GameObject.FindGameObjectWithTag("Gun").GetComponent<gunshoots>().dmg = currentDmg + dmgBoost;
         
     }
 }

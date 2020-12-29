@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemEffect : MonoBehaviour
+public class ShieldEffect : MonoBehaviour
 {
 
     public bool checkShield = false;

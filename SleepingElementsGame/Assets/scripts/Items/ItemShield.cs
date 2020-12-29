@@ -54,7 +54,7 @@ public class ItemShield : MonoBehaviour
         {
             if (GameObject.FindWithTag("Item") != null) 
             { 
-            otherID = GameObject.FindWithTag("Item").GetComponent<ItemEffect>().ID;
+            otherID = GameObject.FindWithTag("Item").GetComponent<ShieldEffect>().ID;
             Debug.Log(otherID);
             }
 
@@ -80,7 +80,7 @@ public class ItemShield : MonoBehaviour
                 {
 
                     Destroy(gameObject);
-                    GameObject.FindWithTag("Item").GetComponent<ItemEffect>().maximumStack++;
+                    GameObject.FindWithTag("Item").GetComponent<ShieldEffect>().maximumStack++;
                     break;
                 }
 

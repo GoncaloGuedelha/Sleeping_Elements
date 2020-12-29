@@ -72,12 +72,14 @@ public class gunshoots : MonoBehaviour
 
             //Debug.Log("Seven Rings");
             gameObject.transform.parent = gunPoint.transform;
+            gameObject.tag = "Gun";
             inGun = false;
 
             Transform oldWeapon = GameObject.Find("pivotPoint").transform.GetChild(0);
             //Debug.Log(firstChild);
 
             oldWeapon.transform.parent = weaponGet.transform;
+            oldWeapon.tag = "DroppedGun";
 
         }
     }

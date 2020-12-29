@@ -59,7 +59,7 @@ public class Bullet : MonoBehaviour
             }
         }*/
 
-        if (collision.gameObject.tag != "Gun" && collision.gameObject.tag != "Player" && collision.gameObject.tag != "Pet" && collision.gameObject.tag != "Item") 
+        if (collision.gameObject.tag != "Gun" && collision.gameObject.tag != "Player" && collision.gameObject.tag != "Pet" && collision.gameObject.tag != "Item" && collision.gameObject.tag != "Platform") 
         {
             if(hitsdone == 0)
             {
