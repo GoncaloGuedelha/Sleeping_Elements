@@ -100,7 +100,7 @@ public class LittleFlyingEnemy : MonoBehaviour
         if (collision.gameObject.tag == "Bullet")
         {
 
-            dmgTaken = GameObject.Find("gun").GetComponent<gunshoots>().dmg;
+            dmgTaken = GameObject.FindWithTag("Gun").GetComponent<gunshoots>().dmg;
 
             health = health - dmgTaken;
 

@@ -14,7 +14,7 @@ public class Peteffect : MonoBehaviour
 
         petInfo.SetActive(false);
 
-        GameObject.FindGameObjectWithTag("Gun").GetComponent<gunshoots>().dmg = dmgBoost;
+
 
     }
 
@@ -38,6 +38,8 @@ public class Peteffect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        GameObject.FindGameObjectWithTag("Gun").GetComponent<gunshoots>().dmg = dmgBoost;
         
     }
 }

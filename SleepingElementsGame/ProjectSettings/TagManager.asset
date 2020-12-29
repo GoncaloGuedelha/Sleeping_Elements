@@ -20,6 +20,7 @@ TagManager:
   - EnemyBullet
   - PausedMenuBG
   - Item
+  - DroppedItem
   layers:
   - Default
   - TransparentFX

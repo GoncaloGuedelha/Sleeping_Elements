@@ -8,11 +8,14 @@ public class Bullet : MonoBehaviour
     private Rigidbody2D rb;
     //private GameObject enemy;
     //public float dmg = 1f;
+    private int hitsdone = 0;
 
 
     // Start is called before the first frame update
     void Start()
     {
+
+        hitsdone = GameObject.FindWithTag("Gun").GetComponent<gunshoots>().hits;
 
         rb = GetComponent<Rigidbody2D>();
         //enemy = GameObject.Find("enemy");
@@ -56,9 +59,21 @@ public class Bullet : MonoBehaviour
             }
         }*/
 
-        if (collision.gameObject.tag != "Gun" && collision.gameObject.tag != "Player" && collision.gameObject.tag != "Pet" ) 
+        if (collision.gameObject.tag != "Gun" && collision.gameObject.tag != "Player" && collision.gameObject.tag != "Pet" && collision.gameObject.tag != "Item") 
         {
-            Destroy(gameObject);
+            if(hitsdone == 0)
+            {
+
+                Destroy(gameObject);
+
+            }
+            else
+            {
+
+                hitsdone--;
+
+            }
+            
            /* if (collision.gameObject.tag != "Player") 
             {
 

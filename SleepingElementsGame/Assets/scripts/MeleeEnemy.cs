@@ -19,6 +19,9 @@ public class MeleeEnemy : MonoBehaviour
     private float viewRange = 4f;
     private float moveSpeed = 3f;
 
+    public float health = 2f;
+    private float dmgTaken = 0f;
+
     [SerializeField]  private Transform[] waypoints = new Transform[1];
 
     private int nextWaypoint;
@@ -37,6 +40,13 @@ public class MeleeEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (health <= 0)
+        {
+
+            Destroy(gameObject);
+
+        }
 
         //Switch Case responsible for the behaviour of the enemy
         switch (state)
@@ -88,6 +98,19 @@ public class MeleeEnemy : MonoBehaviour
 
         }
 
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+
+        if (collision.gameObject.tag == "Bullet")
+        {
+
+            dmgTaken = GameObject.FindWithTag("Gun").GetComponent<gunshoots>().dmg;
+
+            health = health - dmgTaken;
+
+        }
     }
 
 }

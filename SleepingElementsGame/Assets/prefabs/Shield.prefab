@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3080655293476734503}
   m_Layer: 5
   m_Name: Shield
-  m_TagString: Pet
+  m_TagString: DroppedItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -124,6 +124,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inItem: 0
   isChild: 0
-  itemInfo: {fileID: 0}
-  itemGet: {fileID: 0}
   shieldPrefab: {fileID: 9046221459381497869, guid: 9acaf2b193186524a8f58460c3083bf1, type: 3}
+  itemID: 1
+  otherID: 0

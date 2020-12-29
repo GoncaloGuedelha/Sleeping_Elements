@@ -18,6 +18,7 @@ public class gunshoots : MonoBehaviour
     public float bulletStartOffSet = 0.75f;
     public float cooldownTime = 0.5f;
     public float dmg = 1f;
+    public int hits = 0;
     public bool inGun = false;
     private float offSet = .2f;
     private float shootTimer = 0f;
