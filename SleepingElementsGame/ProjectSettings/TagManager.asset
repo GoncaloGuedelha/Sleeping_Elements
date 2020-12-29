@@ -21,6 +21,7 @@ TagManager:
   - PausedMenuBG
   - Item
   - DroppedItem
+  - DroppedGun
   layers:
   - Default
   - TransparentFX
