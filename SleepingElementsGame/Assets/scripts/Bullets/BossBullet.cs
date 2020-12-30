@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBullet2 : MonoBehaviour
+public class BossBullet : MonoBehaviour
 {
-
     public float speed = 5f;
 
     private Transform player;
@@ -22,7 +21,7 @@ public class EnemyBullet2 : MonoBehaviour
     {
 
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        pCurrentHealth = GameObject.FindWithTag("Player").GetComponent<playermoves>().pHealth;
+
 
         target = new Vector2(player.position.x, player.position.y);
 
@@ -33,6 +32,8 @@ public class EnemyBullet2 : MonoBehaviour
 
     private void Update()
     {
+
+
 
         transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
 
@@ -53,22 +54,24 @@ public class EnemyBullet2 : MonoBehaviour
                 Destroy(gameObject);
             }
         } */
-         if (collision.gameObject.tag == "Player")
-         {
-            Debug.Log("ahahahahah");
+        if (collision.gameObject.tag == "Player")
+        {
+
+            pCurrentHealth = GameObject.FindWithTag("Player").GetComponent<playermoves>().pHealth;
+            //Debug.Log("ahahahahah");
+            Debug.Log(pCurrentHealth);
             GameObject.FindWithTag("Player").GetComponent<playermoves>().pHealth = pCurrentHealth - dmg;
             healthBar.transform.localScale += scaleChange;
             Destroy(gameObject);
 
-         }
-         else if(collision.gameObject.tag != "Platform" && collision.gameObject.tag != "Enemy")
-         {
+        }
+        else if (collision.gameObject.tag != "Platform" && collision.gameObject.tag != "Boss" && collision.gameObject.tag != "EnemyBullet")
+        {
 
             Destroy(gameObject);
 
-         }
-         
+        }
+
     }
 
 }
-

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Peteffect : MonoBehaviour
 {
 
-    public float dmgBoost = 1f;
+    public float dmgBoost = 4f;
     public float currentDmg = 0f;
     public GameObject petInfo;
 
