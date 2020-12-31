@@ -59,13 +59,13 @@ public class BossBullet : MonoBehaviour
 
             pCurrentHealth = GameObject.FindWithTag("Player").GetComponent<playermoves>().pHealth;
             //Debug.Log("ahahahahah");
-            Debug.Log(pCurrentHealth);
+            //Debug.Log(pCurrentHealth);
             GameObject.FindWithTag("Player").GetComponent<playermoves>().pHealth = pCurrentHealth - dmg;
             healthBar.transform.localScale += scaleChange;
             Destroy(gameObject);
 
         }
-        else if (collision.gameObject.tag != "Platform" && collision.gameObject.tag != "Boss" && collision.gameObject.tag != "EnemyBullet")
+        else if (collision.gameObject.tag != "Platform" && collision.gameObject.tag != "Boss" && collision.gameObject.tag != "EnemyBullet" && collision.gameObject.tag != "Item")
         {
 
             Destroy(gameObject);

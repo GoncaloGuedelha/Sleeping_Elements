@@ -10,6 +10,7 @@ public class Boss : MonoBehaviour
     private GameObject player;
 
     [SerializeField] public GameObject BossBullet;
+    [SerializeField] public GameObject BossSpecialBullet;
     private GameObject bullet;
     private float bulletStartOffset = 0.5f;
     private float shootTimer = 0f;
@@ -120,6 +121,7 @@ public class Boss : MonoBehaviour
 
                 transform.position = Vector2.MoveTowards(transform.position, waypoints[nextWaypoint].position, moveSpeed * Time.deltaTime);
 
+                cooldownTime = 0.5f;
 
                 if (shootTimer <= 0)
                 {
@@ -152,6 +154,42 @@ public class Boss : MonoBehaviour
                         transform.position = Vector2.MoveTowards(transform.position, waypoints[nextWaypoint].position, moveSpeed * Time.deltaTime);
                         state = "Patrol";
                     }*/
+
+                    if (health <= 50)
+                        state = "3ndStage";
+
+                    break;
+
+                case "3ndStage":
+
+                    /* //Patrolling: goes from wapoint to waypoint
+                     if (Vector2.Distance(transform.position, waypoints[nextWaypoint].position) <= waypointOffset * moveSpeed)
+                         nextWaypoint++;
+
+                     if (nextWaypoint >= waypoints.Length)
+                         nextWaypoint = 0;
+
+                     transform.position = Vector2.MoveTowards(transform.position, waypoints[nextWaypoint].position, moveSpeed * Time.deltaTime);*/
+
+                    //transform.position = Vector2.MoveTowards(transform.position, waypoints[nextWaypoint].position, moveSpeed * Time.deltaTime);
+
+                    cooldownTime = 1f;
+
+                    if (shootTimer <= 0)
+                    {
+
+                        Vector3 direction = player.transform.position - Camera.main.WorldToScreenPoint(transform.position);
+                        direction.x += bulletStartOffset;
+
+                        //randomX = new Vector3(Random.Range(-89.5f, -72), 15, 0);
+
+                        GameObject sBullet = Instantiate(BossSpecialBullet, transform.position, Quaternion.identity);
+
+                        shootTimer = cooldownTime;
+                    }
+
+                    if (shootTimer > 0)
+                        shootTimer -= Time.deltaTime;
 
                     break;
             }
