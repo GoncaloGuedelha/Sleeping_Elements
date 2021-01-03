@@ -1678,7 +1678,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BossBullet: {fileID: 651587590842045505, guid: fa7e85f414738a945a80a1ad4d2d30de, type: 3}
   BossSpecialBullet: {fileID: 7838209016731466116, guid: b4861a6cb93896e41ac6325468c5f700, type: 3}
-  triggered: 0
+  triggered: 1
   waypoints:
   - {fileID: 1775304663}
 --- !u!251 &244430901
