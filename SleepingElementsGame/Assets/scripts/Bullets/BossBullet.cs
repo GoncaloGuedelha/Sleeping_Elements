@@ -15,6 +15,7 @@ public class BossBullet : MonoBehaviour
     private Vector3 scaleChange;
 
 
+    //[SerializeField] private GameObject items;
 
 
     private void Start()
@@ -27,6 +28,8 @@ public class BossBullet : MonoBehaviour
 
         healthBar = GameObject.FindGameObjectWithTag("Playerhealth");
         scaleChange = new Vector3(-35f, -0, -0);
+
+        //items = GameObject.FindGameObjectWithTag("Itembar");
 
     }
 

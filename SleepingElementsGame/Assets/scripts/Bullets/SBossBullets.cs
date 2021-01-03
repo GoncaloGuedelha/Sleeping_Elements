@@ -14,10 +14,11 @@ public class SBossBullets : MonoBehaviour
         private GameObject healthBar;
         private Vector3 scaleChange;
 
+        [SerializeField] private GameObject items;
 
 
 
-        private void Start()
+    private void Start()
         {
 
             player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -28,7 +29,9 @@ public class SBossBullets : MonoBehaviour
             healthBar = GameObject.FindGameObjectWithTag("Playerhealth");
             scaleChange = new Vector3(-35f, -0, -0);
 
-        }
+            items = GameObject.FindGameObjectWithTag("Itembar");
+
+    }
 
         private void Update()
         {

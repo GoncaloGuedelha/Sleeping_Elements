@@ -16,6 +16,7 @@ public class ItemShield : MonoBehaviour
     public GameObject shieldPrefab;
 
 
+
     public int itemID = 1;
     public int otherID = 0;
 
@@ -52,18 +53,20 @@ public class ItemShield : MonoBehaviour
        
         if(inItem == true && Input.GetKeyDown(KeyCode.E))
         {
-            if (GameObject.FindWithTag("Item") != null) 
+
+            if (GameObject.Find("Shield Image") != null) 
             { 
-            otherID = GameObject.FindWithTag("Item").GetComponent<ShieldEffect>().ID;
+            otherID = GameObject.Find("Shield Image").GetComponent<ShieldEffect>().ID;
             Debug.Log(otherID);
             }
-
+            Debug.Log(otherID);
             for (int i = 0; i < itemBar.slots.Length; i++)
             {
                 if (itemBar.isFull[i] == false)
                 {
                     itemBar.isFull[i] = true;
                     shield = GameObject.Instantiate(shieldPrefab, itemBar.slots[i].transform, false);
+                    shield.name = "Shield Image";
                     //shield.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 0, 0);
                     //Debug.Log(itemBar.slots[i].transform);
                     Destroy(gameObject);
@@ -80,7 +83,7 @@ public class ItemShield : MonoBehaviour
                 {
 
                     Destroy(gameObject);
-                    GameObject.FindWithTag("Item").GetComponent<ShieldEffect>().maximumStack++;
+                    GameObject.Find("Shield Image").GetComponent<ShieldEffect>().maximumStack++;
                     break;
                 }
 

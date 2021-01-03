@@ -152,7 +152,7 @@ public class playermoves : MonoBehaviour
             if(shield == true)
             {
                 //shield == false;
-                GameObject.FindWithTag("Item").GetComponent<ShieldEffect>().maximumStack--;
+                GameObject.Find("Shield Image").GetComponent<ShieldEffect>().maximumStack--;
 
             }
             else 
