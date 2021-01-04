@@ -875,6 +875,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f360056ae27cb1244822ee650ff78f30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PetControl: {fileID: 1454773404}
 --- !u!1 &678992486
 GameObject:
   m_ObjectHideFlags: 0

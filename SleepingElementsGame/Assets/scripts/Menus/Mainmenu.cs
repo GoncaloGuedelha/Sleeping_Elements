@@ -5,11 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class Mainmenu : MonoBehaviour
 {
+    public GameObject PetControl;
 
     public void PlayGame()
     {
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        DontDestroyOnLoad(PetControl);
 
     }
 
