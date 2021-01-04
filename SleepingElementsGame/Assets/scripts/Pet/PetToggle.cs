@@ -2,14 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class PetToggle : MonoBehaviour
 {
 
-    private bool pet = false;
+    public bool pet = false;
     Toggle pToggle;
+    public static PetToggle instance = null;
 
     // Start is called before the first frame update
+
+    void Awake()
+    {
+
+        if(instance == null)
+        {
+
+            instance = this;
+
+        }
+        else if(instance != this)
+        {
+
+            Destroy(gameObject);
+
+        }
+
+    }
+
     void Start()
     {
         

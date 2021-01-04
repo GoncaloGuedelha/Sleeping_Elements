@@ -14,7 +14,14 @@ public class PetCheck : MonoBehaviour
     void Update()
     {
 
-        if (GameObject)
+        /*if (GameObject.Find("Pet Controller") != null)
+          {
+          
+          
+          
+
+                     
+          }*/
         
     }
 }
