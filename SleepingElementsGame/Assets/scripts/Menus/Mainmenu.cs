@@ -2,16 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Mainmenu : MonoBehaviour
 {
     private GameObject PetControl;
-    //Toggle pToggle;
+    private Toggle pToggle;
 
     void Start()
     {
 
-        //pToggle = GameObject.Find("Toggle").GetComponent<Toggle>();
+        pToggle = GameObject.Find("Toggle").GetComponent<Toggle>();
 
     }
 
@@ -30,22 +31,23 @@ public class Mainmenu : MonoBehaviour
 
     }
 
-    /*public void PetActive()
+    public void PetActive()
     {
         if (pToggle.isOn)
         {
 
-            GameObject.Find("Pet Controller").GetComponent<Pet Toggle>().pet = true;
+            GameObject.Find("PetController").GetComponent<PetToggle>().pet = true;
             //Debug.Log(pet);
 
         }
         else
         {
 
-            GameObject.Find("Pet Controller").GetComponent<Pet Toggle>().pet = false;
+            GameObject.Find("PetController").GetComponent<PetToggle>().pet = false;
             //Debug.Log(pet);
 
-        }*/
-    
+        }
 
+
+    }
 }

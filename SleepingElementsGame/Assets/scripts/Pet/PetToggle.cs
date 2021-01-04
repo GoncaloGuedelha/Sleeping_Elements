@@ -8,7 +8,7 @@ public class PetToggle : MonoBehaviour
 {
 
     public bool pet = false;
-    Toggle pToggle;
+    //Toggle pToggle;
     public static PetToggle instance = null;
 
     // Start is called before the first frame update
@@ -34,7 +34,7 @@ public class PetToggle : MonoBehaviour
     void Start()
     {
         
-        pToggle = GameObject.Find("Toggle").GetComponent<Toggle>();
+        //pToggle = GameObject.Find("Toggle").GetComponent<Toggle>();
 
     }
 
@@ -46,7 +46,7 @@ public class PetToggle : MonoBehaviour
 
     }*/
 
-    public void PetActive()
+   /* public void PetActive()
     {
         if (pToggle.isOn)
         {
@@ -62,7 +62,7 @@ public class PetToggle : MonoBehaviour
             Debug.Log(pet);
 
         }
-    }
+    }*/
 
 
     // Update is called once per frame
