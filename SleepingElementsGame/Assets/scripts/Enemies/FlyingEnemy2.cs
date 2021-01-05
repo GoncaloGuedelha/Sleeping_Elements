@@ -104,9 +104,12 @@ public class FlyingEnemy2 : MonoBehaviour
                     {
 
                         Vector3 direction = player.transform.position - Camera.main.WorldToScreenPoint(transform.position);
-                        direction.x += bulletStartOffset;
-                        
-                        GameObject bullet = Instantiate(enemyBullet, transform.position, Quaternion.identity);
+                        //direction.x += bulletStartOffset;
+
+                        //GameObject bullet = Instantiate(enemyBullet, transform.position, Quaternion.identity);
+
+                        GameObject bullet = Instantiate(enemyBullet, transform.position + (direction.normalized * bulletStartOffset), gameObject.transform.rotation);
+                        bullet.GetComponent<Rigidbody2D>().velocity = direction.normalized * 2;
 
                         shootTimer = cooldownTime;
                     }

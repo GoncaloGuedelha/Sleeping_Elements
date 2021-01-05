@@ -9,6 +9,13 @@ public class Mainmenu : MonoBehaviour
     private GameObject PetControl;
     private Toggle pToggle;
 
+    void Awake()
+    {
+
+        GameObject.Find("PetController").GetComponent<PetToggle>().pet = false;
+
+    }
+
     void Start()
     {
 

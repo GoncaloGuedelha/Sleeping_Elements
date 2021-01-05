@@ -7,7 +7,7 @@ public class BigFlyingEnemy : MonoBehaviour
 
     private const float waypointOffset = 0.05f;
     private const float pushForce = 3000f;
-    public float health = 0.5f;
+    public float health = 3f;
     private float dmgTaken = 0f;
 
     private Rigidbody2D rb;

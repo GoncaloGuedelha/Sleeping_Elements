@@ -53,6 +53,11 @@ public class gunshoots : MonoBehaviour
                 Vector3 mouseDirection = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
                 GameObject bullet = Instantiate(bulletPrefab, transform.position + (mouseDirection.normalized * bulletStartOffSet), gameObject.transform.rotation);
                 bullet.GetComponent<Rigidbody2D>().velocity = mouseDirection.normalized * bulletSpeed;
+
+                /*Vector3 mouseDirection2 = -Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
+                GameObject bullet2 = Instantiate(bulletPrefab, transform.position - (mouseDirection2.normalized * bulletStartOffSet), gameObject.transform.rotation);
+                bullet2.GetComponent<Rigidbody2D>().velocity = mouseDirection2.normalized * bulletSpeed;*/
+
                 shootTimer = cooldownTime;
 
             }

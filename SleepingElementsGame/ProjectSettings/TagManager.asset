@@ -84,6 +84,9 @@ TagManager:
   - name: Enemy
     uniqueID: 4109307513
     locked: 0
+  - name: DroppedItems
+    uniqueID: 580100265
+    locked: 0
   - name: UI
     uniqueID: 503777883
     locked: 0

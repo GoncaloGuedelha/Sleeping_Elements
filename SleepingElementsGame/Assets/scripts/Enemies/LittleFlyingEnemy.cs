@@ -18,7 +18,7 @@ public class LittleFlyingEnemy : MonoBehaviour
 
     private string state = "Watch";
 
-    private float viewRange = 4f;
+    private float viewRange = 10f;
     private float moveSpeed = 3f;
 
     [SerializeField] private Transform[] waypoints = new Transform[1];

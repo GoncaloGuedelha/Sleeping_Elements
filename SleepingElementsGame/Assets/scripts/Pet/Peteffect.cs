@@ -15,6 +15,7 @@ public class Peteffect : MonoBehaviour
     {
 
         petInfo.SetActive(false);
+        gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 0, 0);
         currentDmg = GameObject.FindGameObjectWithTag("Gun").GetComponent<gunshoots>().dmg;
 
 
