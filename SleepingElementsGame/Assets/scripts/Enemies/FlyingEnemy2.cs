@@ -17,6 +17,7 @@ public class FlyingEnemy2 : MonoBehaviour
     private float cooldownTime = 1f;
     private float health = 2f;
     private float dmgTaken = 0f;
+    private float speed = 5f;
 
     private Vector2 playerPos;
 
@@ -24,6 +25,8 @@ public class FlyingEnemy2 : MonoBehaviour
     private string state = "Patrol";
     private float viewRange = 5f;
     private float moveSpeed = 3f;
+
+    private Vector3 target;
 
     //Patrol variables
     [SerializeField] private Transform[] waypoints = new Transform[1];
@@ -42,11 +45,13 @@ public class FlyingEnemy2 : MonoBehaviour
 
         rb.gravityScale = 0;
 
+        
+
     }
 
     void Update()
     {
-
+        target = new Vector2(player.transform.position.x, player.transform.position.y);
         playerPos = player.transform.position;
         if (health <= 0)
         {
@@ -103,13 +108,18 @@ public class FlyingEnemy2 : MonoBehaviour
                     if (shootTimer <= 0)
                     {
 
-                        Vector3 direction = player.transform.position - Camera.main.WorldToScreenPoint(transform.position);
+                        //Vector3 direction = player.transform.position; //- Camera.main.WorldToScreenPoint(transform.position);
                         //direction.x += bulletStartOffset;
 
                         //GameObject bullet = Instantiate(enemyBullet, transform.position, Quaternion.identity);
 
-                        GameObject bullet = Instantiate(enemyBullet, transform.position + (direction.normalized * bulletStartOffset), gameObject.transform.rotation);
-                        bullet.GetComponent<Rigidbody2D>().velocity = direction.normalized * 2;
+                        /*GameObject bullet = Instantiate(enemyBullet, transform.position + (direction.normalized * bulletStartOffset), Quaternion.identity);
+                        bullet.GetComponent<Rigidbody2D>().velocity = direction.normalized * 2;*/
+
+                        //Vector2 pos = (transform.position.x, transform.position.y);
+                        GameObject bullet = Instantiate(enemyBullet, transform.position, Quaternion.identity);
+                        Vector3 direction = target - transform.position;
+                        bullet.GetComponent<Rigidbody2D>().velocity = direction.normalized * speed;
 
                         shootTimer = cooldownTime;
                     }

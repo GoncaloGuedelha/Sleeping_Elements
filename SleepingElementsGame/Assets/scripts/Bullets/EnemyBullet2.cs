@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemyBullet2 : MonoBehaviour
 {
 
-    public float speed = 5f;
 
     private Transform player;
     private Vector2 target;

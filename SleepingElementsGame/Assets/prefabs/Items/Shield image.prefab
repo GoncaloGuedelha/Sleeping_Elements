@@ -28,7 +28,7 @@ RectTransform:
   m_GameObject: {fileID: 9046221459381497869}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7096519, y: 0.75261027, z: 1}
+  m_LocalScale: {x: 0.752925, y: 0.76, z: 1}
   m_Children:
   - {fileID: 9046221459961285462}
   m_Father: {fileID: 0}
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 503777883
-  m_SortingLayer: 9
+  m_SortingLayer: 10
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 5d64aaca39ddb7d428971d751d2d4dce, type: 3}
   m_Color: {r: 0.5040291, g: 0.095407605, b: 0.754717, a: 1}
@@ -166,8 +166,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.99, y: -1.06}
-  m_SizeDelta: {x: 8.04463, y: 2.8065119}
+  m_AnchoredPosition: {x: 1.829, y: -1.32}
+  m_SizeDelta: {x: 13.408766, y: 3.3859282}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9046221459961285460
 CanvasRenderer:
@@ -229,8 +229,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 1
-  m_fontSizeBase: 1
+  m_fontSize: 1.5
+  m_fontSizeBase: 1.5
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
