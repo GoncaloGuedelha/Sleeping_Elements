@@ -54,13 +54,13 @@ public class EnemyBullet2 : MonoBehaviour
         } */
          if (collision.gameObject.tag == "Player")
          {
-            Debug.Log("ahahahahah");
+            //Debug.Log("ahahahahah");
             GameObject.FindWithTag("Player").GetComponent<playermoves>().pHealth = pCurrentHealth - dmg;
             healthBar.transform.localScale += scaleChange;
             Destroy(gameObject);
 
          }
-         else if(collision.gameObject.tag != "Platform" && collision.gameObject.tag != "Enemy")
+         else if(collision.gameObject.tag != "Platform" && collision.gameObject.tag != "Enemy" && collision.gameObject.tag != "Bullet" && collision.gameObject.tag != "Item" && collision.gameObject.tag != "EnemyBullet" && collision.gameObject.tag != "Gun")
          {
 
             Destroy(gameObject);

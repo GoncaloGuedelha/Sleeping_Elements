@@ -15,12 +15,15 @@ public class Boss : MonoBehaviour
     private float bulletStartOffset = 0.5f;
     private float shootTimer = 0f;
     private float cooldownTime = 1f;
-    private float health = 150f;
+    public float health = 150f;
+    public float speed = 5f;
     private float dmgTaken = 0f;
     public bool triggered = false;
 
     private Vector2 playerPos;
     private Vector3 randomX;
+    private Vector3 randomS;
+    private Vector3 target;
 
     //Enemy main variables
     private string state = "1stStage";
@@ -50,6 +53,8 @@ public class Boss : MonoBehaviour
 
     void Update()
     {
+        target = new Vector2(player.transform.position.x, player.transform.position.y);
+
         if (triggered)
         {
 
@@ -91,10 +96,9 @@ public class Boss : MonoBehaviour
                 if (shootTimer <= 0)
                 {
 
-                    Vector3 direction = player.transform.position - Camera.main.WorldToScreenPoint(transform.position);
-                    direction.x += bulletStartOffset;
-
                     GameObject bullet = Instantiate(BossBullet, transform.position, Quaternion.identity);
+                    Vector3 direction = target - transform.position;
+                    bullet.GetComponent<Rigidbody2D>().velocity = direction.normalized * speed;
 
                     shootTimer = cooldownTime;
                 }
@@ -126,14 +130,13 @@ public class Boss : MonoBehaviour
                 if (shootTimer <= 0)
                 {
 
-                    Vector3 direction = player.transform.position - Camera.main.WorldToScreenPoint(transform.position);
-                    direction.x += bulletStartOffset;
-
-                    randomX = new Vector3(Random.Range(-89.5f, -72), 15, 0);
+                    randomX = new Vector3(Random.Range(62, 79), 2, 0);
 
                     GameObject bullet = Instantiate(BossBullet, randomX, Quaternion.identity);
+                    Vector3 direction = target - randomX;
+                    bullet.GetComponent<Rigidbody2D>().velocity = direction.normalized * speed;
 
-                    shootTimer = cooldownTime;
+                        shootTimer = cooldownTime;
                 }
 
                 if (shootTimer > 0)
@@ -173,17 +176,23 @@ public class Boss : MonoBehaviour
 
                     //transform.position = Vector2.MoveTowards(transform.position, waypoints[nextWaypoint].position, moveSpeed * Time.deltaTime);
 
-                    cooldownTime = 1f;
+                    cooldownTime = 0.1f;
 
                     if (shootTimer <= 0)
                     {
 
-                        Vector3 direction = player.transform.position - Camera.main.WorldToScreenPoint(transform.position);
+                        randomS = new Vector3(Random.Range(62, 79), Random.Range(-7, -5), 0);
+
+                        Vector3 direction = randomS - Camera.main.WorldToScreenPoint(transform.position);
                         direction.x += bulletStartOffset;
 
-                        //randomX = new Vector3(Random.Range(-89.5f, -72), 15, 0);
-
                         GameObject sBullet = Instantiate(BossSpecialBullet, transform.position, Quaternion.identity);
+
+                        /*randomS = new Vector3(Random.Range(-89.5f, -72), Random.Range(5, 7), 0);
+
+                        GameObject bullet = Instantiate(BossSpecialBullet, transform.position, Quaternion.identity);
+                        Vector3 direction = randomS - transform.position;
+                        bullet.GetComponent<Rigidbody2D>().velocity = direction.normalized * speed;*/
 
                         shootTimer = cooldownTime;
                     }

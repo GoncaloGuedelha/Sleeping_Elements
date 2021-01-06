@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class BossBullet : MonoBehaviour
 {
-    public float speed = 5f;
 
     private Transform player;
-    private Vector2 target;
     public float dmg = 0.5f;
     private float pCurrentHealth = 0f;
 
@@ -24,8 +22,6 @@ public class BossBullet : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
 
-        target = new Vector2(player.position.x, player.position.y);
-
         healthBar = GameObject.FindGameObjectWithTag("Playerhealth");
         scaleChange = new Vector3(-35f, -0, -0);
 
@@ -38,10 +34,7 @@ public class BossBullet : MonoBehaviour
 
 
 
-        transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
 
-        if (transform.position.x == target.x && transform.position.y == target.y)
-            Destroy(gameObject);
 
     }
 
@@ -68,7 +61,7 @@ public class BossBullet : MonoBehaviour
             Destroy(gameObject);
 
         }
-        else if (collision.gameObject.tag != "Platform" && collision.gameObject.tag != "Boss" && collision.gameObject.tag != "EnemyBullet" && collision.gameObject.tag != "Item")
+        else if (collision.gameObject.tag != "Platform" && collision.gameObject.tag != "Boss" && collision.gameObject.tag != "EnemyBullet" && collision.gameObject.tag != "Item" && collision.gameObject.tag != "Bullet" && collision.gameObject.tag != "Gun")
         {
 
             Destroy(gameObject);

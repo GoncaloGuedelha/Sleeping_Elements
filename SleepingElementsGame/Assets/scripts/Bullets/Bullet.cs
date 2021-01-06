@@ -11,6 +11,7 @@ public class Bullet : MonoBehaviour
     private int hitsdone = 0;
 
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -59,7 +60,7 @@ public class Bullet : MonoBehaviour
             }
         }*/
 
-        if (collision.gameObject.tag != "Gun" && collision.gameObject.tag != "Player" && collision.gameObject.tag != "Pet" && collision.gameObject.tag != "Item" && collision.gameObject.tag != "Platform") 
+        if (collision.gameObject.tag != "Gun" && collision.gameObject.tag != "Player" && collision.gameObject.tag != "Item" && collision.gameObject.tag != "Platform" && collision.gameObject.tag != "EnemyBullet") 
         {
             if(hitsdone == 0)
             {

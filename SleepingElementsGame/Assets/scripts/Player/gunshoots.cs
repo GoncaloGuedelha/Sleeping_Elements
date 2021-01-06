@@ -8,6 +8,7 @@ public class gunshoots : MonoBehaviour
     private Rigidbody2D rb;
     public float minMouseDistance = 40f;
     public GameObject bulletPrefab;
+    public GameObject sBulletPrefab;
     private GameObject player;
     private GameObject gunPoint;
     private GameObject weaponGet;
@@ -19,7 +20,10 @@ public class gunshoots : MonoBehaviour
     public float cooldownTime = 0.5f;
     public float dmg = 1f;
     public int hits = 0;
+    public bool holdAttack = false;
     public bool inGun = false;
+    public float timeHold = 3.0f;
+    private float startTime = 0f;
     private float offSet = .2f;
     private float shootTimer = 0f;
 
@@ -62,6 +66,33 @@ public class gunshoots : MonoBehaviour
 
             }
 
+            if(holdAttack == true)
+            {
+
+                if (Input.GetMouseButtonDown(1))
+                {
+
+                    startTime = Time.time;
+                    
+                }
+
+                if (Input.GetMouseButtonUp(1))
+                {
+
+                    if (startTime + timeHold <= Time.time)
+                    {
+
+                        Vector3 mouseDirection = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
+                        GameObject sBullet = Instantiate(sBulletPrefab, transform.position + (mouseDirection.normalized * bulletStartOffSet), gameObject.transform.rotation);
+                        sBullet.GetComponent<Rigidbody2D>().velocity = mouseDirection.normalized * bulletSpeed;
+
+                        //shootTimer = cooldownTime;
+                    }
+                   
+
+                }
+
+            }
 
             if (shootTimer >= 0)
             {

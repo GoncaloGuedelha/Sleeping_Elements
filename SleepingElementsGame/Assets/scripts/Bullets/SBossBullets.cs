@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class SBossBullets : MonoBehaviour
 {
-        public float speed = 5f;
+    public float speed = 5f;
 
-        private Transform player;
-        private Vector2 target;
-        public float dmg = 0.5f;
-        private float pCurrentHealth = 0f;
+    private Transform player;
+    private Vector3 target;
+    public float dmg = 0.5f;
+    private float pCurrentHealth = 0f;
 
-        private GameObject healthBar;
-        private Vector3 scaleChange;
+    private GameObject healthBar;
+    private Vector3 scaleChange;
 
-        [SerializeField] private GameObject items;
+    [SerializeField] private GameObject items;
 
 
 
@@ -24,7 +24,9 @@ public class SBossBullets : MonoBehaviour
             player = GameObject.FindGameObjectWithTag("Player").transform;
 
 
-            target = new Vector2(player.position.x, player.position.y);
+            //target = new Vector2(player.position.x, player.position.y);
+
+            target = new Vector3(Random.Range(62, 79), Random.Range(-7, -5), 0);
 
             healthBar = GameObject.FindGameObjectWithTag("Playerhealth");
             scaleChange = new Vector3(-35f, -0, -0);
@@ -33,17 +35,17 @@ public class SBossBullets : MonoBehaviour
 
     }
 
-        private void Update()
-        {
+    private void Update()
+    {
 
+        
 
+        transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
 
-            transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
+        /*if (transform.position.x == target.x && transform.position.y == target.y)
+            Destroy(gameObject);*/
 
-            /*if (transform.position.x == target.x && transform.position.y == target.y)
-                Destroy(gameObject);*/
-
-        }
+    }
 
 
 
@@ -68,7 +70,7 @@ public class SBossBullets : MonoBehaviour
                 Destroy(gameObject);
 
             }
-            else if (collision.gameObject.tag != "Platform" && collision.gameObject.tag != "Boss" && collision.gameObject.tag != "EnemyBullet" && collision.gameObject.tag != "Item")
+            else if (collision.gameObject.tag != "Platform" && collision.gameObject.tag != "Boss" && collision.gameObject.tag != "EnemyBullet" && collision.gameObject.tag != "Item" && collision.gameObject.tag != "Gun")
             {
 
                 Destroy(gameObject);
