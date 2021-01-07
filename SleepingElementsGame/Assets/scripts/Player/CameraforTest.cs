@@ -34,7 +34,7 @@ public class CameraforTest : MonoBehaviour
 
         }
 
-        Vector3 clampPos = new Vector3(Mathf.Clamp(targetPosition.x, -100, 100), Mathf.Clamp(targetPosition.y, -20, 30), transform.position.z);
+        Vector3 clampPos = new Vector3(Mathf.Clamp(targetPosition.x, -100, 300), Mathf.Clamp(targetPosition.y, -50, 30), transform.position.z);
 
         transform.position = Vector3.Lerp(transform.position, clampPos, cameraSpeed * Time.deltaTime);
 
