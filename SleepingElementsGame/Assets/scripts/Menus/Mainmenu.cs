@@ -8,7 +8,7 @@ public class Mainmenu : MonoBehaviour
 {
     private GameObject petControl;
     //private GameObject login;
-    //private GameObject petSelect;
+    public GameObject petSelect;
     public Text username;
     public Text password;
     private string name;
@@ -39,7 +39,8 @@ public class Mainmenu : MonoBehaviour
         if (username.text.ToString() == name && password.text.ToString() == pass)
         {
 
-            GameObject.Find("Petmenu").SetActive(true);
+            //GameObject.Find("Petmenu").SetActive(true);
+            petSelect.SetActive(true);
             GameObject.Find("LoginScreen").SetActive(false);
            
         }
