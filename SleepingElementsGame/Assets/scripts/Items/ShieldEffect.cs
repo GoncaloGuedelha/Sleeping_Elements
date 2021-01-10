@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class ShieldEffect : MonoBehaviour
 {
@@ -8,7 +10,9 @@ public class ShieldEffect : MonoBehaviour
     public bool checkShield = false;
     public GameObject itemInfo;
     public int ID = 1;
-
+    public int oldStack;
+    //public GameObject amount;
+    public TextMeshProUGUI amount;
 
     [Range(1, 10)]
     public int maximumStack = 1;
@@ -19,7 +23,7 @@ public class ShieldEffect : MonoBehaviour
         itemInfo.SetActive(false);
         gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 0, 0);
         GameObject.FindGameObjectWithTag("Player").GetComponent<playermoves>().shield = true;
-
+        oldStack = maximumStack;
     }
 
 
@@ -63,6 +67,19 @@ public class ShieldEffect : MonoBehaviour
         {
             Destroy(gameObject);
         }*/
+        if (oldStack < maximumStack)
+        {
+            amount.text = maximumStack.ToString();
+            oldStack = maximumStack;
+
+        }
+        else if (oldStack > maximumStack)
+        {
+
+            amount.text = maximumStack.ToString();
+            oldStack = maximumStack;
+
+        }
 
         if (maximumStack == 0)
         {

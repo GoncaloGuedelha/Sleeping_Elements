@@ -18,8 +18,7 @@ public class PetCheck : MonoBehaviour
     void Awake()
     {
 
-        petConfirm = GameObject.Find("PetController").GetComponent<PetToggle>().pet;
-        itemBar = GameObject.FindWithTag("Itembar").GetComponent<ItemBar>();
+        
 
 
     }
@@ -27,12 +26,15 @@ public class PetCheck : MonoBehaviour
     void Start()
     {
 
-        playerPos = GameObject.FindWithTag("Player").transform;
+        
         
         if (PetToggle.instance != null)
         {
           
-          
+          petConfirm = GameObject.Find("PetController").GetComponent<PetToggle>().pet;
+          itemBar = GameObject.FindWithTag("Itembar").GetComponent<ItemBar>();
+          playerPos = GameObject.FindWithTag("Player").transform;
+
             if(petConfirm == true)
             {
 

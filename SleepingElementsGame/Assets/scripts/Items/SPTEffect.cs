@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class SPTEffect : MonoBehaviour
 {
@@ -14,6 +16,8 @@ public class SPTEffect : MonoBehaviour
 
     public int ID;
     public int oldStack;
+    //public GameObject amount;
+    public TextMeshProUGUI amount;
 
     [Range(1, 10)]
     public int maximumStack;
@@ -81,10 +85,14 @@ public class SPTEffect : MonoBehaviour
         if (oldStack < maximumStack)
         {
 
+            amount.text = maximumStack.ToString();
             GameObject.FindGameObjectWithTag("Player").GetComponent<playermoves>().moveforce = currentSpeed - moveValue * maximumStack;
             GameObject.FindGameObjectWithTag("Gun").GetComponent<gunshoots>().cooldownTime = currentRateOfFire - fireValue * maximumStack;
+
             oldStack = maximumStack;
+
         }
+
         /*checkShield = GameObject.FindGameObjectWithTag("Player").GetComponent<playermoves>().shield;
 
         if (checkShield == false)

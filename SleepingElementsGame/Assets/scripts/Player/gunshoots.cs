@@ -71,10 +71,19 @@ public class gunshoots : MonoBehaviour
 
                 if (Input.GetMouseButtonDown(1))
                 {
-
+                
                     startTime = Time.time;
                     
+                    if (startTime + timeHold <= Time.time)
+                    {
+
+                        gameObject.GetComponent<Renderer>().material.color = Color.red;
+
+                    }
+                    
                 }
+
+
 
                 if (Input.GetMouseButtonUp(1))
                 {
@@ -86,6 +95,7 @@ public class gunshoots : MonoBehaviour
                         GameObject sBullet = Instantiate(sBulletPrefab, transform.position + (mouseDirection.normalized * bulletStartOffSet), gameObject.transform.rotation);
                         sBullet.GetComponent<Rigidbody2D>().velocity = mouseDirection.normalized * bulletSpeed;
 
+                        gameObject.GetComponent<Renderer>().material.color = new Color (68, 101, 4);
                         //shootTimer = cooldownTime;
                     }
                    
