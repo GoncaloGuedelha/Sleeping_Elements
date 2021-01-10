@@ -7,9 +7,11 @@ public class PetCheck : MonoBehaviour
 
     public bool petConfirm;
     public GameObject petPrefab;
+    public GameObject livingPetPrefab;
     private ItemBar itemBar;
     private GameObject pet;
-
+    private GameObject livingPet;
+    private Transform playerPos;
 
     // Start is called before the first frame update
 
@@ -19,10 +21,13 @@ public class PetCheck : MonoBehaviour
         petConfirm = GameObject.Find("PetController").GetComponent<PetToggle>().pet;
         itemBar = GameObject.FindWithTag("Itembar").GetComponent<ItemBar>();
 
+
     }
 
     void Start()
     {
+
+        playerPos = GameObject.FindWithTag("Player").transform;
         
         if (PetToggle.instance != null)
         {
@@ -30,6 +35,8 @@ public class PetCheck : MonoBehaviour
           
             if(petConfirm == true)
             {
+
+                livingPet = GameObject.Instantiate(livingPetPrefab, playerPos.position, Quaternion.identity);
 
                 for (int i = 0; i < itemBar.slots.Length; i++)
                 {

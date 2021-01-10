@@ -13,6 +13,7 @@ public class EnemyBullet2 : MonoBehaviour
 
     private GameObject healthBar;
     private Vector3 scaleChange;
+    private bool hasShield;
 
 
 
@@ -22,7 +23,7 @@ public class EnemyBullet2 : MonoBehaviour
 
         player = GameObject.FindGameObjectWithTag("Player").transform;
         pCurrentHealth = GameObject.FindWithTag("Player").GetComponent<playermoves>().pHealth;
-
+        
         //target = new Vector2(player.position.x, player.position.y);
 
         healthBar = GameObject.FindGameObjectWithTag("Playerhealth");
@@ -33,6 +34,7 @@ public class EnemyBullet2 : MonoBehaviour
     private void Update()
     {
 
+        hasShield = GameObject.FindWithTag("Player").GetComponent<playermoves>().shield;
         //transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
 
         //if (transform.position.x == target.x && transform.position.y == target.y)
@@ -54,10 +56,22 @@ public class EnemyBullet2 : MonoBehaviour
         } */
          if (collision.gameObject.tag == "Player")
          {
-            //Debug.Log("ahahahahah");
-            GameObject.FindWithTag("Player").GetComponent<playermoves>().pHealth = pCurrentHealth - dmg;
-            healthBar.transform.localScale += scaleChange;
-            Destroy(gameObject);
+            if(hasShield == true)
+            {
+
+                GameObject.Find("Shield Image").GetComponent<ShieldEffect>().maximumStack--;
+                Destroy(gameObject);
+            }
+            else
+            {
+
+                //Debug.Log("ahahahahah");
+                GameObject.FindWithTag("Player").GetComponent<playermoves>().pHealth = pCurrentHealth - dmg;
+                healthBar.transform.localScale += scaleChange;
+                Destroy(gameObject);
+
+            }
+            
 
          }
          else if(collision.gameObject.tag != "Platform" && collision.gameObject.tag != "Enemy" && collision.gameObject.tag != "Bullet" && collision.gameObject.tag != "Item" && collision.gameObject.tag != "EnemyBullet" && collision.gameObject.tag != "Gun")

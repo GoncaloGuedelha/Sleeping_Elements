@@ -20,6 +20,13 @@ public class Boss : MonoBehaviour
     private float dmgTaken = 0f;
     public bool triggered = false;
 
+    public GameObject secondAttackPos;
+    public GameObject secondAttackPos2;
+    public GameObject thirdAttackPos;
+    public GameObject thirdAttackPos2;
+    public GameObject thirdAttackPos3;
+    //public GameObject thirdAttackPos4;
+
     private Vector2 playerPos;
     private Vector3 randomX;
     private Vector3 randomS;
@@ -130,7 +137,7 @@ public class Boss : MonoBehaviour
                 if (shootTimer <= 0)
                 {
 
-                    randomX = new Vector3(Random.Range(62, 79), 2, 0);
+                    randomX = new Vector3(Random.Range(secondAttackPos.transform.position.x, secondAttackPos2.transform.position.x), secondAttackPos.transform.position.y, 0);
 
                     GameObject bullet = Instantiate(BossBullet, randomX, Quaternion.identity);
                     Vector3 direction = target - randomX;
@@ -181,7 +188,8 @@ public class Boss : MonoBehaviour
                     if (shootTimer <= 0)
                     {
 
-                        randomS = new Vector3(Random.Range(62, 79), Random.Range(-7, -5), 0);
+                        //randomS = new Vector3(Random.Range(thirdAttackPos.transform.position.x, thirdAttackPos2.transform.position.x), Random.Range(thirdAttackPos3.transform.position.y, thirdAttackPos.transform.position.y), 0);
+                        randomS = new Vector3(Random.Range(80.1f, 89), Random.Range(-9.3f, -8.5f), 0);
 
                         Vector3 direction = randomS - Camera.main.WorldToScreenPoint(transform.position);
                         direction.x += bulletStartOffset;
