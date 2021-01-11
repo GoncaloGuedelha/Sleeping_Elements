@@ -23,6 +23,7 @@ TagManager:
   - DroppedItem
   - DroppedGun
   - Boss
+  - Door
   layers:
   - Default
   - TransparentFX
