@@ -19,6 +19,11 @@ public class LivingPet : MonoBehaviour
 
 
 
+    void Awake()
+    {
+
+
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -34,23 +39,25 @@ public class LivingPet : MonoBehaviour
     void Update()
     {
 
-        //Switch Case responsible for the behaviour of the enemy
+                    
+        if(player.GetComponent<SpriteRenderer>().flipX == false)
+        {
+
+            playerPos = new Vector2(player.transform.position.x - 1, player.transform.position.y + 1);
+
+            transform.position = Vector2.MoveTowards(transform.position, playerPos, moveSpeed * Time.deltaTime);
 
 
+        }
+        else
+        {
 
-                    playerPos = new Vector2(player.transform.position.x, player.transform.position.y);
+            playerPos = new Vector2(player.transform.position.x + 1, player.transform.position.y + 1);
 
+            transform.position = Vector2.MoveTowards(transform.position, playerPos, moveSpeed * Time.deltaTime);
 
-                    transform.position = Vector2.MoveTowards(transform.position, playerPos, moveSpeed * Time.deltaTime);
-                    //Debug.Log("Player Position: " + playerPos + "\n" +
-                    //"Enemy Position: " + transform.position);
-
-
-
-        
+        }
 
     }
-
-
 
 }

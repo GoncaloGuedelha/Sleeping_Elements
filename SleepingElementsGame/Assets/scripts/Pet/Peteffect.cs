@@ -5,8 +5,7 @@ using UnityEngine;
 public class Peteffect : MonoBehaviour
 {
 
-    public float dmgBoost = 4f;
-    public float currentDmg = 0f;
+    public float dmgBoost = 2f;
     public GameObject petInfo;
     public int ID = 0;
 
@@ -16,7 +15,6 @@ public class Peteffect : MonoBehaviour
 
         petInfo.SetActive(false);
         gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 0, 0);
-        currentDmg = GameObject.FindGameObjectWithTag("Gun").GetComponent<gunshoots>().dmg;
 
 
     }
@@ -42,7 +40,6 @@ public class Peteffect : MonoBehaviour
     void Update()
     {
 
-        GameObject.FindGameObjectWithTag("Gun").GetComponent<gunshoots>().dmg = currentDmg + dmgBoost;
         
     }
 }

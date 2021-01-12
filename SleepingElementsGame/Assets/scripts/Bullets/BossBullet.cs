@@ -14,7 +14,6 @@ public class BossBullet : MonoBehaviour
     private bool hasShield;
 
 
-    //[SerializeField] private GameObject items;
 
 
     private void Start()
@@ -25,9 +24,6 @@ public class BossBullet : MonoBehaviour
 
         healthBar = GameObject.FindGameObjectWithTag("Playerhealth");
         scaleChange = new Vector3(-35f, -0, -0);
-        
-
-        //items = GameObject.FindGameObjectWithTag("Itembar");
 
     }
 
@@ -42,29 +38,26 @@ public class BossBullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        /*if (collision.gameObject.tag != "Enemy")
-        {
-            //Destroy(gameObject);
-             /*if (collision.CompareTag("Player")) {
-                //Destroy(collision.gameObject);
-                Destroy(gameObject);
-            }
-        } */
+
         if (collision.gameObject.tag == "Player")
         {
+            if (GameObject.Find("Shield Image") != null)
+            {
+
+                GameObject.Find("Shield Image").GetComponent<ShieldEffect>().run = true;
+
+            }
 
             if (hasShield == true)
             {
 
-                GameObject.Find("Shield Image").GetComponent<ShieldEffect>().maximumStack--;
                 Destroy(gameObject);
+
             }
             else
             {
 
                 pCurrentHealth = GameObject.FindWithTag("Player").GetComponent<playermoves>().pHealth;
-                //Debug.Log("ahahahahah");
-                //Debug.Log(pCurrentHealth);
                 GameObject.FindWithTag("Player").GetComponent<playermoves>().pHealth = pCurrentHealth - dmg;
                 healthBar.transform.localScale += scaleChange;
                 Destroy(gameObject);

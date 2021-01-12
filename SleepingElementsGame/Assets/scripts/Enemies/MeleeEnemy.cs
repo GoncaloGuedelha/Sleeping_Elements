@@ -77,14 +77,12 @@ public class MeleeEnemy : MonoBehaviour
                 {
 
 
-                    moveSpeed = 5f;
+                    moveSpeed = 4f;
                     
                     playerPos = new Vector2(player.transform.position.x, transform.position.y);
 
                     
                     transform.position = Vector2.MoveTowards(transform.position, playerPos, moveSpeed * Time.deltaTime);
-                    //Debug.Log("Player Position: " + playerPos + "\n" +
-                              //"Enemy Position: " + transform.position);
 
                     if (Vector2.Distance(transform.position, player.transform.position) > viewRange)
                         state = "Patrol";
@@ -106,7 +104,7 @@ public class MeleeEnemy : MonoBehaviour
         if (collision.gameObject.tag == "Bullet")
         {
 
-            dmgTaken = GameObject.FindWithTag("Gun").GetComponent<gunshoots>().dmg;
+            dmgTaken = GameObject.FindWithTag("Bullet").GetComponent<Bullet>().dmg;
 
             health = health - dmgTaken;
 

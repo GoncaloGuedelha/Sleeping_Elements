@@ -92,7 +92,7 @@ public class BigFlyingEnemy : MonoBehaviour
         if (collision.gameObject.tag == "Bullet")
         {
 
-            dmgTaken = GameObject.FindWithTag("Gun").GetComponent<gunshoots>().dmg;
+            dmgTaken = GameObject.FindWithTag("Bullet").GetComponent<Bullet>().dmg;
 
             health = health - dmgTaken;
 

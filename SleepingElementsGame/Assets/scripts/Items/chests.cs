@@ -8,7 +8,6 @@ public class chests : MonoBehaviour
     public bool open = false;
 
     private GameObject player;
-    //public GameObject gunPrefab;
     private GameObject weaponsItemsHolder;
     public GameObject[] theSelector;
     private int index;
@@ -37,9 +36,6 @@ public class chests : MonoBehaviour
                 index = Random.Range(0, theSelector.Length);
                 selected = theSelector[index];
 
-                Debug.Log(selected.name);
-                //drop = selected.name;
-
                 open = true;
                 GameObject create = Instantiate(selected, transform.position, Quaternion.identity) as GameObject;
                 create.transform.parent = weaponsItemsHolder.transform;
@@ -49,28 +45,6 @@ public class chests : MonoBehaviour
         }
 
     }
-
-
-    /*private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-
-            if (!open) 
-            {
-                index = Random.Range(0, theSelector.Length);
-                selected = theSelector[index];
-
-                Debug.Log(selected.name);
-                //drop = selected.name;
-
-                open = true;
-                GameObject create = Instantiate(selected, transform.position, Quaternion.identity) as GameObject;
-                create.transform.parent = weaponsItemsHolder.transform;
-
-            }
-        }
-    }*/
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

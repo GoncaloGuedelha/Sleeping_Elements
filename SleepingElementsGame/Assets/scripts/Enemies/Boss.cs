@@ -25,25 +25,24 @@ public class Boss : MonoBehaviour
     public GameObject thirdAttackPos;
     public GameObject thirdAttackPos2;
     public GameObject thirdAttackPos3;
-    //public GameObject thirdAttackPos4;
+    private GameObject healthBar;
+    
 
     private Vector2 playerPos;
     private Vector3 randomX;
     private Vector3 randomS;
     private Vector3 target;
+    private Vector3 scaleChange;
 
     //Enemy main variables
     private string state = "1stStage";
-    //private float viewRange = 5f;
-    private float moveSpeed = 3f;
+    private float moveSpeed = 5f;
 
     //Patrol variables
     [SerializeField] private Transform[] waypoints = new Transform[1];
     private int nextWaypoint;
 
-    //Keeping the distance
 
-    //private float retreatDist = 3f;
 
     void Start()
     {
@@ -51,8 +50,7 @@ public class Boss : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
         playerPos = new Vector2(0, 0);
-
-
+        healthBar = GameObject.FindGameObjectWithTag("BossHealth");
 
         rb.gravityScale = 0;
 
@@ -73,32 +71,12 @@ public class Boss : MonoBehaviour
 
             }
 
-            //Patrolling: goes from wapoint to waypoint
-            //if (Vector2.Distance(transform.position, waypoints[nextWaypoint].position) <= waypointOffset * moveSpeed)
-                //nextWaypoint++;
-
-            /*if (nextWaypoint >= waypoints.Length)
-                nextWaypoint = 0;*/
-
-        
+      
 
             //Switch Case responsible for the behaviour of the enemy
             switch (state)
             {
                 case "1stStage":
-
-                /*//Patrolling: goes from wapoint to waypoint
-                if (Vector2.Distance(transform.position, waypoints[nextWaypoint].position) <= waypointOffset * moveSpeed)
-                    nextWaypoint++;
-
-                if (nextWaypoint >= waypoints.Length)
-                    nextWaypoint = 0;
-
-                transform.position = Vector2.MoveTowards(transform.position, waypoints[nextWaypoint].position, moveSpeed * Time.deltaTime);*/
-
-
-
-                //Changing the state to Chase
 
                 if (shootTimer <= 0)
                 {
@@ -113,6 +91,7 @@ public class Boss : MonoBehaviour
                 if (shootTimer > 0)
                     shootTimer -= Time.deltaTime;
 
+                //Changing the state to 2ndStage
 
                 if (health <= 100)
                     state = "2ndStage";
@@ -121,18 +100,37 @@ public class Boss : MonoBehaviour
 
             case "2ndStage":
 
-                /* //Patrolling: goes from wapoint to waypoint
-                 if (Vector2.Distance(transform.position, waypoints[nextWaypoint].position) <= waypointOffset * moveSpeed)
-                     nextWaypoint++;
-
-                 if (nextWaypoint >= waypoints.Length)
-                     nextWaypoint = 0;
-
-                 transform.position = Vector2.MoveTowards(transform.position, waypoints[nextWaypoint].position, moveSpeed * Time.deltaTime);*/
-
                 transform.position = Vector2.MoveTowards(transform.position, waypoints[nextWaypoint].position, moveSpeed * Time.deltaTime);
 
-                cooldownTime = 0.5f;
+                cooldownTime = 0.2f;
+
+                    if (shootTimer <= 0)
+                    {
+
+                        randomS = new Vector3(Random.Range(80.1f, 89), Random.Range(-9.3f, -8.5f), 0);
+
+                        Vector3 direction = randomS - Camera.main.WorldToScreenPoint(transform.position);
+                        direction.x += bulletStartOffset;
+
+                        GameObject sBullet = Instantiate(BossSpecialBullet, transform.position, Quaternion.identity);
+
+
+                        shootTimer = cooldownTime;
+                    }
+
+                    if (shootTimer > 0)
+                        shootTimer -= Time.deltaTime;
+                    //Changing the state to 3rdStage
+
+                    if (health <= 75)
+                        state = "3ndStage";
+
+                    break;
+
+                case "3ndStage":
+
+
+                cooldownTime = 0.3f;
 
                 if (shootTimer <= 0)
                 {
@@ -143,70 +141,11 @@ public class Boss : MonoBehaviour
                     Vector3 direction = target - randomX;
                     bullet.GetComponent<Rigidbody2D>().velocity = direction.normalized * speed;
 
-                        shootTimer = cooldownTime;
+                    shootTimer = cooldownTime;
                 }
 
                 if (shootTimer > 0)
                     shootTimer -= Time.deltaTime;
-
-
-
-                    /* else if(Vector2.Distance(transform.position, playerPos) < viewRange  && Vector2.Distance(transform.position, playerPos) > retreatDist) {
-
-                         transform.position = this.transform.position;
-
-                     }*/
-
-
-                    /*if (Vector2.Distance(transform.position, player.transform.position) > viewRange)
-                    {
-
-                        transform.position = Vector2.MoveTowards(transform.position, waypoints[nextWaypoint].position, moveSpeed * Time.deltaTime);
-                        state = "Patrol";
-                    }*/
-
-                    if (health <= 50)
-                        state = "3ndStage";
-
-                    break;
-
-                case "3ndStage":
-
-                    /* //Patrolling: goes from wapoint to waypoint
-                     if (Vector2.Distance(transform.position, waypoints[nextWaypoint].position) <= waypointOffset * moveSpeed)
-                         nextWaypoint++;
-
-                     if (nextWaypoint >= waypoints.Length)
-                         nextWaypoint = 0;
-
-                     transform.position = Vector2.MoveTowards(transform.position, waypoints[nextWaypoint].position, moveSpeed * Time.deltaTime);*/
-
-                    //transform.position = Vector2.MoveTowards(transform.position, waypoints[nextWaypoint].position, moveSpeed * Time.deltaTime);
-
-                    cooldownTime = 0.1f;
-
-                    if (shootTimer <= 0)
-                    {
-
-                        //randomS = new Vector3(Random.Range(thirdAttackPos.transform.position.x, thirdAttackPos2.transform.position.x), Random.Range(thirdAttackPos3.transform.position.y, thirdAttackPos.transform.position.y), 0);
-                        randomS = new Vector3(Random.Range(80.1f, 89), Random.Range(-9.3f, -8.5f), 0);
-
-                        Vector3 direction = randomS - Camera.main.WorldToScreenPoint(transform.position);
-                        direction.x += bulletStartOffset;
-
-                        GameObject sBullet = Instantiate(BossSpecialBullet, transform.position, Quaternion.identity);
-
-                        /*randomS = new Vector3(Random.Range(-89.5f, -72), Random.Range(5, 7), 0);
-
-                        GameObject bullet = Instantiate(BossSpecialBullet, transform.position, Quaternion.identity);
-                        Vector3 direction = randomS - transform.position;
-                        bullet.GetComponent<Rigidbody2D>().velocity = direction.normalized * speed;*/
-
-                        shootTimer = cooldownTime;
-                    }
-
-                    if (shootTimer > 0)
-                        shootTimer -= Time.deltaTime;
 
                     break;
             }
@@ -222,11 +161,14 @@ public class Boss : MonoBehaviour
 
         if (collision.gameObject.tag == "Bullet" && triggered)
         {
+            
 
-            dmgTaken = GameObject.FindWithTag("Gun").GetComponent<gunshoots>().dmg;
+            dmgTaken = GameObject.FindWithTag("Bullet").GetComponent<Bullet>().dmg;
 
             health = health - dmgTaken;
 
+            scaleChange = new Vector3(-dmgTaken * 10, -0, -0);
+            healthBar.transform.localScale += scaleChange;
         }
     }
 }

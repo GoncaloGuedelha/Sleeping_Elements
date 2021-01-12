@@ -15,7 +15,7 @@ public class FlyingEnemy2 : MonoBehaviour
     private float bulletStartOffset = 0.5f;
     private float shootTimer = 0f;
     private float cooldownTime = 1f;
-    private float health = 2f;
+    public float health = 2f;
     private float dmgTaken = 0f;
     private float speed = 5f;
 
@@ -74,17 +74,6 @@ public class FlyingEnemy2 : MonoBehaviour
         {
             case "Patrol":
 
-                /*//Patrolling: goes from wapoint to waypoint
-                if (Vector2.Distance(transform.position, waypoints[nextWaypoint].position) <= waypointOffset * moveSpeed)
-                    nextWaypoint++;
-
-                if (nextWaypoint >= waypoints.Length)
-                    nextWaypoint = 0;
-
-                transform.position = Vector2.MoveTowards(transform.position, waypoints[nextWaypoint].position, moveSpeed * Time.deltaTime);*/
-
-                
-
                 //Changing the state to Chase
                 if (Vector2.Distance(transform.position, player.transform.position) < viewRange)
                     state = "Chase";
@@ -93,30 +82,12 @@ public class FlyingEnemy2 : MonoBehaviour
 
             case "Chase":
 
-               /* //Patrolling: goes from wapoint to waypoint
-                if (Vector2.Distance(transform.position, waypoints[nextWaypoint].position) <= waypointOffset * moveSpeed)
-                    nextWaypoint++;
-
-                if (nextWaypoint >= waypoints.Length)
-                    nextWaypoint = 0;
-
-                transform.position = Vector2.MoveTowards(transform.position, waypoints[nextWaypoint].position, moveSpeed * Time.deltaTime);*/
-
                 if (player)
                 {
 
                     if (shootTimer <= 0)
                     {
 
-                        //Vector3 direction = player.transform.position; //- Camera.main.WorldToScreenPoint(transform.position);
-                        //direction.x += bulletStartOffset;
-
-                        //GameObject bullet = Instantiate(enemyBullet, transform.position, Quaternion.identity);
-
-                        /*GameObject bullet = Instantiate(enemyBullet, transform.position + (direction.normalized * bulletStartOffset), Quaternion.identity);
-                        bullet.GetComponent<Rigidbody2D>().velocity = direction.normalized * 2;*/
-
-                        //Vector2 pos = (transform.position.x, transform.position.y);
                         GameObject bullet = Instantiate(enemyBullet, transform.position, Quaternion.identity);
                         Vector3 direction = target - transform.position;
                         bullet.GetComponent<Rigidbody2D>().velocity = direction.normalized * speed;
@@ -134,13 +105,6 @@ public class FlyingEnemy2 : MonoBehaviour
                         transform.position = Vector2.MoveTowards(transform.position, new Vector2(playerPos.x, transform.position.y - playerPos.y), -moveSpeed * 1.5f * Time.deltaTime);
 
                     }
-
-                    /* else if(Vector2.Distance(transform.position, playerPos) < viewRange  && Vector2.Distance(transform.position, playerPos) > retreatDist) {
-
-                         transform.position = this.transform.position;
-
-                     }*/
-
 
                     if (Vector2.Distance(transform.position, player.transform.position) > viewRange)
                     {
@@ -164,7 +128,7 @@ public class FlyingEnemy2 : MonoBehaviour
         if (collision.gameObject.tag == "Bullet")
         {
 
-            dmgTaken = GameObject.FindWithTag("Gun").GetComponent<gunshoots>().dmg;
+            dmgTaken = GameObject.FindWithTag("Bullet").GetComponent<Bullet>().dmg;
 
             health = health - dmgTaken;
 

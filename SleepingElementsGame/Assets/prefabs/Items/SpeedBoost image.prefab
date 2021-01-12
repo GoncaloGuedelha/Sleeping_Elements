@@ -271,6 +271,7 @@ MonoBehaviour:
   ID: 0
   oldStack: 0
   amount: {fileID: 6718989103277287190}
+  maxNum: 10
   maximumStack: 0
 --- !u!1 &9176798396283749020
 GameObject:
@@ -306,7 +307,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.061, y: 1.313}
+  m_AnchoredPosition: {x: 1.21, y: 1.25}
   m_SizeDelta: {x: 3.1738515, y: 0.68108857}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7719979155723502905

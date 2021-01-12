@@ -23,8 +23,6 @@ public class EnemyBullet2 : MonoBehaviour
 
         player = GameObject.FindGameObjectWithTag("Player").transform;
         pCurrentHealth = GameObject.FindWithTag("Player").GetComponent<playermoves>().pHealth;
-        
-        //target = new Vector2(player.position.x, player.position.y);
 
         healthBar = GameObject.FindGameObjectWithTag("Playerhealth");
         scaleChange = new Vector3(-35f, -0, -0);
@@ -35,10 +33,6 @@ public class EnemyBullet2 : MonoBehaviour
     {
 
         hasShield = GameObject.FindWithTag("Player").GetComponent<playermoves>().shield;
-        //transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
-
-        //if (transform.position.x == target.x && transform.position.y == target.y)
-            //Destroy(gameObject);
 
     }
 
@@ -46,26 +40,25 @@ public class EnemyBullet2 : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        /*if (collision.gameObject.tag != "Enemy")
-        {
-            //Destroy(gameObject);
-             /*if (collision.CompareTag("Player")) {
-                //Destroy(collision.gameObject);
-                Destroy(gameObject);
-            }
-        } */
+
          if (collision.gameObject.tag == "Player")
          {
-            if(hasShield == true)
+            if (GameObject.Find("Shield Image") != null)
             {
 
-                GameObject.Find("Shield Image").GetComponent<ShieldEffect>().maximumStack--;
+                GameObject.Find("Shield Image").GetComponent<ShieldEffect>().run = true;
+
+            }
+
+            if (hasShield == true)
+            {
+
                 Destroy(gameObject);
+
             }
             else
             {
 
-                //Debug.Log("ahahahahah");
                 GameObject.FindWithTag("Player").GetComponent<playermoves>().pHealth = pCurrentHealth - dmg;
                 healthBar.transform.localScale += scaleChange;
                 Destroy(gameObject);

@@ -11,19 +11,28 @@ public class ShieldEffect : MonoBehaviour
     public GameObject itemInfo;
     public int ID = 1;
     public int oldStack;
-    //public GameObject amount;
+    public int maxPow;
+    public int effectPow;
     public TextMeshProUGUI amount;
+    public bool run;
 
+    public int maxNum = 10;
     [Range(1, 10)]
-    public int maximumStack = 1;
+    public int maximumStack;
+
+  
 
     // Start is called before the first frame update
     void Start()
     {
         itemInfo.SetActive(false);
         gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 0, 0);
-        GameObject.FindGameObjectWithTag("Player").GetComponent<playermoves>().shield = true;
+        maxPow = 12;
+        effectPow = 1;
+        maximumStack = 1;
         oldStack = maximumStack;
+        run = false;
+        
     }
 
 
@@ -43,49 +52,48 @@ public class ShieldEffect : MonoBehaviour
 
     }
 
-    /* public virtual ItemEffect GetCopy()
-    {
-
-
-        return this;
-    }
-
-   public virtual ItemEffect Destroy()
-    {
-
-
-
-    }*/
-
     // Update is called once per frame
     void Update()
     {
 
-        /*checkShield = GameObject.FindGameObjectWithTag("Player").GetComponent<playermoves>().shield;
-
-        if (checkShield == false)
+        if (maximumStack >= maxNum)
         {
-            Destroy(gameObject);
-        }*/
+
+            maximumStack = maxNum;
+
+        }
+            
+
         if (oldStack < maximumStack)
         {
             amount.text = maximumStack.ToString();
-            oldStack = maximumStack;
-
-        }
-        else if (oldStack > maximumStack)
-        {
-
-            amount.text = maximumStack.ToString();
+            maxPow --;
             oldStack = maximumStack;
 
         }
 
-        if (maximumStack == 0)
-        {
-            GameObject.FindGameObjectWithTag("Player").GetComponent<playermoves>().shield = false;
-            Destroy(gameObject);
+        if (run == true) {
+
+            effectPow = Random.Range(1, maxPow);
+
+            if (effectPow == 1)
+            {
+
+                GameObject.FindGameObjectWithTag("Player").GetComponent<playermoves>().shield = true;
+
+            }
+            else
+            {
+
+                GameObject.FindGameObjectWithTag("Player").GetComponent<playermoves>().shield = false;
+
+            }
+
+            run = false;
+
         }
+
+        
 
     }
 }

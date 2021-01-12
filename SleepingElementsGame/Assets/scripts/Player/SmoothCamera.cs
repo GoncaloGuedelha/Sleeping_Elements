@@ -5,43 +5,30 @@ using UnityEngine;
 public class SmoothCamera : MonoBehaviour
 {
 
-    private SpriteRenderer player;
-    private Vector3 targetPosition;
-    public float targetOffset = 0f;
-    public float cameraSpeed = 3f;
+    public Transform target;
+    private float maxScreenPoint = 0.3f;
+    private Vector3 velocity = Vector3.zero;
+    private float dampTime = 0.3f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-        player = GameObject.FindWithTag("Player").GetComponent<SpriteRenderer>();
-
-    }
-
-    // Update is called once per frame
     void FixedUpdate()
     {
-
-        if (player.flipX)
-        {
-
-            targetPosition = new Vector3(player.transform.position.x - targetOffset, player.transform.position.y - targetOffset, transform.position.z);
-
-        }
-        else
-        {
-
-            targetPosition = new Vector3(player.transform.position.x + targetOffset, player.transform.position.y + targetOffset, transform.position.z);
-
-        }
-
-        Vector3 clampPos = new Vector3(Mathf.Clamp(targetPosition.x, -60, 60), Mathf.Clamp(targetPosition.y, -20, 30), transform.position.z);
-
-        transform.position = Vector3.Lerp(transform.position, clampPos , cameraSpeed * Time.deltaTime);
-
-
+        FollowPlayer();
     }
 
+    void FollowPlayer()
+    {
+        Vector3 mousePos = Input.mousePosition * maxScreenPoint + new Vector3(Screen.width, Screen.height, 0f) * ((1f - maxScreenPoint) * 0.5f);
 
+        Vector3 position = (target.position + GetComponent<Camera>().ScreenToWorldPoint(mousePos)) / 2f;
 
+        Vector3 destination = new Vector3(position.x, position.y, -10);
+
+        transform.position = Vector3.SmoothDamp(transform.position, destination, ref velocity, dampTime);
+
+        Cursor.lockState = CursorLockMode.Confined;
+
+    }
 }
+
+
+

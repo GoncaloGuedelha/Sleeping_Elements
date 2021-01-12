@@ -77,8 +77,6 @@ public class LittleFlyingEnemy : MonoBehaviour
 
 
                     transform.position = Vector2.MoveTowards(transform.position, playerPos, moveSpeed * Time.deltaTime);
-                    //Debug.Log("Player Position: " + playerPos + "\n" +
-                    //"Enemy Position: " + transform.position);
 
                     if (Vector2.Distance(transform.position, player.transform.position) > viewRange)
                         state = "Watch";
@@ -100,7 +98,7 @@ public class LittleFlyingEnemy : MonoBehaviour
         if (collision.gameObject.tag == "Bullet")
         {
 
-            dmgTaken = GameObject.FindWithTag("Gun").GetComponent<gunshoots>().dmg;
+            dmgTaken = GameObject.FindWithTag("Bullet").GetComponent<Bullet>().dmg;
 
             health = health - dmgTaken;
 

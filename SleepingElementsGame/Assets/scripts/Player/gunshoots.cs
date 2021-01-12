@@ -18,7 +18,6 @@ public class gunshoots : MonoBehaviour
     public float bulletSpeed = 13f;
     public float bulletStartOffSet = 0.75f;
     public float cooldownTime = 0.5f;
-    public float dmg = 1f;
     public int hits = 0;
     public bool holdAttack = false;
     public bool inGun = false;
@@ -58,10 +57,6 @@ public class gunshoots : MonoBehaviour
                 GameObject bullet = Instantiate(bulletPrefab, transform.position + (mouseDirection.normalized * bulletStartOffSet), gameObject.transform.rotation);
                 bullet.GetComponent<Rigidbody2D>().velocity = mouseDirection.normalized * bulletSpeed;
 
-                /*Vector3 mouseDirection2 = -Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
-                GameObject bullet2 = Instantiate(bulletPrefab, transform.position - (mouseDirection2.normalized * bulletStartOffSet), gameObject.transform.rotation);
-                bullet2.GetComponent<Rigidbody2D>().velocity = mouseDirection2.normalized * bulletSpeed;*/
-
                 shootTimer = cooldownTime;
 
             }
@@ -74,20 +69,29 @@ public class gunshoots : MonoBehaviour
                 
                     startTime = Time.time;
                     
-                    if (startTime + timeHold <= Time.time)
-                    {
+                   
 
-                        gameObject.GetComponent<Renderer>().material.color = Color.red;
-
-                    }
                     
                 }
 
+                 if (startTime + timeHold > Time.time)
+                 {
 
+                    gameObject.GetComponent<Renderer>().material.color = new Color(0.533f, 0.443f, 0.027f);
+
+                }
+                 else
+                 {
+
+                    //gameObject.GetComponent<Renderer>().material.color = Color.red;
+                    gameObject.GetComponent<Renderer>().material.color = new Color(0.968f, 0.803f, 0.031f);
+
+                 }
 
                 if (Input.GetMouseButtonUp(1))
                 {
-
+                   
+                    gameObject.GetComponent<Renderer>().material.color = new Color(0.968f, 0.803f, 0.031f);
                     if (startTime + timeHold <= Time.time)
                     {
 
@@ -95,7 +99,7 @@ public class gunshoots : MonoBehaviour
                         GameObject sBullet = Instantiate(sBulletPrefab, transform.position + (mouseDirection.normalized * bulletStartOffSet), gameObject.transform.rotation);
                         sBullet.GetComponent<Rigidbody2D>().velocity = mouseDirection.normalized * bulletSpeed;
 
-                        gameObject.GetComponent<Renderer>().material.color = new Color (68, 101, 4);
+                        //gameObject.GetComponent<Renderer>().material.color = new Color (68, 101, 4);
                         //shootTimer = cooldownTime;
                     }
                    

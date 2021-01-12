@@ -16,9 +16,7 @@ public class PetCheck : MonoBehaviour
     // Start is called before the first frame update
 
     void Awake()
-    {
-
-        
+    {  
 
 
     }
@@ -47,15 +45,7 @@ public class PetCheck : MonoBehaviour
                         itemBar.isFull[i] = true;
                         pet = GameObject.Instantiate(petPrefab, itemBar.slots[i].transform, false);
                         pet.name = "Pet";
-                        //shield.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 0, 0);
-                        //Debug.Log(itemBar.slots[i].transform);
-                        //Destroy(gameObject);
-                        /*if (gameObject.transform.parent == itemBar.slots[i].transform)
-                        {
 
-                            isChild = true;
-
-                        }*/
                         break;
 
                     }

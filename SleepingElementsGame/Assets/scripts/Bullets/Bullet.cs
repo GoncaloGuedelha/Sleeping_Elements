@@ -6,29 +6,32 @@ public class Bullet : MonoBehaviour
 {
 
     private Rigidbody2D rb;
-    //private GameObject enemy;
-    //public float dmg = 1f;
+    public float dmg = 5f;
+    private float dmgBoost = 0;
     private int hitsdone = 0;
 
 
 
-    // Start is called before the first frame update
     void Start()
     {
 
         hitsdone = GameObject.FindWithTag("Gun").GetComponent<gunshoots>().hits;
 
         rb = GetComponent<Rigidbody2D>();
-        //enemy = GameObject.Find("enemy");
 
+        if(GameObject.Find("Pet") != null) 
+        {
+            
+            dmgBoost = GameObject.Find("Pet").GetComponent<Peteffect>().dmgBoost;
+            dmg = dmg + dmgBoost;
+
+        }
     }
 
-    // Update is called once per frame
 
 
     void Update()
     {
-
 
         rb.gravityScale = 0;
 
@@ -42,23 +45,6 @@ public class Bullet : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-    
-       
-        /*if (collision.gameObject.tag == "Enemy")
-        {
-
-    meeleenemy eneHealth = enemy.GetComponent<meeleenemy>();
-        Debug.Log(eneHealth.health);
-
-            eneHealth.health = eneHealth.health - dmg;
-            Destroy(gameObject);
-            Debug.Log(eneHealth.health);
-            if(eneHealth.health <= 0) { 
-
-            Destroy(collision.gameObject);
-            
-            }
-        }*/
 
         if (collision.gameObject.tag != "Gun" && collision.gameObject.tag != "Player" && collision.gameObject.tag != "Item" && collision.gameObject.tag != "Platform" && collision.gameObject.tag != "EnemyBullet") 
         {
@@ -75,22 +61,8 @@ public class Bullet : MonoBehaviour
 
             }
             
-           /* if (collision.gameObject.tag != "Player") 
-            {
-
-                if (collision.gameObject.tag != "Pet")
-                {
-                    Destroy(gameObject);
-                }
-                    
-            }*/
         }
-        /*else if (collision.gameObject.tag != "Pet")
-        {
 
-
-
-        }*/
     }
 }
 

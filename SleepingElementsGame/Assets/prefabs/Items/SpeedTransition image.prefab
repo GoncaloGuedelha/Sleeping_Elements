@@ -107,6 +107,7 @@ MonoBehaviour:
   ID: 0
   oldStack: 0
   amount: {fileID: 6828486393905475948}
+  maxNum: 10
   maximumStack: 0
 --- !u!58 &-1934940269926141111
 CircleCollider2D:
@@ -329,8 +330,8 @@ MonoBehaviour:
 
     ----------------
 
-    You lose some movement speed
-    but gain fire rating'
+    You slightly lose some movement
+    speed but gain fire rating'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

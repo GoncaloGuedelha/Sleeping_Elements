@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class playermoves : MonoBehaviour
 {
@@ -30,7 +31,7 @@ public class playermoves : MonoBehaviour
     {
 
         rb = GetComponent<Rigidbody2D>();
-        BoxCollider2D collider = GetComponent<BoxCollider2D>();
+        CapsuleCollider2D collider = GetComponent<CapsuleCollider2D>();
         feetOffset = ((collider.size.y * transform.localScale.y) / 2) + 0.01f;
         sideOffset = ((collider.size.x * transform.localScale.x) / 2);
 
@@ -46,7 +47,7 @@ public class playermoves : MonoBehaviour
 
         Vector2 playerFeet = new Vector2(transform.position.x + sideOffset, transform.position.y - feetOffset);
         Vector2 playerFeet2 = new Vector2(transform.position.x - sideOffset, transform.position.y - feetOffset);
-        RaycastHit2D hit = Physics2D.Raycast(playerFeet, Vector2.down, 2f, platformLayer);
+        RaycastHit2D hit = Physics2D.Raycast(playerFeet, Vector2.down, 1.5f, platformLayer);
         if (hit.collider != null)
         {
             float dist = Mathf.Abs(hit.point.y - playerFeet.y);
@@ -83,14 +84,6 @@ public class playermoves : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         float jump = Input.GetAxis("Jump");
 
-        /*if (Input.GetKey(KeyCode.Mouse1))
-        {
-            preformDodge();
-
-            Debug.Log("ah");
-        }*/
-
-
         if (jump > 0 && (IsOnGround()))
         {
 
@@ -105,54 +98,29 @@ public class playermoves : MonoBehaviour
         if(pHealth <= 0)
         {
 
-            Destroy(gameObject);
+            SceneManager.LoadScene(sceneBuildIndex: 2);
 
         }
 
     }
 
-    /*private void preformDodge()
-    {
-        Debug.Log("here");
-        dodge = true;
-
-        if (spriteRenderer.flipX)
-        {
-
-            rb.AddForce(Vector2.right * dodgeSpeed);
-
-        }
-        else
-        {
-
-            rb.AddForce(Vector2.left * dodgeSpeed);
-
-        }
-
-        StartCoroutine("stopDodge");
-
-    }
-
-
-    IEnumerator stopDodge()
-    {
-
-        yield return new WaitForSeconds(0.8f);
-        dodge = false;
-
-    }*/
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //Debug.Log("Will to fight the knight");
+      
 
         if (collision.gameObject.tag == "Hazards" || collision.gameObject.tag == "Enemy")
         {
+            if(GameObject.Find("Shield Image") != null)
+            {
+
+            GameObject.Find("Shield Image").GetComponent<ShieldEffect>().run = true;
+
+            }
 
             if(shield == true)
             {
-                //shield == false;
-                GameObject.Find("Shield Image").GetComponent<ShieldEffect>().maximumStack--;
+
 
             }
             else 
@@ -165,35 +133,6 @@ public class playermoves : MonoBehaviour
            
 
         }
-
-        /*if (collision.gameObject.tag == "EnemyBullet")
-        {
-            Debug.Log("Knight of the wind");
-            if (shield == true)
-            {
-
-                shield = false;
-
-            }
-            else 
-            { 
-
-                eneDmg = GameObject.FindWithTag("EnemyBullet").GetComponent<EnemyBullet2>().dmg;
-                Debug.Log(eneDmg);
-                pHealth = pHealth - eneDmg;
-                healthBar.transform.localScale += scaleChange;
-            }
-
-        }*/
-
-        /*else if (collision.gameObject.tag == "Enemy")
-        {
-
-            pHealth = pHealth - 0.5f;
-
-            healthBar.transform.localScale += scaleChange;
-
-        }*/
 
     }
 

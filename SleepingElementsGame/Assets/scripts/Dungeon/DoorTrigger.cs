@@ -8,7 +8,6 @@ public class DoorTrigger : MonoBehaviour
     [SerializeField] private GameObject room;
     private bool checkEnemies;
 
-    // Start is called before the first frame update
 
     void Awake()
     {
@@ -22,7 +21,6 @@ public class DoorTrigger : MonoBehaviour
         
     }
 
-    // Update is called once per frame
     void Update()
     {
 
@@ -33,7 +31,7 @@ public class DoorTrigger : MonoBehaviour
             for (int i = 0; i < door.Length; i++)
             {
 
-                door[i].GetComponent<BoxCollider2D>().isTrigger = true;
+                door[i].SetActive(false);
 
             }
 
@@ -44,18 +42,17 @@ public class DoorTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //Debug.Log(checkEnemies);
             
         if(collision.gameObject.tag == "Player")
         {
-
+            room.SetActive(true);
                 if(checkEnemies == false)
                 {
 
                     for (int i = 0; i < door.Length; i++)
                     {
 
-                        door[i].GetComponent<BoxCollider2D>().isTrigger = false;
+                        door[i].SetActive(true);
 
                     }
 

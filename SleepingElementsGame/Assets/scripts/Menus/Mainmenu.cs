@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class Mainmenu : MonoBehaviour
 {
     private GameObject petControl;
-    //private GameObject login;
     public GameObject petSelect;
     public GameObject loginScreen;
     public GameObject lAlert;
@@ -21,13 +20,10 @@ public class Mainmenu : MonoBehaviour
     public Text passwordC;
     private string name;
     private string pass;
-    //private Toggle pToggle;
-    //private bool pet;
 
     void Awake()
     {
 
-        //pet = false;
 
     }
 
@@ -35,7 +31,6 @@ public class Mainmenu : MonoBehaviour
     {
 
         GameObject.Find("PetController").GetComponent<PetToggle>().pet = false;
-        //pToggle = GameObject.Find("Toggle").GetComponent<Toggle>();
 
     }
 
@@ -48,7 +43,6 @@ public class Mainmenu : MonoBehaviour
         if (usernameL.text.ToString() == name && passwordL.text.ToString() == pass)
         {
 
-            //GameObject.Find("Petmenu").SetActive(true);
             petSelect.SetActive(true);
             GameObject.Find("LoginScreen").SetActive(false);
            
@@ -95,7 +89,6 @@ public class Mainmenu : MonoBehaviour
         else 
         {
         
-            //GameObject.Find("Petmenu").SetActive(true);
             loginScreen.SetActive(true);
             GameObject.Find("RegisterScreen").SetActive(false);
         
@@ -108,9 +101,7 @@ public class Mainmenu : MonoBehaviour
     public void LoginWithPet()
     {
         GameObject.Find("PetController").GetComponent<PetToggle>().pet = true;
-        //pet = true;
         petControl = GameObject.Find("PetController");
-        //Debug.Log(PetControl);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         DontDestroyOnLoad(petControl);
         
@@ -119,17 +110,16 @@ public class Mainmenu : MonoBehaviour
 
     public void LoginWithoutPet()
     {
-        //PetControl = GameObject.Find("PetController");
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        //DontDestroyOnLoad(PetControl);
 
     }
 
     public void PlayOffline()
     {
-        //PetControl = GameObject.Find("PetController");
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        //DontDestroyOnLoad(PetControl);
+
 
     }
 
@@ -150,23 +140,4 @@ public class Mainmenu : MonoBehaviour
 
     }
 
-    /*public void PetActive()
-    {
-        if (pet)
-        {
-
-            GameObject.Find("PetController").GetComponent<PetToggle>().pet = true;
-            //Debug.Log(pet);
-
-        }
-        else
-        {
-
-            GameObject.Find("PetController").GetComponent<PetToggle>().pet = false;
-            //Debug.Log(pet);
-
-        }
-
-
-    }*/
 }

@@ -12,9 +12,9 @@ public class SPBEffect : MonoBehaviour
 
     public int ID;
     public int oldStack;
-    //public GameObject amount;
     public TextMeshProUGUI amount;
 
+    public int maxNum = 10;
     [Range(1, 10)]
     public int maximumStack;
 
@@ -22,8 +22,8 @@ public class SPBEffect : MonoBehaviour
     {
 
         ID = 3;
-        moveValue = 1;
         maximumStack = 1;
+        moveValue = 1;
         oldStack = maximumStack;
 
     }
@@ -33,7 +33,6 @@ public class SPBEffect : MonoBehaviour
     {
         itemInfo.SetActive(false);
         gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 0, 0);
-        //GameObject.FindGameObjectWithTag("Player").GetComponent<playermoves>().shield = true;
 
         currentSpeed = GameObject.FindGameObjectWithTag("Player").GetComponent<playermoves>().moveforce;
 
@@ -58,23 +57,17 @@ public class SPBEffect : MonoBehaviour
 
     }
 
-    /* public virtual ItemEffect GetCopy()
-    {
-
-
-        return this;
-    }
-
-   public virtual ItemEffect Destroy()
-    {
-
-
-
-    }*/
 
     // Update is called once per frame
     void Update()
     {
+
+        if (maximumStack >= maxNum)
+        {
+
+            maximumStack = maxNum;
+
+        }
 
         if (oldStack < maximumStack)
         {
@@ -83,18 +76,6 @@ public class SPBEffect : MonoBehaviour
 
             oldStack = maximumStack;
         }
-        /*checkShield = GameObject.FindGameObjectWithTag("Player").GetComponent<playermoves>().shield;
-
-        if (checkShield == false)
-        {
-            Destroy(gameObject);
-        }*/
-
-        /*if (maximumStack == 0)
-        {
-            GameObject.FindGameObjectWithTag("Player").GetComponent<playermoves>().shield = false;
-            Destroy(gameObject);
-        }*/
 
     }
 }

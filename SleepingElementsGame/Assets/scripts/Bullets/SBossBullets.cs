@@ -16,8 +16,6 @@ public class SBossBullets : MonoBehaviour
     private Vector3 scaleChange;
 
 
-    //[SerializeField] private GameObject items;
-
 
 
     private void Start()
@@ -26,27 +24,19 @@ public class SBossBullets : MonoBehaviour
             player = GameObject.FindGameObjectWithTag("Player").transform;
 
 
-            //target = new Vector2(player.position.x, player.position.y);
-
             target = new Vector3(Random.Range(240.8989f, 267.6654f), Random.Range(-27.64096f, -25.26324f), 0);
 
             healthBar = GameObject.FindGameObjectWithTag("Playerhealth");
             scaleChange = new Vector3(-35f, -0, -0);
             
 
-            //items = GameObject.FindGameObjectWithTag("Itembar");
-
     }
 
     private void Update()
     {
 
-        
         hasShield = GameObject.FindWithTag("Player").GetComponent<playermoves>().shield;
         transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
-
-        /*if (transform.position.x == target.x && transform.position.y == target.y)
-            Destroy(gameObject);*/
 
     }
 
@@ -54,21 +44,19 @@ public class SBossBullets : MonoBehaviour
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            /*if (collision.gameObject.tag != "Enemy")
-            {
-                //Destroy(gameObject);
-                 /*if (collision.CompareTag("Player")) {
-                    //Destroy(collision.gameObject);
-                    Destroy(gameObject);
-                }
-            } */
+
             if (collision.gameObject.tag == "Player")
             {
+                if (GameObject.Find("Shield Image") != null)
+                {
+
+                    GameObject.Find("Shield Image").GetComponent<ShieldEffect>().run = true;
+
+                }
 
                 if (hasShield == true)
                 {
 
-                    GameObject.Find("Shield Image").GetComponent<ShieldEffect>().maximumStack--;
                     Destroy(gameObject);
 
                 }
@@ -76,8 +64,6 @@ public class SBossBullets : MonoBehaviour
                 {
 
                     pCurrentHealth = GameObject.FindWithTag("Player").GetComponent<playermoves>().pHealth;
-                    //Debug.Log("ahahahahah");
-                    //Debug.Log(pCurrentHealth);
                     GameObject.FindWithTag("Player").GetComponent<playermoves>().pHealth = pCurrentHealth - dmg;
                     healthBar.transform.localScale += scaleChange;
                     Destroy(gameObject);

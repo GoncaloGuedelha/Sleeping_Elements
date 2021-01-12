@@ -24,6 +24,7 @@ TagManager:
   - DroppedGun
   - Boss
   - Door
+  - BossHealth
   layers:
   - Default
   - TransparentFX
