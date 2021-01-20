@@ -77,8 +77,12 @@ public class SPTEffect : MonoBehaviour
         {
 
             amount.text = maximumStack.ToString();
-            GameObject.FindGameObjectWithTag("Player").GetComponent<playermoves>().moveforce = currentSpeed - moveValue * maximumStack;
-            GameObject.FindGameObjectWithTag("Gun").GetComponent<gunshoots>().cooldownTime = currentRateOfFire - fireValue * maximumStack;
+
+            currentSpeed = GameObject.FindGameObjectWithTag("Player").GetComponent<playermoves>().moveforce;
+            currentRateOfFire = GameObject.FindGameObjectWithTag("Gun").GetComponent<gunshoots>().cooldownTime;
+
+            GameObject.FindGameObjectWithTag("Player").GetComponent<playermoves>().moveforce = currentSpeed - moveValue;
+            GameObject.FindGameObjectWithTag("Gun").GetComponent<gunshoots>().cooldownTime = currentRateOfFire - fireValue;
 
             oldStack = maximumStack;
 

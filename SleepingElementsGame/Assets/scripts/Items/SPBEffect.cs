@@ -72,7 +72,10 @@ public class SPBEffect : MonoBehaviour
         if (oldStack < maximumStack)
         {
             amount.text = maximumStack.ToString();
-            GameObject.FindGameObjectWithTag("Player").GetComponent<playermoves>().moveforce = currentSpeed + moveValue * maximumStack;
+
+            currentSpeed = GameObject.FindGameObjectWithTag("Player").GetComponent<playermoves>().moveforce;
+
+            GameObject.FindGameObjectWithTag("Player").GetComponent<playermoves>().moveforce = currentSpeed + moveValue;
 
             oldStack = maximumStack;
         }

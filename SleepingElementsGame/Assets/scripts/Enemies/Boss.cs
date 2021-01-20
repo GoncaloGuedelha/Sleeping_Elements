@@ -68,6 +68,7 @@ public class Boss : MonoBehaviour
             {
 
                 Destroy(gameObject);
+                Destroy(healthBar);
 
             }
 
