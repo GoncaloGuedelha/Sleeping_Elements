@@ -70,14 +70,39 @@ public class Mainmenu : MonoBehaviour
     public void LoginReceive(string rData, int error)
     {
 
-        if(error == 0)
+        if (error == 0)
         {
-            Debug.Log(rData);
+            //Debug.Log(rData);
             PlayerInfo dataReceived = JsonUtility.FromJson<PlayerInfo>(rData);
             Debug.Log(dataReceived);
 
+
+
+
+            if (dataReceived.Nono == 1)
+            {
+
+                lAlert.SetActive(true);
+
+            }
+
+            else if (dataReceived.Nono == 2)
+            {
+
+                lAlert.SetActive(true);
+
+            }
+            else if (dataReceived.Nono == 0)
+            {
+
+                petSelect.SetActive(true);
+                GameObject.Find("LoginScreen").SetActive(false);
+
+            }
+            Debug.Log(rData);
+
+
         }
-            
     }
 
     public void RegisterToLogin()
@@ -163,6 +188,32 @@ public class Mainmenu : MonoBehaviour
     }
 
     IEnumerator PostRequest(string uri, string jsondata, ReturningFunction FunctionName)
+    {
+        UnityWebRequest webRequest = new UnityWebRequest(uri, "POST");
+        byte[] jsonToSend = new System.Text.UTF8Encoding().GetBytes(jsondata);
+
+        webRequest.uploadHandler = (UploadHandler)new UploadHandlerRaw(jsonToSend);
+        webRequest.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
+        webRequest.SetRequestHeader("Content-Type", "application/json");
+
+        yield return webRequest.SendWebRequest();
+
+        if (webRequest.isNetworkError)
+        {
+
+            FunctionName(webRequest.downloadHandler.text, 1);
+
+        }
+        else
+        {
+
+            yield return webRequest.downloadHandler.text;
+            FunctionName(webRequest.downloadHandler.text, 0);
+
+        }
+    }
+
+    IEnumerator RegisterRequest(string uri, string jsondata, ReturningFunction FunctionName)
     {
         UnityWebRequest webRequest = new UnityWebRequest(uri, "POST");
         byte[] jsonToSend = new System.Text.UTF8Encoding().GetBytes(jsondata);

@@ -2,17 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInfo
+public class NewPlayer
 {
-
 
     public string username;
     public string password;
-    public int id;
-    public int Nono;
+    public int Problem;
 
 
-    public PlayerInfo()
+    public NewPlayer()
     {
 
         this.username = null;
@@ -21,21 +19,12 @@ public class PlayerInfo
     }
 
 
-    public PlayerInfo(string name, string pass)
+    public NewPlayer(string name, string pass)
     {
 
         this.username = name;
         this.password = pass;
 
     }
-
-
-    public PlayerInfo(int iD)
-    {
-
-        this.id = iD;
-
-    }
-
 
 }

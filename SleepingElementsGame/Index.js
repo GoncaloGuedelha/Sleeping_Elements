@@ -28,6 +28,8 @@ app.use(bodyParser.json());
 app.listen(port, hostname, () => console.log(`Server running at 
 			http://${hostname}:${port}/`));
 
+
+//Login
 app.post('/players/login', (req, res, next) => {
 	console.log(req.body);
 	var data = req.body;
@@ -49,12 +51,67 @@ app.post('/players/login', (req, res, next) => {
 				result[0].Nono = 0;
 				res.end(JSON.stringify(result[0]));
 			}
-			else {//status 1 wrong pass
+			else {//problem 1 wrong pass
 				res.json({ "Nono": 1 });
 			}
 		}
-		else {//status 2 no user with that name   
+		else {//problem 2 no user with that name   
 			res.json({ "Nono": 2 });
+		}
+	})
+});
+
+
+//Register
+app.post('/players/register', (req, res, next) => {
+	console.log(req.body);
+	var data = req.body;
+
+	var username = data.username;
+	var password = data.password;
+	
+
+	dbcon.query('SELECT Username FROM User WHERE Username=?', [username], function (err, result, fields) {
+		console.log("now here");
+		dbcon.on('error', function (err) {
+			console.log('[MYSQL ERROR]', err);
+		})
+
+		console.log(result);
+
+		if (result && result.length) {//problem 1 user with that name 
+
+			res.json({ "Problem": 1 });
+
+		}
+		else {  
+
+			/*if (password == result[0].Password) {
+				result[0].Nono = 0;
+				res.end(JSON.stringify(result[0]));
+			}
+			else {//problem 1 wrong pass
+				res.json({ "Nono": 1 });
+			}*/
+
+			let values = [
+			username,
+			password
+			];
+
+			dbcon.query('INSERT INTO User(Username, Password) VALUES (?)', values, function (err, result, fields) {
+
+
+
+				console.log("now here");
+				dbcon.on('error', function (err) {
+				console.log('[MYSQL ERROR]', err);
+
+				})
+
+				res.json({ "Problem": 0 });
+			})
+
 		}
 	})
 });
