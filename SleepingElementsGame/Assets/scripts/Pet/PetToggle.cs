@@ -6,6 +6,7 @@ using System.Collections;
 
 public class PetToggle : MonoBehaviour
 {
+    public PlayerInfo playerInfo = new PlayerInfo();
 
     public bool pet = false;
     public static PetToggle instance = null;
