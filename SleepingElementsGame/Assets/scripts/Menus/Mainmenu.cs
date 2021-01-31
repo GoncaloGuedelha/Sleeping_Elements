@@ -26,6 +26,9 @@ public class Mainmenu : MonoBehaviour
     private string name;
     private string pass;
 
+
+    public NewPlayer newPlayer = new NewPlayer();
+
     void Awake()
     {
 
@@ -105,6 +108,8 @@ public class Mainmenu : MonoBehaviour
         }
     }
 
+   
+
     public void RegisterToLogin()
     {
         lAlert.SetActive(false);
@@ -112,15 +117,15 @@ public class Mainmenu : MonoBehaviour
         rAlert2.SetActive(false);
         rAlert3.SetActive(false);
 
-        name = "Leon";
+        //name = "Leon";
 
-        if (usernameR.text.ToString() == name)
+        /*if (usernameR.text.ToString() == name)
         {
 
             rAlert.SetActive(true);
 
-        }
-        else if(passwordR.text.ToString() != passwordC.text.ToString())
+        }*/
+        if(passwordR.text.ToString() != passwordC.text.ToString())
         {
 
             rAlert2.SetActive(true);
@@ -135,15 +140,48 @@ public class Mainmenu : MonoBehaviour
 
         else 
         {
-        
-            loginScreen.SetActive(true);
-            GameObject.Find("RegisterScreen").SetActive(false);
-        
+
+            //loginScreen.SetActive(true);
+            //GameObject.Find("RegisterScreen").SetActive(false);
+
+            string newPData = JsonUtility.ToJson(new NewPlayer(usernameR.text, passwordR.text));
+
+            StartCoroutine(RegisterRequest(BaseAPI + "players/register", newPData, RegisterReceive));
+
         }
 
 
 
     }
+
+    public void RegisterReceive(string registerData, int error)
+    {
+
+        if (error == 0)
+        {
+            //Debug.Log(rData);
+            NewPlayer dataRegister = JsonUtility.FromJson<NewPlayer>(registerData);
+            //Debug.Log(dataReceived);
+
+            if (dataRegister.Problem == 1)
+            {
+
+                rAlert.SetActive(true);
+
+            }
+            else if (dataRegister.Problem == 0)
+            {
+
+                loginScreen.SetActive(true);
+                GameObject.Find("RegisterScreen").SetActive(false);
+
+            }
+            //Debug.Log(registerData);
+
+
+        }
+    }
+
 
     public void LoginWithPet()
     {

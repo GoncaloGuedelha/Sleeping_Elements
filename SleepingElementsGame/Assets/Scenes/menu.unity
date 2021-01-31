@@ -2592,6 +2592,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f360056ae27cb1244822ee650ff78f30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BaseAPI: http://127.0.0.1:3000/
   petSelect: {fileID: 1021330630}
   loginScreen: {fileID: 591258504}
   lAlert: {fileID: 1125857098}
@@ -5338,7 +5339,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: The passwords do not the same
+  m_text: The passwords are not the same
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
