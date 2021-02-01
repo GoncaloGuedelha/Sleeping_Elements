@@ -127,6 +127,7 @@ public class PetCheck : MonoBehaviour
 
 
                 }
+                GameObject.Find("Pet").GetComponent<Peteffect>().petInf = petdataReceived;
 
             }
             //Debug.Log(rData);
