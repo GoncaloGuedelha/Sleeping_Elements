@@ -34,17 +34,18 @@ app.post('/players/login', (req, res, next) => {
 	console.log(req.body);
 	var data = req.body;
 
-	var username = data.username;
-	var password = data.password;
+	var username = data.Username;
+	var password = data.Password;
 	
 
+
 	dbcon.query('SELECT * FROM User WHERE Username=?', [username], function (err, result, fields) {
-		console.log("now here");
+		//console.log("now here");
 		dbcon.on('error', function (err) {
 			console.log('[MYSQL ERROR]', err);
 		})
 
-		console.log(result);
+		//console.log(result);
 
 		if (result && result.length) {
 			if (password == result[0].Password) {
@@ -64,7 +65,7 @@ app.post('/players/login', (req, res, next) => {
 
 //-----------------Register-------------------------
 app.post('/players/register', (req, res, next) => {
-	console.log(req.body);
+	//console.log(req.body);
 	var data = req.body;
 
 	var username = data.username;
@@ -103,7 +104,7 @@ app.post('/players/register', (req, res, next) => {
 
 
 
-				console.log("now here");
+				//console.log("now here");
 				dbcon.on('error', function (err) {
 				console.log('[MYSQL ERROR]', err);
 
@@ -122,10 +123,11 @@ app.post('/players/pet', (req, res, next) => {
 	console.log(req.body);
 	var data = req.body;
 
-	var userID = data.id;
+	var petHp = data.PetHealthBar;
+	var userID = data.User_ID;
 	
 
-	dbcon.query('SELECT PetHealthBar, PetEffectval FROM Pets WHERE User_ID=?', [userID], function (err, result, fields) {
+	dbcon.query('SELECT PetHealthBar, User_ID FROM Pets WHERE User_ID=?', [userID], function (err, result, fields) {
 		console.log("now here");
 		dbcon.on('error', function (err) {
 			console.log('[MYSQL ERROR]', err);
@@ -134,16 +136,11 @@ app.post('/players/pet', (req, res, next) => {
 		console.log(result);
 
 		if (result && result.length) {
-			if (password == result[0].Password) {
+
 				result[0].Problem = 0;
 				res.end(JSON.stringify(result[0]));
-			}
-			else {//problem 1 wrong pass
-				res.json({ "Problem": 1 });
-			}
+
 		}
-		else {//problem 2 no user with that name   
-			res.json({ "Problem": 2 });
-		}
+
 	})
 });

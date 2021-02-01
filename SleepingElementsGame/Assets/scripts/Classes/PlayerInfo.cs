@@ -6,17 +6,17 @@ public class PlayerInfo
 {
 
 
-    public string username;
-    public string password;
-    public int id;
+    public string Username;
+    public string Password;
+    public int User_ID;
     public int Nono;
 
 
     public PlayerInfo()
     {
 
-        this.username = null;
-        this.password = null;
+        this.Username = null;
+        this.Password = null;
 
     }
 
@@ -24,8 +24,8 @@ public class PlayerInfo
     public PlayerInfo(string name, string pass)
     {
 
-        this.username = name;
-        this.password = pass;
+        this.Username = name;
+        this.Password = pass;
 
     }
 
@@ -33,7 +33,7 @@ public class PlayerInfo
     public PlayerInfo(int iD)
     {
 
-        this.id = iD;
+        this.User_ID = iD;
 
     }
 
