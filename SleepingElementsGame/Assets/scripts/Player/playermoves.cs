@@ -90,6 +90,12 @@ public class playermoves : MonoBehaviour
             rb.AddForce(Vector2.up * jumpforce, ForceMode2D.Impulse);
 
         }
+        else if (rb.velocity.y < 0 && !IsOnGround())
+        {
+
+            rb.AddForce(Vector2.down / jumpforce, ForceMode2D.Impulse);
+
+        }
 
 
 
