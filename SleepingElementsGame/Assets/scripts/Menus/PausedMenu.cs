@@ -8,14 +8,15 @@ public class PausedMenu : MonoBehaviour
 
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject optionsMenu;
+    [SerializeField] private GameObject exitMenu;
 
     [SerializeField] private bool isPaused;
-    private bool inOptions;
+    private bool isStopped;
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && inOptions == false)
+        if (Input.GetKeyDown(KeyCode.Escape) && isStopped == false)
         {
 
             isPaused = !isPaused;
@@ -23,11 +24,12 @@ public class PausedMenu : MonoBehaviour
 
         }
 
-        else if(Input.GetKeyDown(KeyCode.Escape) && inOptions == true)
+        else if(Input.GetKeyDown(KeyCode.Escape) && isStopped == true)
         {
 
             ActivateMenu();
             CloseOptionsMenu();
+            CancelExit();
 
         }
 
@@ -71,15 +73,18 @@ public class PausedMenu : MonoBehaviour
 
     public void QuitGame()
     {
-        Debug.Log("Quit!!");
-        Application.Quit();
+
+        isStopped = true;
+        AudioListener.pause = true;
+        pauseMenu.SetActive(false);
+        exitMenu.SetActive(true);
 
     }
 
      public void OptionsMenu()
      {
 
-         inOptions = true;
+         isStopped = true;
          AudioListener.pause = true;
          pauseMenu.SetActive(false);
          optionsMenu.SetActive(true);
@@ -89,10 +94,29 @@ public class PausedMenu : MonoBehaviour
     public void CloseOptionsMenu()
     {
 
-        inOptions = false;
+        isStopped = false;
         AudioListener.pause = true;
         pauseMenu.SetActive(true);
         optionsMenu.SetActive(false);
+
+    }
+
+
+    public void ExitConfirm()
+    {
+
+        Debug.Log("Quit!!");
+        Application.Quit();
+
+    }
+
+    public void CancelExit()
+    {
+
+        isStopped = false;
+        AudioListener.pause = true;
+        pauseMenu.SetActive(true);
+        exitMenu.SetActive(false);
 
     }
 

@@ -98,17 +98,17 @@ public class Mainmenu : MonoBehaviour
             else if (dataReceived.Nono == 0)
             {
 
+                GameObject.Find("PetController").GetComponent<PetToggle>().playerInfo = dataReceived;
+                Debug.Log(GameObject.Find("PetController").GetComponent<PetToggle>().playerInfo.User_ID);
                 petSelect.SetActive(true);
                 GameObject.Find("LoginScreen").SetActive(false);
 
             }
-            Debug.Log(rData);
+            
 
 
         }
     }
-
-   
 
     public void RegisterToLogin()
     {

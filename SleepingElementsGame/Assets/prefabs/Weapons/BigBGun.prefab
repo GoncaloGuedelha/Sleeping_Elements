@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 8ea3f1ea95dd4b749b09a0f3cfd83c3d, type: 3}
-  m_Color: {r: 0.26740777, g: 0.39607844, b: 0.01568627, a: 1}
+  m_Color: {r: 0.9686275, g: 0.80392164, b: 0.03137255, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -103,7 +103,6 @@ MonoBehaviour:
   bulletSpeed: 10
   bulletStartOffSet: 0.5
   cooldownTime: 0.4
-  dmg: 2
   hits: 0
   holdAttack: 1
   inGun: 0
