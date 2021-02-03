@@ -1,5 +1,7 @@
 -- information
 
+use sleepingelements;
+
 insert into User (Username, Password) values ('Leon', 'Leon');
 insert into User (Username, Password) values ('test', 'test');
 
