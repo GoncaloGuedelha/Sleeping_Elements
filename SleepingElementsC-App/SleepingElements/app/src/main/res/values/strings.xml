@@ -1,0 +1,70 @@
+<resources>
+    <string name="app_name">SleepingElements</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+
+    <!-- Button Variables -->
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="wash">Wash</string>
+    <string name="feed">Feed</string>
+    <string name="exercise">Exercise</string>
+    <string name="medicine">Medicine</string>
+
+    <!-- Menu Strings -->
+    <string name="pet">Pet</string>  <!-- also used for a button -->
+    <string name="back">Back</string>
+
+    <!-- Pet DayCare Strings -->
+    <string name="health">Health</string>
+    <string name="happiness">Happiness</string>
+    <string name="hygiene">Hygiene</string>
+    <string name="hunger">Hunger</string>
+
+    <!-- Logo Description String -->
+    <string name="logoDesc">The Logo</string>
+
+    <!-- Audio Strings -->
+    <string name="music">Music</string>
+    <string name="afx">AFX</string>
+
+    <!-- Exercise Strings -->
+    <string name="walked">You have walked </string>
+    <string name="km">km.</string>
+    <string name="title_activity_exercise">ExerciseActivity</string>
+
+    <string name="steps">0</string>
+    <string name="stepsUp">Steps +</string>
+
+    <!-- V Login Strings V -->
+
+        <!-- Input Strings -->
+        <string name="UsernameInput">Username</string>
+        <string name="PasswordInput">Password</string>
+
+        <!-- Section Strings -->
+        <string name="PassText">Password</string>
+        <string name="UsernameText">Username</string>
+
+        <!-- Title Strings -->
+        <string name="LoginTitle">Login</string>
+        <string name="sleeping_elements">Sleeping Elements</string>
+
+        <!-- Login Button String -->
+        <string name="LoginButton">Login</string>
+        <string name="title_activity_login">LoginActivity</string>
+        <string name="prompt_email">Email</string>
+        <string name="prompt_password">Password</string>
+        <string name="action_sign_in">Sign in or register</string>
+        <string name="action_sign_in_short">Sign in</string>
+        <string name="welcome">"Welcome !"</string>
+        <string name="invalid_username">Not a valid username</string>
+        <string name="invalid_password">Password must be >5 characters</string>
+        <string name="login_failed">"Login failed"</string>
+        <string name="title_activity_exercise_">Exercise_Activity</string>
+
+    <!-- End of Login Strings -->
+
+</resources>

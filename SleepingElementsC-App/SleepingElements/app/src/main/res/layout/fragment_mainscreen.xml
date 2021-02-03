@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#001435"
+    android:backgroundTint="#001435"
+    tools:context=".MainScreen">
+
+    <Button
+        android:id="@+id/toPet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="136dp"
+        android:backgroundTint="#03A9F4"
+        android:text="@string/pet"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/toSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="80dp"
+        android:backgroundTint="#03A9F4"
+        android:text="@string/action_settings"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toPet" />
+
+    <ImageView
+        android:id="@+id/logo2"
+        android:layout_width="262dp"
+        android:layout_height="269dp"
+        android:contentDescription="@string/logoDesc"
+
+        tools:layout_editor_absoluteX="74dp"
+        tools:layout_editor_absoluteY="217dp"
+        tools:src="@drawable/sleeping_elements_logo_vector" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

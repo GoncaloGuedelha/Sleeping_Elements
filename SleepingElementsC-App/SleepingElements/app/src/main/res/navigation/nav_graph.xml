@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/SplashScreen">
+
+    <fragment
+        android:id="@+id/SplashScreen"
+        android:name="com.sleepingelements.SplashScreen"
+        android:label="@string/first_fragment_label"
+        tools:layout="@layout/fragment_splashscreen">
+        <action
+            android:id="@+id/action_splash_to_login"
+            app:destination="@id/Login" />
+    </fragment>
+    <fragment
+        android:id="@+id/MainScreen"
+        android:name="com.sleepingelements.MainScreen"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/fragment_mainscreen">
+        <action
+            android:id="@+id/action_mainscreen_to_pet"
+            app:destination="@id/pet"
+            app:enterAnim="@anim/fragment_close_enter"
+            app:exitAnim="@anim/fragment_close_exit" />
+    </fragment>
+    <fragment
+        android:id="@+id/pet"
+        android:name="com.sleepingelements.Pet"
+        android:label="fragment_pet"
+        tools:layout="@layout/fragment_pet">
+        <action
+            android:id="@+id/action_pet_to_mainscreen"
+            app:destination="@id/MainScreen"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit" />
+        <action
+            android:id="@+id/action_pet_to_exercise"
+            app:destination="@id/exercise" />
+    </fragment>
+    <fragment
+        android:id="@+id/Login"
+        android:name="com.sleepingelements.Login"
+        android:label="Login">
+        <action
+            android:id="@+id/action_login_to_mainscreen"
+            app:destination="@id/MainScreen" />
+    </fragment>
+    <action
+        android:id="@+id/action_global_pet2"
+        app:destination="@id/pet" />
+    <fragment
+        android:id="@+id/exercise"
+        android:name="com.sleepingelements.Exercise"
+        android:label="fragment_exercise"
+        tools:layout="@layout/fragment_exercise" >
+        <action
+            android:id="@+id/action_exercise_to_pet"
+            app:destination="@id/pet" />
+    </fragment>
+</navigation>

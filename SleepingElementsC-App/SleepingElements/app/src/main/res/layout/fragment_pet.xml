@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#001435"
+    android:backgroundTint="#001435"
+    android:padding="2dp"
+    tools:context=".Pet">
+
+    <Button
+        android:id="@+id/pet_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="161dp"
+        android:layout_marginTop="664dp"
+        android:layout_marginEnd="160dp"
+        android:layout_marginBottom="17dp"
+        android:backgroundTint="#03A9F4"
+        android:text="@string/back"
+        app:iconTint="#00BCD4"
+        app:iconTintMode="src_in"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/petImage"
+        android:layout_width="324dp"
+        android:layout_height="288dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="#00474646"
+        android:cropToPadding="true"
+        android:padding="2dp"
+        android:src="?android:attr/textSelectHandle"
+        app:layout_constraintBottom_toTopOf="@+id/health_textView"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/medicineButton"
+        android:layout_width="126dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="142dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="141dp"
+        android:backgroundTint="#FF556BF6"
+        android:text="@string/medicine"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/exerciseButton" />
+
+    <Button
+        android:id="@+id/washButton"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginEnd="36dp"
+        android:backgroundTint="#FF556BF6"
+        android:text="@string/wash"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        app:iconTint="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hygieneProgress" />
+
+    <Button
+        android:id="@+id/feedButton"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="34dp"
+        android:backgroundTint="#FF556BF6"
+        android:text="@string/feed"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        app:iconTint="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hygieneProgress" />
+
+    <Button
+        android:id="@+id/petButton"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="155dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginEnd="154dp"
+        android:backgroundTint="#FF556BF6"
+        android:text="@string/pet"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hygieneProgress" />
+
+    <Button
+        android:id="@+id/exerciseButton"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="155dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="154dp"
+        android:backgroundTint="#556BF6"
+        android:text="@string/exercise"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/petButton" />
+
+    <ProgressBar
+        android:id="@+id/healthProgress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="264dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="32dp"
+        android:max="100"
+        android:progress="50"
+        android:progressBackgroundTint="#FFFFFF"
+        android:progressTint="#F40303"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.108"
+        app:layout_constraintStart_toEndOf="@+id/health_textView"
+        app:layout_constraintTop_toBottomOf="@+id/petImage" />
+
+    <TextView
+        android:id="@+id/health_textView"
+        android:layout_width="68dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/health"
+        android:textAlignment="textEnd"
+        android:textColor="#03A9F4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/petImage" />
+
+    <TextView
+        android:id="@+id/happiness_textView"
+        android:layout_width="68dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/happiness"
+        android:textColor="#03A9F4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/health_textView"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/hunger_textView"
+        android:layout_width="68dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/hunger"
+        android:textAlignment="textEnd"
+        android:textColor="#03A9F4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/happiness_textView" />
+
+    <TextView
+        android:id="@+id/hygiene_textView"
+        android:layout_width="68dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/hygiene"
+        android:textAlignment="textEnd"
+        android:textColor="#03A9F4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hunger_textView" />
+
+    <ProgressBar
+        android:id="@+id/hygieneProgress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="264dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="32dp"
+        android:max="100"
+        android:progress="50"
+        android:progressBackgroundTint="#FFFFFF"
+        android:progressTint="#03F4D0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.108"
+        app:layout_constraintStart_toEndOf="@+id/health_textView"
+        app:layout_constraintTop_toBottomOf="@+id/hungerProgress" />
+
+    <ProgressBar
+        android:id="@+id/hungerProgress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="264dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="32dp"
+        android:max="100"
+        android:progress="50"
+        android:progressBackgroundTint="#FFFFFF"
+        android:progressTint="#4BF403"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.108"
+        app:layout_constraintStart_toEndOf="@+id/health_textView"
+        app:layout_constraintTop_toBottomOf="@+id/happinessProgress" />
+
+    <ProgressBar
+        android:id="@+id/happinessProgress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="264dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="32dp"
+        android:max="100"
+        android:progress="50"
+        android:progressBackgroundTint="#FFFFFF"
+        android:progressTint="#F48803"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.108"
+        app:layout_constraintStart_toEndOf="@+id/health_textView"
+        app:layout_constraintTop_toBottomOf="@+id/healthProgress" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
