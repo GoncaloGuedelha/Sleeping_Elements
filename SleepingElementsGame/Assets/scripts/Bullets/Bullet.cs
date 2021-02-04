@@ -46,7 +46,7 @@ public class Bullet : MonoBehaviour
     {
 
 
-        if (collision.gameObject.tag != "Gun" && collision.gameObject.tag != "Player" && collision.gameObject.tag != "Item" && collision.gameObject.tag != "Platform" && collision.gameObject.tag != "EnemyBullet") 
+        if (collision.gameObject.tag != "Gun" && collision.gameObject.tag != "Player" && collision.gameObject.tag != "Item" && collision.gameObject.tag != "Platform" && collision.gameObject.tag != "EnemyBullet" && collision.gameObject.tag != "Trigger") 
         {
             if(hitsdone == 0)
             {

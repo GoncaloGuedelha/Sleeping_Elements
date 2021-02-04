@@ -26,6 +26,8 @@ TagManager:
   - Door
   - BossHealth
   - BackGround
+  - BHControl
+  - Trigger
   layers:
   - Default
   - TransparentFX

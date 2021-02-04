@@ -13,6 +13,7 @@ public class playermoves : MonoBehaviour
     public float moveforce = 6f;
     public float jumpforce = 7f;
     public float pHealth = 3f;
+    public float jLimit = 6;
     public bool shield = false;
     private Vector3 scaleChange;
 
@@ -88,6 +89,13 @@ public class playermoves : MonoBehaviour
         {
 
             rb.AddForce(Vector2.up * jumpforce, ForceMode2D.Impulse);
+
+            if(rb.velocity.y > jLimit)
+            {
+
+                rb.velocity = new Vector2(rb.velocity.x, jLimit);
+
+            }
 
         }
         else if (rb.velocity.y < 0 && !IsOnGround())
