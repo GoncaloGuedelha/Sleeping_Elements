@@ -11,8 +11,8 @@ const port = 3000;
 dbcon = mysql.createConnection({
 	host: 'localhost',
 	user: 'root',
-	password: 'Macaco01',
-	database: 'SleepingElements'
+	password: 'root',
+	database: 'Sleeping_Elements'
 });
 
 dbcon.connect(function(err) {
@@ -28,6 +28,8 @@ app.use(bodyParser.json());
 app.listen(port, hostname, () => console.log(`Server running at 
 			http://${hostname}:${port}/`));
 
+
+// ---- Game ---- //
 
 //---------------Login------------------------
 app.post('/players/login', (req, res, next) => {
@@ -117,30 +119,40 @@ app.post('/players/register', (req, res, next) => {
 	})
 });
 
+// ---- Companion App ---- // 
 
-//---------------Pet------------------------
-app.post('/players/pet', (req, res, next) => {
-	console.log(req.body);
-	var data = req.body;
+//Getting the pet
+app.post('/getPet', function(req, res) {
 
-	var petHp = data.PetHealthBar;
-	var userID = data.User_ID;
-	
+	var userID = req.body
 
-	dbcon.query('SELECT PetHealthBar, User_ID FROM Pets WHERE User_ID=?', [userID], function (err, result, fields) {
-		console.log("now here");
-		dbcon.on('error', function (err) {
-			console.log('[MYSQL ERROR]', err);
-		})
+	let sql = "SELECT * FROM Pets WHERE User_ID = "+userID+";"
 
-		console.log(result);
+	dbcon.query(sql, (err, result)=> {
 
-		if (result && result.length) {
+		if (err) throw err;
 
-				result[0].Problem = 0;
-				res.end(JSON.stringify(result[0]));
+		res.send(result);
+		console.log("Pet Sent: " +result);
 
-		}
+	});
 
-	})
 });
+
+//Saving the pet
+app.post('/sendPetInfo', function (req, res) {
+
+	var name = req.body.name;
+	var hp = req.body.hp;
+	var hunger = req.body.hunger;
+	var hygiene= req.body.hygiene;
+	var happy = req.body.happy;
+	var userID = req.body.id;
+
+
+	let sql = "UPDATE Pets SET petName = "+name+", petHealthProgress = "+hp+", petHappinessProgress = "+happy+", petHungerProgress = "+hunger+",  petHygieneProgress = "+hygiene+" WHERE User_ID = "+userID+";"  
+
+
+});
+
+//Login same as the game

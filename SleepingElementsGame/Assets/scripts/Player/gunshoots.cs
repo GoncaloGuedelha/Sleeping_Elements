@@ -25,6 +25,7 @@ public class gunshoots : MonoBehaviour
     private float startTime = 0f;
     private float offSet = .2f;
     private float shootTimer = 0f;
+    public float offset;
 
 
     // Start is called before the first frame update
@@ -144,10 +145,15 @@ public class gunshoots : MonoBehaviour
                                             Mathf.Clamp(transform.localScale.y, .3f, .3f),
                                             Mathf.Clamp(transform.localScale.z, 0f, 0f));
 
-            float angle = 0f;
+
+            Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+            float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0f, 0f, rotZ + offSet);
+
+            //float angle = 0f;
 
             Vector2 mouseDirection = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
-            if (mouseDirection.magnitude > minMouseDistance)
+            /*if (mouseDirection.magnitude > minMouseDistance)
             {
 
                 angle = Mathf.Atan2(mouseDirection.y, mouseDirection.x) * Mathf.Rad2Deg;
@@ -159,15 +165,15 @@ public class gunshoots : MonoBehaviour
 
             
 
-            }
+            }*/
 
-            if(mouseDirection.x < player.transform.position.x)
+            if (mouseDirection.x < player.transform.position.x)
             {
                 spriteRenderer.flipX = true;
                 player.GetComponent<SpriteRenderer>().flipX = true;
 
-                if (offSet > 0)
-                    offSet = offSet * -1;
+                //if (offSet > 0)
+                    //offSet = offSet * -1;
 
             } 
 
@@ -179,12 +185,12 @@ public class gunshoots : MonoBehaviour
 
             
 
-             if (offSet < 0)
-                offSet = offSet * -1;
+             //if (offSet < 0)
+                //offSet = offSet * -1;
 
             }
 
-            transform.position = new Vector2(player.transform.position.x + offSet, player.transform.position.y);
+            transform.position = new Vector2(player.transform.position.x, player.transform.position.y);
 
             transform.localScale = fixedScale;
         }

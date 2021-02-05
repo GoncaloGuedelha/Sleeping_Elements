@@ -15,6 +15,7 @@ import androidx.navigation.fragment.findNavController
 
 
 
+
 //Progress Bars variables
 var healthProgress : ProgressBar? = null
 var happinessProgress : ProgressBar? = null

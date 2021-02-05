@@ -1,38 +1,32 @@
 package com.sleepingelements
 
+import android.content.Context
 import android.content.pm.PackageManager
+import android.hardware.Sensor
+import android.hardware.SensorEvent
+import android.hardware.SensorManager
 import android.os.Build
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import java.util.jar.Manifest
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 public class MainActivity : AppCompatActivity() {
 
-    
-    private var QorLater: Boolean? = null
+    //@RequiresApi(Build.VERSION_CODES.Q)
 
-    @RequiresApi(Build.VERSION_CODES.Q)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(findViewById(R.id.toolbar))
         supportActionBar?.hide()
-
-        //checking if the user is running android 10 or later
-        QorLater = Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q
-
-
-        if(QorLater == true) {
-
-            PackageManager.PERMISSION_GRANTED == ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACTIVITY_RECOGNITION)
-
-        }
-
-        //if()
 
 
     }

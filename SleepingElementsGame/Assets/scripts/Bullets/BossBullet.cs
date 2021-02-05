@@ -67,7 +67,7 @@ public class BossBullet : MonoBehaviour
             
 
         }
-        else if (collision.gameObject.tag != "Platform" && collision.gameObject.tag != "Boss" && collision.gameObject.tag != "EnemyBullet" && collision.gameObject.tag != "Item" && collision.gameObject.tag != "Bullet" && collision.gameObject.tag != "Gun")
+        else if (collision.gameObject.tag != "Platform" && collision.gameObject.tag != "Boss" && collision.gameObject.tag != "EnemyBullet" && collision.gameObject.tag != "Item" && collision.gameObject.tag != "Bullet" && collision.gameObject.tag != "Gun" && collision.gameObject.tag != "Trigger")
         {
 
             Destroy(gameObject);

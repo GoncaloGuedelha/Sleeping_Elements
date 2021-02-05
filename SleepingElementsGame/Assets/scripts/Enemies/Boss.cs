@@ -26,7 +26,8 @@ public class Boss : MonoBehaviour
     public GameObject thirdAttackPos2;
     public GameObject thirdAttackPos3;
     private GameObject healthBar;
-    
+    [SerializeField] private GameObject bhControl;
+
 
     private Vector2 playerPos;
     private Vector3 randomX;
@@ -68,7 +69,7 @@ public class Boss : MonoBehaviour
             {
 
                 Destroy(gameObject);
-                Destroy(healthBar);
+                Destroy(bhControl);
 
             }
 

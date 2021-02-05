@@ -15,12 +15,16 @@ public class chests : MonoBehaviour
     private GameObject drop;
     private bool playerInside = false;
 
+    private Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
 
         player = GameObject.FindWithTag("Player");
         weaponsItemsHolder = GameObject.Find("Weapons/Items");
+
+        animator = GetComponent<Animator>();
 
     }
 
@@ -37,8 +41,15 @@ public class chests : MonoBehaviour
                 selected = theSelector[index];
 
                 open = true;
+                animator.SetBool("open", true);
                 GameObject create = Instantiate(selected, transform.position, Quaternion.identity) as GameObject;
                 create.transform.parent = weaponsItemsHolder.transform;
+
+            }
+            else
+            {
+
+                animator.SetBool("open", false);
 
             }
 

@@ -19,22 +19,40 @@ import android.widget.Toast
 import androidx.core.content.getSystemService
 import androidx.navigation.fragment.findNavController
 import java.lang.Math.pow
+import java.util.Arrays.toString
+import kotlin.math.pow
+
 
 
 class Exercise : Fragment(), SensorEventListener {
 
+    //Step Counting variables
     private var sensorManager: SensorManager? = null
     private var steps: TextView? = null
     private var running = false
-    private var back: Button? = null
     private var sensor: Sensor? = null
+
+    private var stepEventArray = mutableListOf<Int>()
+
+    //Initial Steps variable
+    private var initSteps: Int? = null
+
+    //Button Variables
+    private var back: Button? = null
+
+    //Timer variables
     private var exerciseTimer: Long? = 1200000 //20 minutes
     private var exerciseHandler = Handler(Looper.getMainLooper())
 
+
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_exercise, container, false)
+
+
 
     }
 
@@ -42,10 +60,10 @@ class Exercise : Fragment(), SensorEventListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        back = view.findViewById(R.id.backPet)
-        steps = view.findViewById(R.id.stepsCount)
         sensorManager = activity?.getSystemService(Context.SENSOR_SERVICE) as SensorManager?
 
+        back = view.findViewById(R.id.backPet)
+        steps = view.findViewById(R.id.stepsCount)
         back!!.setOnClickListener {
 
             findNavController().navigate(R.id.action_exercise_to_pet)
@@ -60,7 +78,7 @@ class Exercise : Fragment(), SensorEventListener {
 
         running = true
 
-        sensor = sensorManager?.getDefaultSensor(Sensor.TYPE_STEP_DETECTOR)
+        sensor = sensorManager?.getDefaultSensor(Sensor.TYPE_STEP_COUNTER)
 
         if (sensor == null) {
 
@@ -79,6 +97,7 @@ class Exercise : Fragment(), SensorEventListener {
         super.onPause()
 
         running = false
+        sensorManager?.unregisterListener(this)
 
     }
 
@@ -86,8 +105,10 @@ class Exercise : Fragment(), SensorEventListener {
 
         if (running) {
 
-            steps?.text = stepsToKilometer(event!!.values[0]).toString()
-            Log.d("Steps", steps.toString())
+            stepEventArray.add(event!!.values[0].toInt())
+
+            steps?.text = (event.values[0] - stepEventArray[0]).toString()
+            Log.d("Event", steps?.text.toString())
 
         }
 
@@ -103,9 +124,7 @@ class Exercise : Fragment(), SensorEventListener {
     private fun stepsToKilometer(steps: Float): Int {
 
         val m = steps * 0.76f
-        val km = (m * pow(10.toDouble(), 3.toDouble())).toInt()
-
-        return km
+        return (m * 10.toDouble().pow(3.toDouble())).toInt()
 
     }
 
