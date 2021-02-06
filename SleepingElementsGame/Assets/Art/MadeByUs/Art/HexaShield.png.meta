@@ -1,0 +1,385 @@
+fileFormatVersion: 2
+guid: b5a0b5c77bf7a494cab977d96fe4ba70
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6487530393089909773
+    second: HexaShield_0
+  - first:
+      213: 5289875755065174453
+    second: HexaShield_1
+  - first:
+      213: -3255429634309943661
+    second: HexaShield_2
+  - first:
+      213: -9074819452851958913
+    second: HexaShield_3
+  - first:
+      213: -4205988875981296472
+    second: HexaShield_4
+  - first:
+      213: -2469913300700928837
+    second: HexaShield_5
+  - first:
+      213: 4107334485665766573
+    second: HexaShield_0
+  - first:
+      213: -1772714697277200363
+    second: HexaShield_1
+  - first:
+      213: 3785361753956319133
+    second: HexaShield_2
+  - first:
+      213: 1371668634603683893
+    second: HexaShield_3
+  - first:
+      213: 4174280984841876062
+    second: HexaShield_4
+  - first:
+      213: -7340402674196369693
+    second: HexaShield_5
+  - first:
+      213: -8306438541396909513
+    second: HexaShield_6
+  - first:
+      213: 617466658602880918
+    second: HexaShield_7
+  - first:
+      213: 8387704624906633926
+    second: HexaShield_8
+  - first:
+      213: -6920160487642185861
+    second: HexaShield_9
+  - first:
+      213: 6754303401696948506
+    second: HexaShield_10
+  - first:
+      213: 3847667406679980989
+    second: HexaShield_11
+  - first:
+      213: -5818992983196311882
+    second: HexaShield_12
+  - first:
+      213: -1595793033739901183
+    second: HexaShield_13
+  - first:
+      213: -3664316353045059414
+    second: HexaShield_14
+  - first:
+      213: -8665198788714317051
+    second: HexaShield_15
+  - first:
+      213: 5944394266003662361
+    second: HexaShield_16
+  - first:
+      213: 3273484343884386344
+    second: HexaShield_17
+  - first:
+      213: 4454325426433433010
+    second: HexaShield_18
+  - first:
+      213: -661426205524087699
+    second: HexaShield_19
+  - first:
+      213: -1686656546396769200
+    second: HexaShield_20
+  - first:
+      213: -6807024892233871962
+    second: HexaShield_21
+  - first:
+      213: 2022273175218531407
+    second: HexaShield_22
+  - first:
+      213: -6534544597291537817
+    second: HexaShield_23
+  - first:
+      213: 1760299540930417914
+    second: HexaShield_24
+  - first:
+      213: 4221561237888163253
+    second: HexaShield_25
+  - first:
+      213: 557593621757861839
+    second: HexaShield_26
+  - first:
+      213: 5802093349426590936
+    second: HexaShield_27
+  - first:
+      213: -2985557120929365006
+    second: HexaShield_28
+  - first:
+      213: 8315174619343593514
+    second: HexaShield_29
+  - first:
+      213: -2524989799366577594
+    second: HexaShield_30
+  - first:
+      213: 7402109532578805630
+    second: HexaShield_31
+  - first:
+      213: -7393710833941740881
+    second: HexaShield_32
+  - first:
+      213: 2280179252886132973
+    second: HexaShield_33
+  - first:
+      213: 8897508995579712610
+    second: HexaShield_34
+  - first:
+      213: -528765023049722382
+    second: HexaShield_35
+  - first:
+      213: -8368219073152796251
+    second: HexaShield_36
+  - first:
+      213: -3476199610179493664
+    second: HexaShield_37
+  - first:
+      213: -5336731891854453568
+    second: HexaShield_38
+  - first:
+      213: 5609082042757379873
+    second: HexaShield_39
+  - first:
+      213: -3866122998218031897
+    second: HexaShield_40
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: HexaShield_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d04aca52586580a50800000000000000
+      internalID: 6487530393089909773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HexaShield_1
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 96
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b96c96e8f9696940800000000000000
+      internalID: 5289875755065174453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HexaShield_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 48
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39e0dafdef362d2d0800000000000000
+      internalID: -3255429634309943661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HexaShield_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 48
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7b44ffb9c3cf0280800000000000000
+      internalID: -9074819452851958913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HexaShield_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ace3edc66351a5c0800000000000000
+      internalID: -4205988875981296472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HexaShield_5
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb465bd60fa19bdd0800000000000000
+      internalID: -2469913300700928837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

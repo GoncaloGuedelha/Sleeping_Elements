@@ -20,7 +20,7 @@ public class ShieldEffect : MonoBehaviour
     [Range(1, 10)]
     public int maximumStack;
 
-  
+    private Animator animator;
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +32,9 @@ public class ShieldEffect : MonoBehaviour
         maximumStack = 1;
         oldStack = maximumStack;
         run = false;
-        
+
+        animator = GetComponent<Animator>();
+
     }
 
 
@@ -41,6 +43,7 @@ public class ShieldEffect : MonoBehaviour
     {
 
         itemInfo.SetActive(true);
+        animator.SetBool("Anim", true);
 
     }
 
@@ -49,6 +52,7 @@ public class ShieldEffect : MonoBehaviour
     {
 
         itemInfo.SetActive(false);
+        animator.SetBool("Anim", false);
 
     }
 

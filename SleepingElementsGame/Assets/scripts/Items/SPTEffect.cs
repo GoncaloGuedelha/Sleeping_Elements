@@ -21,6 +21,8 @@ public class SPTEffect : MonoBehaviour
     [Range(1, 10)]
     public int maximumStack;
 
+    private Animator animator;
+
     void Awake()
     {
 
@@ -43,6 +45,8 @@ public class SPTEffect : MonoBehaviour
 
         GameObject.FindGameObjectWithTag("Player").GetComponent<playermoves>().moveforce = currentSpeed - moveValue;
         GameObject.FindGameObjectWithTag("Gun").GetComponent<gunshoots>().cooldownTime = currentRateOfFire - fireValue;
+
+        animator = GetComponent<Animator>();
     }
 
 
@@ -51,6 +55,7 @@ public class SPTEffect : MonoBehaviour
     {
 
         itemInfo.SetActive(true);
+        animator.SetBool("Anim", true);
 
     }
 
@@ -59,6 +64,7 @@ public class SPTEffect : MonoBehaviour
     {
 
         itemInfo.SetActive(false);
+        animator.SetBool("Anim", false);
 
     }
 

@@ -18,6 +18,8 @@ public class SPBEffect : MonoBehaviour
     [Range(1, 10)]
     public int maximumStack;
 
+    private Animator animator;
+
     void Awake()
     {
 
@@ -38,6 +40,8 @@ public class SPBEffect : MonoBehaviour
 
         GameObject.FindGameObjectWithTag("Player").GetComponent<playermoves>().moveforce = currentSpeed + moveValue;
 
+        animator = GetComponent<Animator>();
+
     }
 
 
@@ -46,6 +50,7 @@ public class SPBEffect : MonoBehaviour
     {
 
         itemInfo.SetActive(true);
+        animator.SetBool("Anim", true);
 
     }
 
@@ -54,6 +59,7 @@ public class SPBEffect : MonoBehaviour
     {
 
         itemInfo.SetActive(false);
+        animator.SetBool("Anim", false);
 
     }
 
