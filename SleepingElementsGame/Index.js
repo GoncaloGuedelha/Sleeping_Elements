@@ -120,7 +120,7 @@ app.post('/players/register', (req, res, next) => {
 });
 
 // ---- Companion App ---- // 
-
+/*
 //Getting the pet
 app.post('/getPet', function(req, res) {
 
@@ -140,6 +140,7 @@ app.post('/getPet', function(req, res) {
 });
 
 //Saving the pet
+
 app.post('/sendPetInfo', function (req, res) {
 
 	var name = req.body.name;
@@ -154,5 +155,39 @@ app.post('/sendPetInfo', function (req, res) {
 
 
 });
+*/
 
-//Login same as the game
+
+//Login
+app.post('pet/login', function(req, res) {
+
+	console.log("a");
+	console.log("[PET LOGIN]", req.body);
+
+	var username = req.body.username;
+	var password = req.body.password;
+
+	dbcon.query('SELECT * FROM User WHERE Username=?', [username], function (err, result, fields) {
+		//console.log("now here");
+		dbcon.on('error', function (err) {
+			console.log('[MYSQL ERROR]', err);
+		})
+
+		console.log(result);
+
+		if (result && result.length) {
+			if (password == result[0].Password) {
+				
+				res.send("Login Successful");
+			}
+			else {//problem 1 wrong pass
+				res.send("Wrong Password");
+			}
+		}
+		else {//problem 2 no user with that name   
+			res.send("Wrong Combination");
+		}
+	})
+
+
+});

@@ -10,10 +10,14 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
+import retrofit2.Call
+import retrofit2.Response
+import javax.security.auth.callback.Callback
 
 
 class Login : Fragment() {
 
+    var userInputs = mutableListOf<String>()
 
     //Variables to hold the comparable strings
     var defUser: String = "Leon"
@@ -29,6 +33,9 @@ class Login : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+
+
     }
 
     override fun onCreateView(
@@ -62,17 +69,19 @@ class Login : Fragment() {
         userInput = userField?.text.toString()
         passInput = passField?.text.toString()
 
-        //Checking if they are equal to the defaults (needs to be changed to the database)
-        if (userInput == defUser && passInput == defPass) {
+        val userCreds = UserCredentials(userInput.toString(), passInput.toString())
 
-            Log.d("Hey", userInput.toString() + " " + passInput.toString())
-            Toast.makeText(this.context, "Welcome $userInput", Toast.LENGTH_SHORT).show()
+        Log.d("Info Sent:", UserCredentials(userInput.toString(), passInput.toString()).toString())
 
-            findNavController().navigate(R.id.action_login_to_mainscreen)
+        MainActivity().checkLogin(this.requireContext(), userCreds) {
 
-        } else {
+            Log.d("Response from Server", it.toString())
 
-            Toast.makeText(this.context, "Username / Password combination wrong", Toast.LENGTH_LONG).show()
+            if(it?.user_id != null) {
+                Log.d("Ok", "Ok")
+            } else {
+                Log.d("Error", "Error")
+            }
 
         }
 
@@ -80,3 +89,5 @@ class Login : Fragment() {
 
 
 }
+
+

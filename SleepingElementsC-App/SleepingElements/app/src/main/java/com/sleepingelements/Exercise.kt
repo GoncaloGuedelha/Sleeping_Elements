@@ -32,10 +32,8 @@ class Exercise : Fragment(), SensorEventListener {
     private var running = false
     private var sensor: Sensor? = null
 
+    //List of Step Counter Events
     private var stepEventArray = mutableListOf<Int>()
-
-    //Initial Steps variable
-    private var initSteps: Int? = null
 
     //Button Variables
     private var back: Button? = null
