@@ -67,7 +67,7 @@ public class PausedMenu : MonoBehaviour
     public void PreviousScene()
     {
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        SceneManager.LoadScene(sceneBuildIndex: 0);
 
     }
 

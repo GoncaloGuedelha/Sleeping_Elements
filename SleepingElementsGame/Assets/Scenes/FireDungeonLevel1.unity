@@ -635,11 +635,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635197, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635197, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635199, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: health
@@ -11919,11 +11919,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635197, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635197, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635199, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: health
@@ -11993,11 +11993,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635197, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635197, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635199, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: health
@@ -12581,11 +12581,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635197, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635197, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635199, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: health
@@ -12655,11 +12655,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635197, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635197, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635199, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: health
@@ -14475,11 +14475,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635197, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.0404078
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635197, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.0539205
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635199, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: health
@@ -14610,11 +14610,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635197, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635197, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635199, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: health
@@ -16301,7 +16301,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0.7176471}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -16348,7 +16348,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.33333334, g: 0.41960785, b: 0.9647059, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -16499,11 +16499,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635197, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635197, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635199, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: health
@@ -23477,6 +23477,8 @@ MonoBehaviour:
   pHealth: 3
   jLimit: 8
   shield: 0
+  asc: {fileID: 0}
+  footsteps: {fileID: 0}
   image: {fileID: 1023366310}
   dodge: 0
   dodgeTimer: 0
@@ -23493,7 +23495,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 2
+  m_Mass: 1.5
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -23515,8 +23517,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.06109174, y: 0.09999358}
-  m_Size: {x: 1.7810407, y: 0.84276044}
+  m_Offset: {x: -0.06109174, y: 0.07373047}
+  m_Size: {x: 1.7810404, y: 0.8952867}
   m_Direction: 0
 --- !u!212 &580572080
 SpriteRenderer:
@@ -23743,11 +23745,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635197, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635197, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635199, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: health
@@ -23812,11 +23814,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635197, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635197, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635199, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: health
@@ -25126,7 +25128,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4374254498587644712, guid: 1678c66232040914fa023c6359ec85c6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.709999
+      value: -13.36
       objectReference: {fileID: 0}
     - target: {fileID: 4374254498587644712, guid: 1678c66232040914fa023c6359ec85c6, type: 3}
       propertyPath: m_LocalPosition.y
@@ -25751,7 +25753,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.7176471}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -25798,7 +25800,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.33333334, g: 0.41960785, b: 0.9647059, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -27699,7 +27701,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -28846,7 +28848,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.7176471}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -28893,7 +28895,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.33333334, g: 0.41960785, b: 0.9647059, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -29500,11 +29502,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635197, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635197, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635199, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: health
@@ -29651,11 +29653,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635197, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635197, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635199, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: health
@@ -29795,7 +29797,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -30159,11 +30161,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635197, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635197, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635199, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: health
@@ -30809,11 +30811,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635197, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635197, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635199, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: health
@@ -30987,11 +30989,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635197, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635197, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635199, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: health
@@ -31418,7 +31420,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0.7176471}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -31465,7 +31467,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.33333334, g: 0.41960785, b: 0.9647059, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -31718,7 +31720,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -31845,7 +31847,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0.7176471}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -31892,7 +31894,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.33333334, g: 0.41960785, b: 0.9647059, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -32345,11 +32347,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635197, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635197, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635199, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: health
@@ -32820,7 +32822,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -34039,11 +34041,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635197, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635197, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635199, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: health
@@ -34434,11 +34436,11 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_NormalColor: {r: 0.33333334, g: 0.41960785, b: 0.9647059, a: 1}
+    m_HighlightedColor: {r: 0.33333334, g: 0.41960785, b: 0.9647059, a: 1}
+    m_PressedColor: {r: 0.33333334, g: 0.41960785, b: 0.9647059, a: 1}
+    m_SelectedColor: {r: 0.33333334, g: 0.41960785, b: 0.9647059, a: 1}
+    m_DisabledColor: {r: 0.33333334, g: 0.41960785, b: 0.9647059, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -36573,11 +36575,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635197, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635197, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635199, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: health
@@ -37508,11 +37510,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635197, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635197, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635199, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: health
@@ -37853,11 +37855,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635197, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635197, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635199, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: health
@@ -38283,11 +38285,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635197, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635197, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635199, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: health
@@ -38390,11 +38392,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635197, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635197, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635199, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: health
@@ -38611,11 +38613,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635197, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635197, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635199, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: health
@@ -40593,11 +40595,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635197, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635197, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635199, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: health
@@ -41531,11 +41533,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635197, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635197, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635199, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: health
@@ -41754,11 +41756,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635197, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635197, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635199, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: health
@@ -42747,7 +42749,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1857892269}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 58.52, y: 5.107001, z: 0}
+  m_LocalPosition: {x: 58.32, y: 5.107001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 533757045}
@@ -43419,7 +43421,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -43625,11 +43627,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635197, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635197, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635199, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: health
@@ -68503,7 +68505,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.33333334, g: 0.41960785, b: 0.9647059, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -68687,6 +68689,8 @@ MonoBehaviour:
   enemies:
   - {fileID: 2132448414}
   - {fileID: 878147111}
+  - {fileID: 844543563}
+  - {fileID: 66314820}
   allDefeated: 0
 --- !u!1 &2021776614
 GameObject:
@@ -69568,11 +69572,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635197, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635197, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635199, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: health
@@ -70364,7 +70368,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -70686,7 +70690,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0.7176471}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -70733,7 +70737,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.33333334, g: 0.41960785, b: 0.9647059, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -70876,11 +70880,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635197, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635197, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635199, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: health
@@ -71160,11 +71164,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635197, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635197, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5411950960017635199, guid: 382846f2979c23549873c5bc6db4a86c, type: 3}
       propertyPath: health

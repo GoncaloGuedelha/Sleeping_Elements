@@ -70,14 +70,14 @@ public class gunshoots : MonoBehaviour
                 if (Input.GetMouseButtonDown(1))
                 {
 
-                    //startTime = Time.time;
-                    timeHold -= Time.deltaTime;
+                    startTime = Time.time;
+                    //timeHold -= Time.deltaTime * 3;
                     image.GetComponent<Animator>().SetBool("charging", true);
                     Debug.Log(timeHold);
 
                 }
 
-                 if (timeHold <= 0)//(startTime + timeHold > Time.time)
+                 if (startTime + timeHold > Time.time)
                  {
 
                     //gameObject.GetComponent<Renderer>().material.color = new Color(0.533f, 0.443f, 0.027f);
@@ -85,7 +85,7 @@ public class gunshoots : MonoBehaviour
                     //image.GetComponent<Animator>().SetBool("charging", false);
                     image.GetComponent<Animator>().SetBool("charged", true);
 
-                }
+                 }
                  /*else
                  {
 
@@ -102,7 +102,7 @@ public class gunshoots : MonoBehaviour
 
 
                     //gameObject.GetComponent<Renderer>().material.color = new Color(0.968f, 0.803f, 0.031f);
-                    if (timeHold <= 0)//(startTime + timeHold <= Time.time)
+                    if ((startTime + timeHold <= Time.time))
                     {
 
                         Vector3 mouseDirection = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
@@ -250,6 +250,8 @@ public class gunshoots : MonoBehaviour
 
 
     }*/
+
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

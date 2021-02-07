@@ -20,7 +20,9 @@ public class playermoves : MonoBehaviour
     private GameObject spikes;
     private GameObject healthBar;
 
-    //private Animator animator;
+    public AudioSource asc;
+    public AudioClip footsteps;
+
 
     [SerializeField] private GameObject image;
 
@@ -44,6 +46,7 @@ public class playermoves : MonoBehaviour
         spikes = GameObject.FindGameObjectWithTag("Hazards");
         healthBar = GameObject.FindGameObjectWithTag("Playerhealth");
         scaleChange = new Vector3(-35f, -0, -0);
+
 
         //animator = GetComponent<Animator>();
 
@@ -142,6 +145,9 @@ public class playermoves : MonoBehaviour
 
         }
 
+
+
+
     }
 
 
@@ -165,12 +171,12 @@ public class playermoves : MonoBehaviour
             }
             else 
             {
-
-                //rb.AddForce(Vector2.up * 3, ForceMode2D.Impulse);
+                //Vector2 knockback = new Vector2(-1000, Vector2.up.y * 9);
+                rb.AddForce(Vector2.up * 9, ForceMode2D.Impulse);
                 //rb.AddForce(Vector3.left * 2000000000);
                 //rb.AddForce(new Vector3(20, 6, 0), ForceMode.Impulse);
                 //rb.AddForce(new Vector2(-10000000000, 6), ForceMode2D.Impulse);
-                rb.AddForce(new Vector3(-1000, 300, 0));
+                //rb.AddForce(new Vector3(-1000, 300, 0));
                 pHealth = pHealth - 0.5f;
                 healthBar.transform.localScale += scaleChange;
             
