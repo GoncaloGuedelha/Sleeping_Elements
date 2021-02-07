@@ -26,6 +26,8 @@ public class MeleeEnemy : MonoBehaviour
 
     private int nextWaypoint;
 
+    private SpriteRenderer spriteRenderer;
+
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +36,8 @@ public class MeleeEnemy : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
         playerPos = new Vector2(0, 0);
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
     }
 
@@ -57,11 +61,37 @@ public class MeleeEnemy : MonoBehaviour
 
                     //Patrolling: goes from wapoint to waypoint
                     if (Vector2.Distance(transform.position, waypoints[nextWaypoint].position) <= waypointOffset * moveSpeed)
+                    {
+
+
                         nextWaypoint++;
+
+
+                    }
+                        
+
+                      
                     if (nextWaypoint >= waypoints.Length)
                         nextWaypoint = 0;
 
                     transform.position = Vector2.MoveTowards(transform.position, waypoints[nextWaypoint].position, moveSpeed * Time.deltaTime);
+
+                        Vector2 dir = waypoints[nextWaypoint].position - transform.position;
+                        dir.Normalize();
+
+
+                        if ((dir.x > 0) && (spriteRenderer.flipX))
+                        {
+
+                            spriteRenderer.flipX = false;
+
+                        }
+                        else if ((dir.x < 0) && (!spriteRenderer.flipX))
+                        {
+
+                            spriteRenderer.flipX = true;
+
+                        }
 
                     //Changing the state to Chase
                     if (Vector2.Distance(transform.position, player.transform.position) < viewRange)
@@ -84,6 +114,24 @@ public class MeleeEnemy : MonoBehaviour
                     
                     transform.position = Vector2.MoveTowards(transform.position, playerPos, moveSpeed * Time.deltaTime);
 
+                    Vector2 pDir = player.transform.position - transform.position;
+                    pDir.Normalize();
+
+                    if ((pDir.x > 0) && (spriteRenderer.flipX))
+                    {
+
+                        spriteRenderer.flipX = false;
+
+                    }
+                    else if ((pDir.x < 0) && (!spriteRenderer.flipX))
+                    {
+
+                        spriteRenderer.flipX = true;
+
+                    }
+
+
+
                     if (Vector2.Distance(transform.position, player.transform.position) > viewRange)
                         state = "Patrol";
 
@@ -95,6 +143,21 @@ public class MeleeEnemy : MonoBehaviour
                 break;
 
         }
+
+
+
+        /*if ((Distance) && (spriteRenderer.flipX))
+        {
+
+            spriteRenderer.flipX = false;
+
+        }
+        else if ((rb.velocity.x < 0) && (!spriteRenderer.flipX))
+        {
+
+            spriteRenderer.flipX = true;
+
+        }*/
 
     }
 

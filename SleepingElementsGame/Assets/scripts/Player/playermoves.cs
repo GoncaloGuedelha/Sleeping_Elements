@@ -20,6 +20,10 @@ public class playermoves : MonoBehaviour
     private GameObject spikes;
     private GameObject healthBar;
 
+    //private Animator animator;
+
+    [SerializeField] private GameObject image;
+
     //private SpriteRenderer spriteRenderer;
 
     public bool dodge = false;
@@ -40,6 +44,8 @@ public class playermoves : MonoBehaviour
         spikes = GameObject.FindGameObjectWithTag("Hazards");
         healthBar = GameObject.FindGameObjectWithTag("Playerhealth");
         scaleChange = new Vector3(-35f, -0, -0);
+
+        //animator = GetComponent<Animator>();
 
     }
 
@@ -88,6 +94,8 @@ public class playermoves : MonoBehaviour
         if (jump > 0 && (IsOnGround()))
         {
 
+            image.GetComponent<Animator>().SetBool("jump", true);
+
             rb.AddForce(Vector2.up * jumpforce, ForceMode2D.Impulse);
 
             if(rb.velocity.y > jLimit)
@@ -104,12 +112,27 @@ public class playermoves : MonoBehaviour
             rb.AddForce(Vector2.down / jumpforce, ForceMode2D.Impulse);
 
         }
+        else if (IsOnGround())
+        {
+
+            image.GetComponent<Animator>().SetBool("jump", false);
+
+        }
 
 
 
         rb.velocity = new Vector2(horizontal * moveforce, rb.velocity.y);
 
-        if(pHealth <= 0)
+        if (horizontal != 0)
+        {
+            image.GetComponent<Animator>().SetFloat("speed", Mathf.Abs(rb.velocity.x));
+        }
+        else
+        {
+            image.GetComponent<Animator>().SetFloat("speed", -1);
+        }
+
+        if (pHealth <= 0)
         {
 
             SceneManager.LoadScene(sceneBuildIndex: 2);

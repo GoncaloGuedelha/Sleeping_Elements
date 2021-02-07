@@ -28,6 +28,7 @@ TagManager:
   - BackGround
   - BHControl
   - Trigger
+  - BossTrigger
   layers:
   - Default
   - TransparentFX

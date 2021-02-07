@@ -10,6 +10,8 @@ public class FlyingEnemy2 : MonoBehaviour
     private Rigidbody2D rb;
     private GameObject player;
 
+    private SpriteRenderer spriteRenderer;
+
     [SerializeField] public GameObject enemyBullet;
     private GameObject bullet;
     private float bulletStartOffset = 0.5f;
@@ -45,7 +47,7 @@ public class FlyingEnemy2 : MonoBehaviour
 
         rb.gravityScale = 0;
 
-        
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
     }
 
@@ -62,12 +64,38 @@ public class FlyingEnemy2 : MonoBehaviour
 
         //Patrolling: goes from wapoint to waypoint
         if (Vector2.Distance(transform.position, waypoints[nextWaypoint].position) <= waypointOffset * moveSpeed)
+        {
+
+
             nextWaypoint++;
+
+
+
+        }
+
+
+            
 
         if (nextWaypoint >= waypoints.Length)
             nextWaypoint = 0;
 
         transform.position = Vector2.MoveTowards(transform.position, waypoints[nextWaypoint].position, moveSpeed * Time.deltaTime);
+
+        Vector2 dir = waypoints[nextWaypoint].position - transform.position;
+        dir.Normalize();
+
+            if ((dir.x < 0) && (spriteRenderer.flipX))
+            {
+
+                spriteRenderer.flipX = false;
+
+            }
+            else if ((dir.x > 0) && (!spriteRenderer.flipX))
+            {
+
+                spriteRenderer.flipX = true;
+
+            }
 
         //Switch Case responsible for the behaviour of the enemy
         switch (state)
@@ -112,13 +140,44 @@ public class FlyingEnemy2 : MonoBehaviour
                         transform.position = Vector2.MoveTowards(transform.position, waypoints[nextWaypoint].position, moveSpeed * Time.deltaTime);
                         state = "Patrol";
                     }
-                        
+
+                    Vector2 pDir = player.transform.position - transform.position;
+                    pDir.Normalize();
+
+                    if ((pDir.x > 0) && (spriteRenderer.flipX))
+                    {
+
+                        spriteRenderer.flipX = false;
+
+                    }
+                    else if ((pDir.x < 0) && (!spriteRenderer.flipX))
+                    {
+
+                        spriteRenderer.flipX = true;
+
+                    }
+
+                    if ((rb.velocity.x > 0) && (spriteRenderer.flipX))
+                    {
+
+                        spriteRenderer.flipX = false;
+
+                    }
+                    else if ((rb.velocity.x < 0) && (!spriteRenderer.flipX))
+                    {
+
+                        spriteRenderer.flipX = true;
+
+                    }
+
 
                 }
 
                 break;
 
         }
+
+
 
     }
 

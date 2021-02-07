@@ -37,7 +37,8 @@ public class BossTrigger : MonoBehaviour
             for (int i = 0; i < door.Length; i++)
             {
 
-                door[i].SetActive(false);
+                door[i].GetComponent<BoxCollider2D>().isTrigger = true;
+                door[i].GetComponent<Animator>().SetBool("closed", false);
 
             }
 
@@ -62,7 +63,9 @@ public class BossTrigger : MonoBehaviour
                 for (int i = 0; i < door.Length; i++)
                 {
 
-                    door[i].SetActive(true);
+                    door[i].GetComponent<Animator>().SetBool("closed", true);
+                    door[i].GetComponent<BoxCollider2D>().isTrigger = false;
+
 
                 }
 

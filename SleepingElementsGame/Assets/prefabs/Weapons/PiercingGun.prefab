@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6992607375111121516}
   - component: {fileID: 9208788739896944542}
   - component: {fileID: 9168265875870560359}
+  - component: {fileID: 6999548889428068287}
   m_Layer: 12
   m_Name: PiercingGun
   m_TagString: DroppedGun
@@ -28,8 +29,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1901318977610452420}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -52.61, y: 12.72, z: -2.308214}
-  m_LocalScale: {x: 1.1220593, y: 0.2131724, z: 1}
+  m_LocalPosition: {x: -53.0522, y: 12.636, z: -2.308214}
+  m_LocalScale: {x: 1.122059, y: 0.2131724, z: 1.788203}
   m_Children:
   - {fileID: 4165037649403405199}
   m_Father: {fileID: 0}
@@ -137,7 +138,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1901318977610452420}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -156,6 +157,35 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!60 &6999548889428068287
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1901318977610452420}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.46642786, y: -2.2995956}
+      - {x: -0.58510894, y: -1.4904581}
+      - {x: 0.2991713, y: 2.1742418}
+      - {x: 0.7017672, y: 1.3611045}
 --- !u!1 &3948397023557295947
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,7 +197,7 @@ GameObject:
   - component: {fileID: 4165037649403405199}
   - component: {fileID: 3080857281906411659}
   m_Layer: 12
-  m_Name: PiercingGun
+  m_Name: PiercingGunIm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -181,8 +211,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3948397023557295947}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.001, y: 0.07, z: 0}
+  m_LocalScale: {x: 6.8601694, y: 26.700262, z: 6.8601694}
   m_Children: []
   m_Father: {fileID: 7860320754131439377}
   m_RootOrder: 0
@@ -227,9 +257,9 @@ SpriteRenderer:
   m_SortingLayerID: -329515657
   m_SortingLayer: 7
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8ea3f1ea95dd4b749b09a0f3cfd83c3d, type: 3}
-  m_Color: {r: 0, g: 0.33962262, b: 0.24570839, a: 1}
-  m_FlipX: 0
+  m_Sprite: {fileID: 21300000, guid: 8c6f6a1d6dd1b7745a4ec59d9cbdc9d5, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}

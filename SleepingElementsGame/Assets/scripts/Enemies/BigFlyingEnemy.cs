@@ -32,6 +32,7 @@ public class BigFlyingEnemy : MonoBehaviour
 
     private int nextWaypoint;
 
+    private SpriteRenderer spriteRenderer;
 
     // Start is called before the first frame update
     void Start()
@@ -39,10 +40,10 @@ public class BigFlyingEnemy : MonoBehaviour
 
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
-       
 
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
-    }
+}
 
     // Update is called once per frame
     void Update()
@@ -63,26 +64,45 @@ public class BigFlyingEnemy : MonoBehaviour
         }
 
         //Switch Case responsible for the behaviour of the enemy
-    
 
-                if (player)
+
+        if (player)
+        {
+
+            //Patrolling: goes from wapoint to waypoint
+            if (Vector2.Distance(transform.position, waypoints[nextWaypoint].position) <= waypointOffset * moveSpeed) {
+
+                
+                
+                nextWaypoint++;
+            }
+
+            if (nextWaypoint >= waypoints.Length)
+                nextWaypoint = 0;
+
+            transform.position = Vector2.MoveTowards(transform.position, waypoints[nextWaypoint].position, moveSpeed * Time.deltaTime);
+
+                Vector2 dir = waypoints[nextWaypoint].position - transform.position;
+                dir.Normalize();
+
+                
+
+                if ((dir.x < 0) && (spriteRenderer.flipX))
                 {
 
-                    //Patrolling: goes from wapoint to waypoint
-                    if (Vector2.Distance(transform.position, waypoints[nextWaypoint].position) <= waypointOffset * moveSpeed)
-                        nextWaypoint++;
-                    if (nextWaypoint >= waypoints.Length)
-                        nextWaypoint = 0;
+                    spriteRenderer.flipX = false;
 
-                    transform.position = Vector2.MoveTowards(transform.position, waypoints[nextWaypoint].position, moveSpeed * Time.deltaTime);
+                }
+                else if ((dir.x > 0) && (!spriteRenderer.flipX))
+                {
 
-
+                    spriteRenderer.flipX = true;
 
                 }
 
-
-
         }
+
+    }
 
     
 

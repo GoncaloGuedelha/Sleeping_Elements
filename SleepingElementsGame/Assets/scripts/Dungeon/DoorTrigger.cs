@@ -6,6 +6,7 @@ public class DoorTrigger : MonoBehaviour
 {
     [SerializeField] private GameObject[] door = new GameObject[1];
     [SerializeField] private GameObject room;
+    public bool close = false;
     private bool checkEnemies;
 
 
@@ -31,12 +32,17 @@ public class DoorTrigger : MonoBehaviour
             for (int i = 0; i < door.Length; i++)
             {
 
-                door[i].SetActive(false);
+                //door[i].SetActive(false);
+                door[i].GetComponent<BoxCollider2D>().isTrigger = true;
+                door[i].GetComponent<Animator>().SetBool("closed", false);
+                //close = false;
 
             }
 
-
+            //close = false;
         }
+
+        //close = false;
 
     }
 
@@ -45,6 +51,7 @@ public class DoorTrigger : MonoBehaviour
             
         if(collision.gameObject.tag == "Player")
         {
+
             room.SetActive(true);
                 if(checkEnemies == false)
                 {
@@ -52,9 +59,15 @@ public class DoorTrigger : MonoBehaviour
                     for (int i = 0; i < door.Length; i++)
                     {
 
-                        door[i].SetActive(true);
+                        //door[i].SetActive(true);
+                        door[i].GetComponent<Animator>().SetBool("closed", true);
+                        door[i].GetComponent<BoxCollider2D>().isTrigger = false;
+                        
+                    //close = true;
 
-                    }
+                }
+
+                    close = true;
 
                 }
                 

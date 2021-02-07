@@ -35,6 +35,8 @@ public class Boss : MonoBehaviour
     private Vector3 target;
     private Vector3 scaleChange;
 
+    private Animator animator;
+
     //Enemy main variables
     private string state = "1stStage";
     private float moveSpeed = 5f;
@@ -54,6 +56,8 @@ public class Boss : MonoBehaviour
         healthBar = GameObject.FindGameObjectWithTag("BossHealth");
 
         rb.gravityScale = 0;
+
+        animator = GetComponent<Animator>();
 
     }
 
@@ -103,8 +107,9 @@ public class Boss : MonoBehaviour
             case "2ndStage":
 
                 transform.position = Vector2.MoveTowards(transform.position, waypoints[nextWaypoint].position, moveSpeed * Time.deltaTime);
+                    animator.SetBool("goBlue", true);
 
-                cooldownTime = 0.2f;
+                    cooldownTime = 0.2f;
 
                     if (shootTimer <= 0)
                     {

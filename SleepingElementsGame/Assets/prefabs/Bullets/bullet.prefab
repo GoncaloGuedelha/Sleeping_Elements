@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 7780762462266811514}
   - component: {fileID: 7269446136525519950}
   - component: {fileID: -7783920274586384873}
-  - component: {fileID: -7189915993757929189}
   - component: {fileID: 3964854515860309321}
+  - component: {fileID: 3034511526334505984}
   m_Layer: 13
   m_Name: bullet
   m_TagString: Bullet
@@ -28,8 +28,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3328143561901585745}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.919, y: -1.161, z: 0}
-  m_LocalScale: {x: 0.28194427, y: 0.2817403, z: 1}
+  m_LocalPosition: {x: -5.9102, y: -1.2693, z: 0}
+  m_LocalScale: {x: 1.636415, y: 1.6352313, z: 5.804037}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -72,14 +72,14 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -909990121
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d74db4fb7caaf184b8ac97f3086a6d93, type: 3}
-  m_Color: {r: 0.764151, g: 0, b: 0.54157287, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 261aa1d0283580246b1cf53461a89a75, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.16, y: 0.16}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -106,7 +106,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &-7189915993757929189
+--- !u!114 &3964854515860309321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3328143561901585745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4da8bea4b35cf8646af267acbcea95a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dmg: 5
+--- !u!58 &3034511526334505984
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,17 +134,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
---- !u!114 &3964854515860309321
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3328143561901585745}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4da8bea4b35cf8646af267acbcea95a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dmg: 5
+  m_Radius: 0.08

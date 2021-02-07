@@ -25,6 +25,8 @@ public class LittleFlyingEnemy : MonoBehaviour
 
     private int nextWaypoint;
 
+    private SpriteRenderer spriteRenderer;
+
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +35,8 @@ public class LittleFlyingEnemy : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
         playerPos = new Vector2(0, 0);
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
     }
 
@@ -78,6 +82,22 @@ public class LittleFlyingEnemy : MonoBehaviour
 
                     transform.position = Vector2.MoveTowards(transform.position, playerPos, moveSpeed * Time.deltaTime);
 
+                    Vector2 pDir = player.transform.position - transform.position;
+                    pDir.Normalize();
+
+                    if ((pDir.x < 0) && (spriteRenderer.flipX))
+                    {
+
+                        spriteRenderer.flipX = false;
+
+                    }
+                    else if ((pDir.x > 0) && (!spriteRenderer.flipX))
+                    {
+
+                        spriteRenderer.flipX = true;
+
+                    }
+
                     if (Vector2.Distance(transform.position, player.transform.position) > viewRange)
                         state = "Watch";
 
@@ -87,6 +107,19 @@ public class LittleFlyingEnemy : MonoBehaviour
                     state = "Watch";
 
                 break;
+
+        }
+
+        if ((rb.velocity.x < 0) && (spriteRenderer.flipX))
+        {
+
+            spriteRenderer.flipX = false;
+
+        }
+        else if ((rb.velocity.x > 0) && (!spriteRenderer.flipX))
+        {
+
+            spriteRenderer.flipX = true;
 
         }
 

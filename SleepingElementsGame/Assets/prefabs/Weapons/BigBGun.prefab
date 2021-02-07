@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1655403246504092996}
   - component: {fileID: 8719894064796302668}
   - component: {fileID: 7477596859655172286}
-  - component: {fileID: 7437073652168238919}
+  - component: {fileID: 7925438565382142377}
   m_Layer: 12
   m_Name: BigBGun
   m_TagString: DroppedGun
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 174274384495647460}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -51.085617, y: 5.2746034, z: -2.308214}
-  m_LocalScale: {x: 1.1220593, y: 0.2131724, z: 1}
+  m_LocalScale: {x: 1.122059, y: 0.2131724, z: 1}
   m_Children:
   - {fileID: 3930078267786458490}
   m_Father: {fileID: 0}
@@ -101,6 +101,7 @@ MonoBehaviour:
   minMouseDistance: 40
   bulletPrefab: {fileID: 3328143561901585745, guid: 2730c76eed628ee4599d6f8aa86d14fa, type: 3}
   sBulletPrefab: {fileID: 7153837104925864560, guid: 5678199765a0ebc41a6065e8379dac50, type: 3}
+  image: {fileID: 683746967325226316}
   bulletSpeed: 10
   bulletStartOffSet: 0.5
   cooldownTime: 0.4
@@ -130,8 +131,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &7437073652168238919
-BoxCollider2D:
+--- !u!60 &7925438565382142377
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -153,9 +154,12 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.41908982, y: -2.0102954}
+      - {x: -0.57355654, y: -1.4169142}
+      - {x: 0.25726268, y: 2.9009845}
+      - {x: 0.7280267, y: 1.3394651}
 --- !u!1 &683746967325226316
 GameObject:
   m_ObjectHideFlags: 0
@@ -166,8 +170,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3930078267786458490}
   - component: {fileID: 5924493832901875998}
+  - component: {fileID: 6776175164036366373}
   m_Layer: 12
-  m_Name: BigBGun
+  m_Name: BigBGunIm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -181,8 +186,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 683746967325226316}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0.2512, z: 0}
+  m_LocalScale: {x: 6.860169, y: 26.70026, z: 1}
   m_Children: []
   m_Father: {fileID: 8438771795424483377}
   m_RootOrder: 0
@@ -227,9 +232,9 @@ SpriteRenderer:
   m_SortingLayerID: -329515657
   m_SortingLayer: 7
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8ea3f1ea95dd4b749b09a0f3cfd83c3d, type: 3}
-  m_Color: {r: 0.9686275, g: 0.80392164, b: 0.03137255, a: 1}
-  m_FlipX: 0
+  m_Sprite: {fileID: 21300000, guid: a3b97c3baa7159641824ad9d4d4c9bfe, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -238,3 +243,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &6776175164036366373
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 683746967325226316}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 34b7e76859d1cff4aba4f2c8401789d9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

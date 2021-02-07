@@ -12,6 +12,7 @@ public class gunshoots : MonoBehaviour
     private GameObject player;
     private GameObject gunPoint;
     private GameObject weaponGet;
+    [SerializeField] private GameObject image;
 
     private SpriteRenderer spriteRenderer;
 
@@ -21,12 +22,13 @@ public class gunshoots : MonoBehaviour
     public int hits = 0;
     public bool holdAttack = false;
     public bool inGun = false;
-    public float timeHold = 3.0f;
+    private float timeHold = 3.0f;
     private float startTime = 0f;
     private float offSet = .2f;
     private float shootTimer = 0f;
     public float offset;
 
+    
 
     // Start is called before the first frame update
     void Start()
@@ -67,38 +69,49 @@ public class gunshoots : MonoBehaviour
 
                 if (Input.GetMouseButtonDown(1))
                 {
-                
-                    startTime = Time.time;
-                    
-                   
 
-                    
+                    //startTime = Time.time;
+                    timeHold -= Time.deltaTime;
+                    image.GetComponent<Animator>().SetBool("charging", true);
+                    Debug.Log(timeHold);
+
                 }
 
-                 if (startTime + timeHold > Time.time)
+                 if (timeHold <= 0)//(startTime + timeHold > Time.time)
                  {
 
-                    gameObject.GetComponent<Renderer>().material.color = new Color(0.533f, 0.443f, 0.027f);
+                    //gameObject.GetComponent<Renderer>().material.color = new Color(0.533f, 0.443f, 0.027f);
+
+                    //image.GetComponent<Animator>().SetBool("charging", false);
+                    image.GetComponent<Animator>().SetBool("charged", true);
 
                 }
-                 else
+                 /*else
                  {
 
                     //gameObject.GetComponent<Renderer>().material.color = Color.red;
-                    gameObject.GetComponent<Renderer>().material.color = new Color(0.968f, 0.803f, 0.031f);
+                    //gameObject.GetComponent<Renderer>().material.color = new Color(0.968f, 0.803f, 0.031f);
+                    //image.GetComponent<Animator>().SetBool("charging", false);
+                    //image.GetComponent<Animator>().SetBool("charged", false);
+                    //image.GetComponent<Animator>().SetBool("charged", true);
 
-                 }
+                }*/
 
                 if (Input.GetMouseButtonUp(1))
                 {
-                   
-                    gameObject.GetComponent<Renderer>().material.color = new Color(0.968f, 0.803f, 0.031f);
-                    if (startTime + timeHold <= Time.time)
+
+
+                    //gameObject.GetComponent<Renderer>().material.color = new Color(0.968f, 0.803f, 0.031f);
+                    if (timeHold <= 0)//(startTime + timeHold <= Time.time)
                     {
 
                         Vector3 mouseDirection = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
                         GameObject sBullet = Instantiate(sBulletPrefab, transform.position + (mouseDirection.normalized * bulletStartOffSet), gameObject.transform.rotation);
                         sBullet.GetComponent<Rigidbody2D>().velocity = mouseDirection.normalized * bulletSpeed;
+
+                        image.GetComponent<Animator>().SetBool("charging", false);
+                        image.GetComponent<Animator>().SetBool("charged", false);
+                        timeHold = 3.0f;
 
                         //gameObject.GetComponent<Renderer>().material.color = new Color (68, 101, 4);
                         //shootTimer = cooldownTime;
@@ -170,10 +183,12 @@ public class gunshoots : MonoBehaviour
             if (mouseDirection.x < player.transform.position.x)
             {
                 spriteRenderer.flipX = true;
+                //image.GetComponent<SpriteRenderer>().flipX = false;
                 player.GetComponent<SpriteRenderer>().flipX = true;
+                GameObject.Find("PlayerIm").GetComponent<SpriteRenderer>().flipX = true;
 
                 //if (offSet > 0)
-                    //offSet = offSet * -1;
+                //offSet = offSet * -1;
 
             } 
 
@@ -181,11 +196,13 @@ public class gunshoots : MonoBehaviour
             {
 
                 spriteRenderer.flipX = false;
+                //image.GetComponent<SpriteRenderer>().flipX = true;
                 player.GetComponent<SpriteRenderer>().flipX = false;
+                GameObject.Find("PlayerIm").GetComponent<SpriteRenderer>().flipX = false;
 
-            
 
-             //if (offSet < 0)
+
+                //if (offSet < 0)
                 //offSet = offSet * -1;
 
             }
