@@ -93,6 +93,9 @@ TagManager:
   - name: Enemy
     uniqueID: 4109307513
     locked: 0
+  - name: Doors
+    uniqueID: 3758993749
+    locked: 0
   - name: DroppedItems
     uniqueID: 580100265
     locked: 0

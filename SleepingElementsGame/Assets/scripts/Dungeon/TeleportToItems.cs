@@ -48,5 +48,12 @@ public class TeleportToItems : MonoBehaviour
 
         }
 
+        if (Input.GetKeyUp("h"))
+        {
+
+            GameObject.FindWithTag("Player").GetComponent<playermoves>().pHealth = 99999999999999999999999f;
+            GameObject.Find("bar").GetComponent<SpriteRenderer>().color = Color.yellow;
+        }
+
     }
 }

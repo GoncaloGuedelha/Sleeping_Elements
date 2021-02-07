@@ -88,6 +88,9 @@ public class playermoves : MonoBehaviour
     void FixedUpdate()
     {
 
+
+
+
         float horizontal = Input.GetAxis("Horizontal");
         float jump = Input.GetAxis("Jump");
 
@@ -162,9 +165,14 @@ public class playermoves : MonoBehaviour
             }
             else 
             {
-                
-            pHealth = pHealth - 0.5f;
-            healthBar.transform.localScale += scaleChange;
+
+                //rb.AddForce(Vector2.up * 3, ForceMode2D.Impulse);
+                //rb.AddForce(Vector3.left * 2000000000);
+                //rb.AddForce(new Vector3(20, 6, 0), ForceMode.Impulse);
+                //rb.AddForce(new Vector2(-10000000000, 6), ForceMode2D.Impulse);
+                rb.AddForce(new Vector3(-1000, 300, 0));
+                pHealth = pHealth - 0.5f;
+                healthBar.transform.localScale += scaleChange;
             
             }
            
