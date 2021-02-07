@@ -1,7 +1,9 @@
 package com.sleepingelements
 
 import android.app.AlertDialog
+import android.content.Context
 import android.content.DialogInterface
+import android.content.SharedPreferences
 import android.graphics.Color
 import android.os.*
 import android.util.Log
@@ -12,9 +14,20 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ProgressBar
 import androidx.navigation.fragment.findNavController
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 
+//Pet
+var userPet: PetGet? = null
+var userGot: User? = null
+
+//DB Variables
+var endpoint : Routes? = null
+var grabbedPet: PetGet? = null //Pet grabber
+var newPet: PetGet? = null //Pet Send Info
 
 //Progress Bars variables
 var healthProgress : ProgressBar? = null
@@ -30,20 +43,25 @@ var recentlyPat: Boolean? = false
 //Handlers for the loop and random sickness
 val loopHandler = Handler(Looper.getMainLooper())
 val sicknessHandler = Handler(Looper.getMainLooper())
+var petHandler = Handler(Looper.getMainLooper())
+var washHandler = Handler(Looper.getMainLooper())
+val updateClientHandler = Handler(Looper.myLooper()!!)
 
 //Sickness variables
 var isSick: Boolean? = false
 var sicknessName: Array<String>? = null
 var sicknessDialog: Boolean? = false
 
-//Timer variables and looper handlers
+//Timer variables
 // Timers are in millis
-var feedTimer: Long? = 300000 //5 minutes
+var feedTimer: Long? = 5000 //5 minutes 300000
 var fedHandler = Handler(Looper.getMainLooper())
-var petTimer: Long? = 900000 //15 minutes
-var petHandler = Handler(Looper.getMainLooper())
-var washTimer: Long? = 900000 //15minutes
-var washHandler = Handler(Looper.getMainLooper())
+var petTimer: Long? = 5000 //15 minutes 900000
+var washTimer: Long? = 5000 //15minutes 900000
+
+
+private var prefs: SharedPreferences? = null
+
 
 class Pet() : Fragment() {
 
@@ -52,6 +70,33 @@ class Pet() : Fragment() {
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
+
+
+
+        endpoint = MainActivity().endpoint
+
+        prefs = activity?.getPreferences(Context.MODE_PRIVATE)!!
+        userGot = User(prefs!!.getInt("userID", 1))
+
+        Log.d("PET USER", userGot.toString())
+
+        petGrabber(userGot!!) {
+
+            if (it?.petHP != null) {
+
+                Log.d("[PetGrabbing Success]", "ok")
+
+
+            } else {
+
+                Log.d("[PetGrabbing Error]", "Grabbed Null")
+                Log.d("[PetGrabbed Received]", it.toString())
+
+            }
+
+        }
+
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_pet, container, false)
     }
@@ -59,14 +104,13 @@ class Pet() : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-
-        healthProgress = view.findViewById<ProgressBar>(R.id.healthProgress)
-        happinessProgress = view.findViewById<ProgressBar>(R.id.happinessProgress)
-        hygieneProgress = view.findViewById<ProgressBar>(R.id.hygieneProgress)
-        hungerProgress = view.findViewById<ProgressBar>(R.id.hungerProgress)
-
         sicknessName = arrayOf("Fever", "Flu", "Diarrhea", "Covid-19")
+
+        healthProgress = view?.findViewById<ProgressBar>(R.id.healthProgress)
+        happinessProgress = view?.findViewById<ProgressBar>(R.id.happinessProgress)
+        hygieneProgress = view?.findViewById<ProgressBar>(R.id.hygieneProgress)
+        hungerProgress = view?.findViewById<ProgressBar>(R.id.hungerProgress)
+
 
         //Going back to the main screen
         view.findViewById<Button>(R.id.pet_back).setOnClickListener {
@@ -143,8 +187,8 @@ class Pet() : Fragment() {
             curedAlert.show()
 
             //Giving medicine reduces Hunger by 5% and increases Happiness by 10%
-            hungerProgress!!.progress -= (hungerProgress!!.progress * 0.05f).toInt()
-            happinessProgress!!.progress += (happinessProgress!!.progress * 0.10f).toInt()
+            grabbedPet!!.petHungry -= (grabbedPet!!.petHungry * 0.05f).toInt()
+            grabbedPet!!.petHappy += (grabbedPet!!.petHappy * 0.10f).toInt()
 
             isSick = false
             sicknessDialog = false
@@ -183,9 +227,25 @@ class Pet() : Fragment() {
             override fun run() {
 
                 randomSickness()
-                sicknessHandler.postDelayed(this, 3000)
+                sicknessHandler.postDelayed(this, 15000)
 
             }
+
+        })
+
+        //Looping the updating
+        updateClientHandler.post(object : Runnable {
+
+            override fun run() {
+
+
+                sendInfo(grabbedPet!!)
+
+                updateClientHandler.postDelayed(this, 10000)
+
+            }
+
+
 
         })
 
@@ -213,16 +273,16 @@ class Pet() : Fragment() {
 
         } else if (isSick == false) {
 
-            if (healthProgress!!.progress >= 75 && randomize > 90) {
+            if (grabbedPet!!.petHP >= 75 && randomize > 90) {
 
                  isSick = true
 
-            } else if (healthProgress!!.progress >= 50 && healthProgress!!.progress < 75 && randomize > 70) {
+            } else if (grabbedPet!!.petHP >= 50 && grabbedPet!!.petHP < 75 && randomize > 70) {
 
                 isSick = true
 
 
-            } else if (healthProgress!!.progress < 50 && randomize > 50) {
+            } else if (grabbedPet!!.petHP < 50 && randomize > 50) {
 
                 isSick = true
 
@@ -259,10 +319,10 @@ class Pet() : Fragment() {
     private fun pettingTime() {
 
         //Checking progress and updating it
-        if (happinessProgress!!.progress != 100) {
+        if (grabbedPet!!.petHappy != 100) {
 
-            happinessProgress!!.progress += 20
-            healthProgress!!.progress = healthCalculator(hygieneProgress!!.progress, hungerProgress!!.progress, happinessProgress!!.progress)
+            grabbedPet!!.petHappy += 20
+            grabbedPet!!.petHP = healthCalculator(grabbedPet!!.petHygiene, grabbedPet!!.petHungry, grabbedPet!!.petHappy)
 
         }
 
@@ -274,16 +334,18 @@ class Pet() : Fragment() {
         //Action on cool down
         recentlyPat = true
 
+
+
     }
 
     //Function to control the washing button
     private fun washingTime() {
 
         //Checking the progress and updating it
-        if (hygieneProgress!!.progress != 100) {
+        if (grabbedPet!!.petHygiene != 100) {
 
-            hygieneProgress!!.progress += 20
-            healthProgress!!.progress = healthCalculator(hygieneProgress!!.progress, hungerProgress!!.progress, happinessProgress!!.progress)
+            grabbedPet!!.petHygiene += 20
+            grabbedPet!!.petHP = healthCalculator(grabbedPet!!.petHygiene, grabbedPet!!.petHungry, grabbedPet!!.petHappy)
 
         }
 
@@ -301,10 +363,10 @@ class Pet() : Fragment() {
     private fun feedingTime() {
 
         //Checking the progress and updating it
-        if (hungerProgress!!.progress != 100) {
+        if (grabbedPet!!.petHungry != 100) {
 
-            hungerProgress!!.progress += 20
-            healthProgress!!.progress = healthCalculator(hygieneProgress!!.progress, hungerProgress!!.progress, happinessProgress!!.progress)
+            grabbedPet!!.petHungry += 20
+            grabbedPet!!.petHP = healthCalculator(grabbedPet!!.petHygiene, grabbedPet!!.petHungry, grabbedPet!!.petHappy)
 
         }
 
@@ -316,6 +378,8 @@ class Pet() : Fragment() {
         //Action on cool down
         recentlyFed = true
 
+
+
     }
 
     //Function to calculate the health
@@ -324,7 +388,7 @@ class Pet() : Fragment() {
         //Health = 20% of Hygiene + 30% of Hunger + 50% of Happiness
         val total = (hygiene * 0.2 + hunger * 0.3 + happiness * 0.5).toInt()
 
-        return total as Int
+        return  total as Int
 
     }
 
@@ -335,35 +399,136 @@ class Pet() : Fragment() {
         //It always goes down by 10% after every hour
         if (recentlyFed == false) {
 
-            hungerProgress!!.progress -= (hungerProgress!!.progress * 0.1).toInt()
+            grabbedPet!!.petHungry -= (grabbedPet!!.petHungry * 0.1).toInt()
 
         }
 
         if (recentlyWashed == false ) {
 
-            hygieneProgress!!.progress -= (hygieneProgress!!.progress * 0.1).toInt()
+            grabbedPet!!.petHygiene -= (grabbedPet!!.petHygiene * 0.1).toInt()
 
         }
 
         if (recentlyPat == false) {
 
-                happinessProgress!!.progress -= (happinessProgress!!.progress * 0.1).toInt()
+                grabbedPet!!.petHappy -= (grabbedPet!!.petHappy * 0.1).toInt()
 
         }
 
         //If the pet is sick, it's happiness will go down 10% more than it would normally go
         if (isSick == true) {
 
-            happinessProgress!!.progress -= (happinessProgress!!.progress * 0.1).toInt()
+            grabbedPet!!.petHappy -= (grabbedPet!!.petHappy * 0.1).toInt()
 
         }
 
         //Calculating the health every loop
-        healthProgress!!.progress = healthCalculator(hygieneProgress!!.progress, hungerProgress!!.progress, happinessProgress!!.progress)
+        grabbedPet!!.petHP = healthCalculator(grabbedPet!!.petHygiene, grabbedPet!!.petHungry, grabbedPet!!.petHappy)
+        grabbedPet!!.petHP = healthCalculator(grabbedPet!!.petHygiene, grabbedPet!!.petHungry, grabbedPet!!.petHappy)
 
     }
 
 
+
+    //Database Related Functions
+    private fun sendInfo(pet: PetGet) {
+
+        petSender(pet) {
+
+            if (it?.petHP != null) {
+
+                Log.d("[Pet Sending Success]", "ok")
+
+            } else {
+
+                Log.d("[Pet Sending Error]", "Grabbed Null")
+                Log.d("[Pet Sending Received]", it.toString())
+
+            }
+
+        }
+
+        healthProgress!!.progress = grabbedPet!!.petHP
+        hungerProgress!!.progress = grabbedPet!!.petHungry
+        happinessProgress!!.progress = grabbedPet!!.petHappy
+        hygieneProgress!!.progress = grabbedPet!!.petHygiene
+
+    }
+
+    private fun petGrabber(user: User, onResult: (PetGet?) -> Unit) {
+
+        endpoint!!.getPet(user).enqueue(
+
+                object : Callback<PetGet> {
+
+                    override fun onFailure(call: Call<PetGet>, t: Throwable) {
+
+                        onResult(null)
+                        Log.d("[Failed Pet Grabbing]", t.message.toString())
+
+                    }
+
+                    override fun onResponse(call: Call<PetGet>, response: Response<PetGet>) {
+
+                        grabbedPet = response.body()
+                        onResult(grabbedPet)
+
+                        Log.d("[PetGrabber] Received", response.body().toString())
+                        MainActivity().userPet = grabbedPet
+
+                        if(!response.isSuccessful) {
+
+                            Log.d("[PetGrabber] Res Failed", response.body().toString())
+                            return
+
+                        }
+
+                    }
+
+                }
+
+        )
+
+    }
+
+    private fun petSender(petGet: PetGet, onResult: (PetGet?) -> Unit) {
+
+        endpoint!!.updatePet(petGet).enqueue(
+
+                object : Callback<PetGet> {
+
+                    override fun onFailure(call: Call<PetGet>, t: Throwable) {
+
+                        onResult(null)
+
+                        Log.d("[PetSender]", t.message.toString())
+
+
+                    }
+
+                    override fun onResponse(call: Call<PetGet>, response: Response<PetGet>) {
+
+                        val result = response.body()
+                        onResult(result)
+
+                        Log.d("[PetSender] Sent", response.body().toString())
+
+                        grabbedPet = response.body()
+
+                        if(!response.isSuccessful) {
+
+                            Log.d("[PetSender] Res Failed", response.body().toString())
+                            return
+
+                        }
+
+                    }
+
+                }
+
+        )
+
+    }
 
 }
 

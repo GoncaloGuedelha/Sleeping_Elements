@@ -11,8 +11,10 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
+import androidx.lifecycle.Observer
 import java.util.jar.Manifest
 import retrofit2.Call
 import retrofit2.Callback
@@ -22,9 +24,15 @@ import retrofit2.Response
 
 public class MainActivity : AppCompatActivity() {
 
+    //User Holder for all fragments
+    var userGot : User? = null
+
+    //Pet Holder for all fragments
+    var userPet: PetGet? = null
+
     //DB communication
-    private val retrofitClient = Client.getRetrofitInstance("https://10.0.0.2:3000/")
-    private val endpoint = retrofitClient.create(Routes::class.java)
+    private val retrofitClient = Client.getRetrofitInstance("http://10.0.2.2:3000/") //10.0.0.2:3000
+    val endpoint = retrofitClient.create(Routes::class.java)
 
     //@RequiresApi(Build.VERSION_CODES.Q)
 
@@ -43,40 +51,7 @@ public class MainActivity : AppCompatActivity() {
     }
 
 
-    fun checkLogin(cont: Context, userCred: UserCredentials, onResult: (User?) -> Unit) {
 
-        endpoint.login(userCred).enqueue(
-                object :  retrofit2.Callback<User> {
-
-                    override fun onFailure(call: Call<User>, t:Throwable) {
-
-                        onResult(null)
-                        Log.d("failure", t.message.toString())
-                        Toast.makeText(cont, "Connection Failed", Toast.LENGTH_SHORT).show()
-
-                    }
-
-                    override fun onResponse(call: Call<User>, response: Response<User>) {
-
-                        val loggedUser = response.body()
-                        onResult(loggedUser)
-
-                        if(!response.isSuccessful){
-
-                            Log.d("Response Failed", response.code().toString())
-                            return
-
-                        }
-
-
-                    }
-
-                }
-
-
-        )
-
-    }
 
 
 }

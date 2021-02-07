@@ -1,5 +1,7 @@
 package com.sleepingelements
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -9,19 +11,16 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.fragment.app.FragmentManager
 import androidx.navigation.fragment.findNavController
 import retrofit2.Call
+import retrofit2.Callback
 import retrofit2.Response
-import javax.security.auth.callback.Callback
 
 
 class Login : Fragment() {
 
-    var userInputs = mutableListOf<String>()
-
-    //Variables to hold the comparable strings
-    var defUser: String = "Leon"
-    var defPass: String = "Leon"
+    var endpoint: Routes? = null
 
     //Input variables
     var userInput: String? = null
@@ -31,10 +30,19 @@ class Login : Fragment() {
     var userField: TextView? = null
     var passField: TextView? = null
 
+    //Post Variables
+    var loggedUser: User? = null
+
+    //Shared Preferences
+    private lateinit var prefs: SharedPreferences
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        endpoint = MainActivity().endpoint
 
+        prefs = activity?.getPreferences(Context.MODE_PRIVATE)!!
 
     }
 
@@ -73,19 +81,71 @@ class Login : Fragment() {
 
         Log.d("Info Sent:", UserCredentials(userInput.toString(), passInput.toString()).toString())
 
-        MainActivity().checkLogin(this.requireContext(), userCreds) {
-
-            Log.d("Response from Server", it.toString())
+        CheckLogin(userCreds) {
 
             if(it?.user_id != null) {
-                Log.d("Ok", "Ok")
+
+                Log.d("[Login Success]", "Ok")
+
+                findNavController().navigate(R.id.action_login_to_mainscreen)
+
+
+
+
             } else {
-                Log.d("Error", "Error")
+                Log.d("Error", "Connection Established, Null Received")
+                Log.d("[USER RECEIVED]", it.toString())
             }
 
         }
 
     }
+
+    private fun CheckLogin(userCred: UserCredentials, onResult: (User?) -> Unit) {
+
+        endpoint!!.login(userCred).enqueue(
+            object :  Callback<User> {
+
+                override fun onFailure(call: Call<User>, t:Throwable) {
+
+                    onResult(null)
+                    Log.d("Can't Login", t.message.toString())
+                    Log.d("[LOGIN RECEIVED]", onResult.toString())
+                    Toast.makeText(context, "Connection Failed", Toast.LENGTH_SHORT).show()
+
+
+                }
+
+                override fun onResponse(call: Call<User>, response: Response<User>) {
+
+                    loggedUser = response.body()
+                    onResult(loggedUser)
+
+                    prefs.edit().putInt("userID", response.body()!!.user_id)
+                    prefs.edit().apply()
+
+
+                    Log.d("[RECEIVED]", response.body().toString())
+
+                    MainActivity().userGot = loggedUser
+
+                    if(!response.isSuccessful){
+
+                        Log.d("Response Failed", response.code().toString())
+                        return
+
+                    }
+
+                }
+
+            }
+
+
+        )
+
+    }
+
+
 
 
 }

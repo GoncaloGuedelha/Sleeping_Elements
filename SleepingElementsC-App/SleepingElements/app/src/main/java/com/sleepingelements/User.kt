@@ -5,8 +5,6 @@ import retrofit2.http.POST
 
 data class User (
 
-    @SerializedName("Username")
-    val username: String,
     @SerializedName("User_ID")
     val user_id: Int,
 

@@ -1,18 +1,22 @@
 package com.sleepingelements
 
 import retrofit2.Call
-import retrofit2.Response
 import retrofit2.http.*
 
 interface Routes {
 
-
-    //@GET("getPet")
-
-    //@POST("sendPetInfo")
-    //fun updatePet(@Body userData: Pet): Call <Pet>
-
-    @POST("pet/login")
+    //Logging in POST Function
+    @POST("/login")
     fun login(@Body userData: UserCredentials): Call<User>
+
+
+    //Getting pet POST function
+    @POST("/getPet")
+    fun getPet(@Body user: User): Call<PetGet>
+
+    //Updating pet POST function
+    @POST("/sendPetInfo")
+    fun updatePet(@Body pet: PetGet): Call <PetGet>
+
 
 }

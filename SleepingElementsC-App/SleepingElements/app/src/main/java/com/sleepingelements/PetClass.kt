@@ -4,15 +4,17 @@ import com.google.gson.annotations.SerializedName
 
 data class PetGet(
 
-    @SerializedName("PetName")
-    val petName: String,
+    @SerializedName("Petname")
+    var petName: String,
     @SerializedName("petHealthProgress")
-    val petHP: Int,
+    var petHP: Int,
     @SerializedName("petHappinessProgress")
-    val petHappy: Int,
+    var petHappy: Int,
     @SerializedName("petHungerProgress")
-    val petHungry: Int,
+    var petHungry: Int,
     @SerializedName("petHygieneProgress")
-    val petHygiene: Int,
+    var petHygiene: Int,
+    @SerializedName("pet_ID")
+    var petID: Int,
 
 )

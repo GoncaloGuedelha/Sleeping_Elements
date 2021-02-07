@@ -28,8 +28,8 @@ app.use(bodyParser.json());
 app.listen(port, hostname, () => console.log(`Server running at 
 			http://${hostname}:${port}/`));
 
-
 // ---- Game ---- //
+
 
 //---------------Login------------------------
 app.post('/players/login', (req, res, next) => {
@@ -63,7 +63,6 @@ app.post('/players/login', (req, res, next) => {
 		}
 	})
 });
-
 
 //-----------------Register-------------------------
 app.post('/players/register', (req, res, next) => {
@@ -120,74 +119,121 @@ app.post('/players/register', (req, res, next) => {
 });
 
 // ---- Companion App ---- // 
-/*
-//Getting the pet
-app.post('/getPet', function(req, res) {
 
-	var userID = req.body
 
-	let sql = "SELECT * FROM Pets WHERE User_ID = "+userID+";"
-
-	dbcon.query(sql, (err, result)=> {
-
-		if (err) throw err;
-
-		res.send(result);
-		console.log("Pet Sent: " +result);
-
-	});
-
-});
 
 //Saving the pet
 
 app.post('/sendPetInfo', function (req, res) {
 
-	var name = req.body.name;
-	var hp = req.body.hp;
-	var hunger = req.body.hunger;
-	var hygiene= req.body.hygiene;
-	var happy = req.body.happy;
-	var userID = req.body.id;
+	var name = req.body.Petname;
+	var hp = req.body.petHealthProgress;
+	var hunger = req.body.petHungerProgress;
+	var hygiene= req.body.petHygieneProgress;
+	var happy = req.body.petHappinessProgress;
+	var petID = req.body.pet_ID;
+
+	console.log("[PET INFO BODY]", req.body);
+	
+
+	dbcon.query("UPDATE Pets SET petName = "+name+", petHealthProgress = "+hp+", petHappinessProgress = "+happy+", petHungerProgress = "+hunger+",  petHygieneProgress = "+hygiene+" WHERE pet_ID = "+petID+";", function(err, result) {
+
+		dbcon.on("error", function(err) {
+			console.log("[MySQL ERROR]", err);
+		})
+	
+		dbcon.query("SELECT * FROM Pets where pet_ID = "+petID, function(err, result) {
+
+			dbcon.on("error", function(err){
+				console.log("[MYSQL ERROR]", err);
+			})
+
+			console.log("[PET INFO]", result);
+
+			res.end(JSON.stringify(result[0]));
+
+		})
 
 
-	let sql = "UPDATE Pets SET petName = "+name+", petHealthProgress = "+hp+", petHappinessProgress = "+happy+", petHungerProgress = "+hunger+",  petHygieneProgress = "+hygiene+" WHERE User_ID = "+userID+";"  
+	})
 
 
 });
-*/
 
 
 //Login
-app.post('pet/login', function(req, res) {
+app.post('/login', function(req, res) {
 
-	console.log("a");
 	console.log("[PET LOGIN]", req.body);
 
-	var username = req.body.username;
-	var password = req.body.password;
+	var username = req.body.Username;
+	var password = req.body.Password;
+
 
 	dbcon.query('SELECT * FROM User WHERE Username=?', [username], function (err, result, fields) {
-		//console.log("now here");
+		
 		dbcon.on('error', function (err) {
 			console.log('[MYSQL ERROR]', err);
 		})
 
-		console.log(result);
-
 		if (result && result.length) {
+			
 			if (password == result[0].Password) {
 				
-				res.send("Login Successful");
+					console.log(result);
+
+
+					console.log("I'm here with", username);
+					
+
+
+					dbcon.query('SELECT User_ID from user WHERE Username=? and Password=?', [username, password] , function(err, result2) {
+
+						dbcon.on('error', function(err) {
+							console.log("[MySQL ERROR]", err);
+						})
+
+						console.log("[RESULT2]" + JSON.stringify(result2[0]));
+						res.end(JSON.stringify(result2[0]));
+
+
+					})
+
+		
+			} else {//problem 1 wrong pass
+		
+				res.end(JSON.stringify("Wrong Password"));
+				
 			}
-			else {//problem 1 wrong pass
-				res.send("Wrong Password");
-			}
+		
+		} else {//problem 2 no user with that name   
+		
+			res.end(JSON.stringify("Wrong Combination"));
+		
 		}
-		else {//problem 2 no user with that name   
-			res.send("Wrong Combination");
-		}
+
 	})
 
+});
+
+//Getting the pet
+app.post('/getPet', function(req, res) {
+
+	console.log(req.body)
+
+	var userID = req.body.User_ID
+
+	let sql = "SELECT * FROM Pets WHERE User_ID = "+userID+";"
+
+	dbcon.query(sql, (err, result)=> {
+
+		dbcon.on('error', function(err){
+			console.log("{MYSQL ERROR]", err);
+		})
+
+		res.send(JSON.stringify(result[0]));
+		console.log("Pet Sent: " +JSON.stringify(result[0])); 
+
+	});
 
 });
