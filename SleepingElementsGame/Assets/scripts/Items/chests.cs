@@ -42,6 +42,7 @@ public class chests : MonoBehaviour
 
                 open = true;
                 animator.SetBool("open", true);
+                transform.position = new Vector2(transform.position.x, transform.position.y + 0.1f);
                 GameObject create = Instantiate(selected, transform.position, Quaternion.identity) as GameObject;
                 create.transform.parent = weaponsItemsHolder.transform;
 

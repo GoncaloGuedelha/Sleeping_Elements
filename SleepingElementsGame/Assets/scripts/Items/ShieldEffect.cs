@@ -27,7 +27,7 @@ public class ShieldEffect : MonoBehaviour
     {
         itemInfo.SetActive(false);
         gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 0, 0);
-        maxPow = 12;
+        maxPow = 11;
         effectPow = 1;
         maximumStack = 1;
         oldStack = maximumStack;
