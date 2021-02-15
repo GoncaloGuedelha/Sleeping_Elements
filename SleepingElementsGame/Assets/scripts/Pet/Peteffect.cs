@@ -18,7 +18,7 @@ public class Peteffect : MonoBehaviour
 
         petInfo.SetActive(false);
         gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector3(0, 0, 0);
-        hp = petInf.PetHealthBar;
+        hp = petInf.petHealthProgress;
         Debug.Log("Health" + hp);
 
 

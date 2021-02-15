@@ -118,6 +118,35 @@ app.post('/players/register', (req, res, next) => {
 	})
 });
 
+//-------GetGamePet--------//
+
+app.post('/players/pet', (req, res, next) => {
+	console.log(req.body);
+	var data = req.body;
+
+
+	var userID = data.user_ID;
+
+
+	dbcon.query('SELECT petHealthProgress, user_ID FROM Pets WHERE user_ID=?', [userID], function (err, result, fields) {
+		console.log("now here");
+		dbcon.on('error', function (err) {
+			console.log('[MYSQL ERROR]', err);
+		})
+		console.log(JSON.stringify(result));
+
+		if (result && result.length) {
+
+			result[0].Problem = 0;
+			res.end(JSON.stringify(result[0]));
+
+		}
+
+	})
+});
+
+
+
 // ---- Companion App ---- // 
 
 

@@ -5,8 +5,8 @@ using UnityEngine;
 public class PetInfo 
 {
 
-    public int PetHealthBar;
-    public int User_ID;
+    public int petHealthProgress;
+    public int user_ID;
     public int Problem;
 
 
@@ -14,7 +14,7 @@ public class PetInfo
     public PetInfo()
     {
 
-        this.PetHealthBar = 0;
+        this.petHealthProgress = 0;
 
     }
 
@@ -22,8 +22,8 @@ public class PetInfo
     public PetInfo(int hp, int id)
     {
 
-        this.PetHealthBar = hp;
-        this.User_ID = id;
+        this.petHealthProgress = hp;
+        this.user_ID = id;
 
     }
 
